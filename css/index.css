@@ -1,0 +1,26 @@
+section {
+    display: grid;
+    grid-template-columns: 25rem 25rem;
+    background-color: grey;
+    margin: 40px;
+}
+
+#info {
+    grid-column: 1 / span 1;
+    grid-row: 1 span 1;
+}
+
+#favorite {
+    grid-column: 2 / span 1;
+    grid-row: 2 span 1;
+}
+
+#like {
+    grid-column: 2 / span 1;
+    grid-row: 2 span 1;
+}
+
+#search {
+    grid-column: 2 / span 1;
+    grid-row: 1 span 1;
+}
