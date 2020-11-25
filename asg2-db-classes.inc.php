@@ -105,3 +105,38 @@ class PaintingDB
         return $statement->fetchAll();
     }
 }
+
+class GalleryDB
+{
+    private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, GalleryCity, GalleryAddress, 
+                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID, Paintings.ImageFileName, Paintings.YearOfWork, Paintings.Title
+                               FROM Galleries INNER JOIN Paintings ON Paintings.GalleryID = Galleries.GalleryID";
+
+
+
+
+    public function __construct($connection)
+    {
+        $this->pdo = $connection;
+    }
+
+    public function getAll()
+    {
+        $sql = self::$baseSQL;
+        $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
+        return $statement->fetchAll();
+    }
+
+    public function getAllForGallery($galleryID)
+    {
+        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($galleryID)
+        );
+        return $statement->fetchAll();
+    }
+
+ 
+}
