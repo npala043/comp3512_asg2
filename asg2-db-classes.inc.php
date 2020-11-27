@@ -109,8 +109,7 @@ class PaintingDB
 class GalleryDB
 {
     private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, GalleryCity, GalleryAddress, 
-                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID, Paintings.ImageFileName, Paintings.YearOfWork, Paintings.Title
-                               FROM Galleries INNER JOIN Paintings ON Paintings.GalleryID = Galleries.GalleryID";
+                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID FROM Galleries";
 
 
 
@@ -137,6 +136,4 @@ class GalleryDB
         );
         return $statement->fetchAll();
     }
-
- 
 }
