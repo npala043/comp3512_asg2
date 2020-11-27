@@ -10,23 +10,16 @@ header("Access-Control-Allow-Origin: *");
 try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new GalleryDB($conn);
-    // if (isCorrectQueryStringInfo("painting"))
-    //     $paintings = $gateway->getAllForArtist($_GET["painting"]);
-    // else
-    // if (isCorrectQueryStringInfo("id"))
-    //     $paintings = $gateway->getAllForGallery($_GET["id"]);
-    // else
-    //     $paintings = $gateway->getAll();
 
-    if (!$_GET) {
-        $paintings = $gateway->getAll();
-    } else if (isCorrectQueryStringInfo("id")) {
-        $paintings = $gateway->getPainting($_GET['id']);
-    } else {
+    if (!$_GET) { // If no query, get all galleries
+        $data = $gateway->getAll();
+    } else if (isCorrectQueryStringInfo("id")) { // If id supplied, return single painting info
+        $data = $gateway->getPainting($_GET['id']);
+    } else { // If query other than 'id' supplied, throw error
         throw new Exception("Invalid query");
     }
 
-    echo json_encode($paintings, JSON_NUMERIC_CHECK);
+    echo json_encode($data, JSON_NUMERIC_CHECK);
 } catch (Exception $e) {
     die($e->getMessage());
 }
