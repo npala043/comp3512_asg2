@@ -11,11 +11,14 @@ try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new GalleryDB($conn);
 
-    if (!$_GET) { // If no query, get all galleries
+    if (!$_GET) {
+        // If no query, get all galleries
         $data = $gateway->getAll();
-    } else if (isCorrectQueryStringInfo("id")) { // If id supplied, return single painting info
+    } else if (isCorrectQueryStringInfo("id")) {
+        // If id supplied, return single painting info
         $data = $gateway->getPainting($_GET['id']);
-    } else { // If query other than 'id' supplied, throw error
+    } else {
+        // If query other than 'id' supplied, throw error
         throw new Exception("Invalid query");
     }
 

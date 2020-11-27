@@ -10,10 +10,17 @@ header("Access-Control-Allow-Origin: *");
 try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
-    if (isCorrectQueryStringInfo("gallery"))
-        $paintings = $gateway->getAllForGallery($_GET["gallery"]);
-    else
+
+    if (!$_GET) {
+        // If no query, get all paintings
         $paintings = $gateway->getAll();
+    } else if (isCorrectQueryStringInfo("gallery")) {
+        // If gallery id supplied, return all paintings from that gallery
+        $paintings = $gateway->getAllForGallery($_GET["gallery"]);
+    } else {
+        // If query other than 'gallery' supplied, throw error
+        throw new Exception("Invalid Query");
+    }
 
     echo json_encode($paintings, JSON_NUMERIC_CHECK);
 } catch (Exception $e) {
