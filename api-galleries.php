@@ -13,10 +13,18 @@ try {
     // if (isCorrectQueryStringInfo("painting"))
     //     $paintings = $gateway->getAllForArtist($_GET["painting"]);
     // else
-    if (isCorrectQueryStringInfo("id"))
-        $paintings = $gateway->getAllForGallery($_GET["id"]);
-    else
+    // if (isCorrectQueryStringInfo("id"))
+    //     $paintings = $gateway->getAllForGallery($_GET["id"]);
+    // else
+    //     $paintings = $gateway->getAll();
+
+    if (!$_GET) {
         $paintings = $gateway->getAll();
+    } else if (isCorrectQueryStringInfo("id")) {
+        $paintings = $gateway->getPainting($_GET['id']);
+    } else {
+        throw new Exception("Invalid query");
+    }
 
     echo json_encode($paintings, JSON_NUMERIC_CHECK);
 } catch (Exception $e) {
