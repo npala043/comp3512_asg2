@@ -19,7 +19,7 @@ try {
         $paintings = $gateway->getAllForGallery($_GET["gallery"]);
     } else {
         // If query other than 'gallery' supplied, display error message
-        $paintings = '{"message": "gallery does not exist"}';
+        $paintings = ["message" => "gallery doesnt exist"];
     }
 
     echo json_encode($paintings, JSON_NUMERIC_CHECK);
