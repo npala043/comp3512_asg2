@@ -126,7 +126,7 @@ class GalleryDB
         return $statement->fetchAll();
     }
 
-    public function getAllForGallery($galleryID)
+    public function getGallery($galleryID)
     {
         $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
         $statement = DatabaseHelper::runQuery(
