@@ -10,11 +10,8 @@ header("Access-Control-Allow-Origin: *");
 try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
-    // if (isCorrectQueryStringInfo("gallery"))
-    //     $paintings = $gateway->getAllForGallery($_GET["gallery"]);
-    // else
-    if (isCorrectQueryStringInfo("artist"))
-        $paintings = $gateway->getAllForArtist($_GET["artist"]);
+    if (isCorrectQueryStringInfo("gallery"))
+        $paintings = $gateway->getAllForGallery($_GET["gallery"]);
     else
         $paintings = $gateway->getAll();
 

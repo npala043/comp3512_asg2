@@ -13,8 +13,8 @@ try {
     // if (isCorrectQueryStringInfo("painting"))
     //     $paintings = $gateway->getAllForArtist($_GET["painting"]);
     // else
-     if (isCorrectQueryStringInfo("gallery"))
-        $paintings = $gateway->getAllForGallery($_GET["gallery"]);
+    if (isCorrectQueryStringInfo("id"))
+        $paintings = $gateway->getAllForGallery($_GET["id"]);
     else
         $paintings = $gateway->getAll();
 
