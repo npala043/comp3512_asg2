@@ -109,7 +109,7 @@ class PaintingDB
 class GalleryDB
 {
     private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, GalleryCity, GalleryAddress, 
-                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID, Paintings.ImageFileName, Paintings.YearOfWork, Paintings.Title
+                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID, Paintings.ImageFileName, Paintings.YearOfWork, Paintings.Title, Paintings.PaintingID
                                FROM Galleries INNER JOIN Paintings ON Paintings.GalleryID = Galleries.GalleryID";
 
 
@@ -127,13 +127,13 @@ class GalleryDB
         return $statement->fetchAll();
     }
 
-    public function getAllForGallery($galleryID)
+    public function getPainting($paintingID)
     {
-        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
+        $sql = self::$baseSQL . " WHERE Paintings.PaintingID=?";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,
-            array($galleryID)
+            array($paintingID)
         );
         return $statement->fetchAll();
     }
