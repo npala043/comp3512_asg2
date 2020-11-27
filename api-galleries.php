@@ -13,16 +13,16 @@ try {
 
     if (!$_GET) {
         // If no query, get all galleries
-        $data = $gateway->getAll();
+        $galleries = $gateway->getAll();
     } else if (isCorrectQueryStringInfo("id")) {
-        // If id supplied, return single painting info
-        $data = $gateway->getPainting($_GET['id']);
+        // If id supplied, return single gallery info
+        $galleries = $gateway->getGallery($_GET['id']);
     } else {
-        // If query other than 'id' supplied, throw error
-        throw new Exception("Invalid query");
+        // If query other than 'id' supplied, display error message
+        $galleries = '{"message": "gallery does not exist"}';
     }
 
-    echo json_encode($data, JSON_NUMERIC_CHECK);
+    echo json_encode($galleries, JSON_NUMERIC_CHECK);
 } catch (Exception $e) {
     die($e->getMessage());
 }

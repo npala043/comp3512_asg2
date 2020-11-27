@@ -18,8 +18,8 @@ try {
         // If gallery id supplied, return all paintings from that gallery
         $paintings = $gateway->getAllForGallery($_GET["gallery"]);
     } else {
-        // If query other than 'gallery' supplied, throw error
-        throw new Exception("Invalid Query");
+        // If query other than 'gallery' supplied, display error message
+        $paintings = '{"message": "gallery does not exist"}';
     }
 
     echo json_encode($paintings, JSON_NUMERIC_CHECK);
