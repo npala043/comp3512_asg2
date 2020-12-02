@@ -1,4 +1,10 @@
 <!-- Tony Babiluboni will do this-->
+<?php
+
+include_once('config.inc.php');
+include_once('asg2-db-classes.inc.php');
+
+?>
 
 <!DOCTYPE html>
 
@@ -6,8 +12,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>browse paintings</title>
-
+    <title>Browse Paintings</title>
 </head>
+
+<body>
+
+
+
+</body>
 
 </html>
