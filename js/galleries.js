@@ -9,7 +9,7 @@ function initMap() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const galleries = "http://localhost/comp3512_asg2/api-galleries.php";
+    const galleries = "api-galleries.php";
 
     fetch(galleries)
         .then(resp => resp.json())
