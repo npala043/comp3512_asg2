@@ -68,7 +68,8 @@ class ArtistDB
 class PaintingDB
 {
     private static $baseSQL = "SELECT PaintingID, Paintings.ArtistID,
-    FirstName, LastName, Paintings.GalleryID, GalleryName,
+    FirstName, LastName, Paintings.GalleryID, GalleryName, YearOfWork, Paintings.Description,
+    Medium, Width, Height, CopyrightText, WikiLink, Paintings.MuseumLink
     ImageFileName, Title, Excerpt FROM Galleries INNER JOIN (Artists
     INNER JOIN Paintings ON Artists.ArtistID = Paintings.ArtistID) ON
     Galleries.GalleryID = Paintings.GalleryID ";
