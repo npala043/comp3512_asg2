@@ -15,8 +15,6 @@
     </header>
 <!-- We located the html information from lab10-text05 -->
 <main>
-        <!-- Button to toggle list -->
-        <button type="button" id="toggle">Hide Gallery List</button>
         <!-- Creates the gallery list  -->
         <div class = "box list"> 
             <section>

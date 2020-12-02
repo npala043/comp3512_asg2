@@ -1,6 +1,6 @@
 body {
     margin: 15px 50px;
-    background-color: #07575B;
+    background-color: white;
     font-family: calibri;
     font-size: 1rem;
 }
@@ -10,8 +10,8 @@ header {
     border-radius: 5px;
     padding: 10px 20px;
     margin: 20px 0px;
-    background-color: #C4DFE6;
-    color: #003b46;
+    background-color: grey;
+    color: black;
 }
 
 main {
@@ -22,8 +22,8 @@ main {
 }
 
 .box {
-    background-color: #C4DFE6;
-    color: #003b46;
+    background-color: grey;
+    color: black;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 1rem;
