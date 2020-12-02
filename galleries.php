@@ -15,13 +15,10 @@
     </header>
 <!-- We located the html information from lab10-text05 -->
 <main>
-        <!-- Button to toggle list -->
-        <button type="button" id="toggle">Hide Gallery List</button>
         <!-- Creates the gallery list  -->
         <div class = "box list"> 
             <section>
-                <h2>Galleries</h2>
-                <img src="img/loader.gif" id="loader1">
+                <h2>Gallery List </h2>
                 <ul id="galleryList">
                     <!-- insert il using js -->
                 </ul>
@@ -56,7 +53,6 @@
         <div class = "box paintings"> 
             <section>
                 <h2>Paintings</h2>
-                <img src="img/loader.gif" id="loader2">
                 <table id="paintingTable">
                     <thead>
                         <tr>
@@ -73,5 +69,9 @@
         </div>
 
     </main>
+
+    <script src="js/galleries.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"
+        async defer></script>
 </body>
 </html>
