@@ -1,7 +1,7 @@
 // Mason's File
 function initMap() {
     map = new google.maps.Map(document.querySelector(".box.map"), {
-        center: { lat: 44.525049, lng: -110.83819 },
+        center: { lat: 51.011238, lng: -114.133142 },
         zoom: 17,
         mapTypeId: 'satellite'
     })
