@@ -52,18 +52,48 @@ try {
 
         } */
 
-        div.tab {
+        /* div.tab {
             border: lightskyblue 1px solid;
             width: 50%;
             padding: 10px;
 
+        } */
+
+        .tab {
+            overflow: hidden;
+            border: 1px solid lightskyblue;
+            background-color: powderblue;
         }
 
+         .tab {
+            background-color: whitesmoke;
+            float: center;
+            border-radius: 5px;
+            outline: none;
+            padding: 16px;
+            font-size: 16px;
+            
+
+        }
+        
+
+        .tab button.active {
+            background-color: steelblue;
+        }
+
+        .tabContent {
+            display: none;
+            padding: 6px 12px;
+            border: 1px solid lightskyblue;
+            background-color: powderblue;
+            border-top: none;
+        }
+/* 
         #description,
         #details,
         #colors {
             display: none;
-        }
+        } */
     </style>
 
 
@@ -94,9 +124,9 @@ try {
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
             <button id="favsButton">Add To Favourites</button>
 
-            <button class="tab"> Description </button>
-            <button class="tab"> Details </button>
-            <button class="tab"> Colors </button>
+            <button class="tab desctab"> Description </button>
+            <button class="tab detailstab"> Details </button>
+            <button class="tab colorstab"> Colors </button>
 
             <div id="description" class="tabContent">
                 <h5>Description </h5>
