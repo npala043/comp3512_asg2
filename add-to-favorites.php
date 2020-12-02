@@ -3,7 +3,7 @@
 <?php
 session_start();
 // do we have a favourites array already?
-if (isset($_SESSION["favourites"])) {
+if (!isset($_SESSION["favourites"])) {
     // Doesn't exists, so init one
     $_SESSION["favourites"] = [];
 }
