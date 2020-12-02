@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(galleries)
         .then(resp => resp.json())
         .then(gallery => {
-            document.querySelector("#loader1").style.display = "none";
             document.querySelector("div.list section").style.display = "block";
             listGalleries(gallery);
         })
@@ -34,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             sortPaintings(g);
-            toggleButton();
+            // toggleButton();
             document.querySelector("#galleryList").appendChild(li);
         }
     }
@@ -72,8 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function createPaintingTable(paintings) {
-        document.querySelector("tbody").innerHTML = ""
-        document.querySelector("#loader2").style.display = "none";
+        document.querySelector("tbody").innerHTML = "";
 
         for (let p of paintings) {
 
@@ -163,3 +161,4 @@ document.addEventListener("DOMContentLoaded", function () {
         img.id = `${painting.ImageFileName}`;
         return img;
     }
+})
