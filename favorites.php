@@ -1,15 +1,15 @@
 <!-- Nahuel will work on this :) -->
 
 <?php
-require_once "config.inc.php";
-require_once "asg2-db-classes.inc.php";
-
 session_start();
 if (!isset($_SESSION["favourites"])) {
     $fav = [];
 } else {
     $fav = $_SESSION["favourites"];
 }
+
+
+
 ?>
 
 <!DOCTYPE HTML>
@@ -24,7 +24,21 @@ if (!isset($_SESSION["favourites"])) {
 <body>
     <div>
         <table>
-
+            <tr>
+                <th></th> <!-- Painting Thumbnail -->
+                <th>Artist</th>
+                <th>Title</th>
+                <th>Year</th>
+            </tr>
+            <?php
+            foreach ($fav as $f) { ?>
+                <tr>
+                    <td></td> <!-- Painting Thumbnail -->
+                    <td></td> <!-- Artist -->
+                    <td></td> <!-- Title -->
+                    <td></td> <!-- Year -->
+                </tr>
+            <?php } ?>
         </table>
     </div>
 </body>
