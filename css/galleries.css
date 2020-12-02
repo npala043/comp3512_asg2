@@ -12,6 +12,7 @@ header {
     margin: 20px 0px;
     background-color: grey;
     color: black;
+    text-align: center;
 }
 
 main {
@@ -77,40 +78,6 @@ div.paintings section {
 
 #galleryName {
     grid-column: span 2;
-}
-
-#bigPainting {
-    display: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin-bottom: 15px;
-    background-color: #C4DFE6;
-    color: #003b46;
-}
-
-#bigPainting section {
-    display: grid;
-    grid-template-columns: 25rem auto;
-}
-
-#bigImage {
-    padding: 1rem;
-}
-
-#biggerImage {
-    display: none;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 0 auto 15px auto;
-    background-color: #C4DFE6;
-    color: #003b46;
-}
-
-#pInfo {
-    grid-column: 2 / span 1;
-    grid-row: 1 / span 2;
-    padding: 1rem 3rem;
-    line-height: 1.5rem
 }
 
 label {
