@@ -2,8 +2,10 @@
 
 <?php
 session_start();
-if (!isset($_SESSION["favourites"])) {
-    $fav = [];
+if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
+    $fav[] = 5;
+    $fav[] = 7;
+    $fav[] = 8;
 } else {
     $fav = $_SESSION["favourites"];
 }
