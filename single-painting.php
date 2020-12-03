@@ -6,20 +6,30 @@ require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
 
 
+if (isset($_POST['Favourite'])) {
+    header('Location: add-to-favorites.php');
+}
+
 try {
     $id = $_GET['id'];
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
     $paintings = $gateway->getAll();
+    // $domColours = array($gateway->getDomColours($id));
     $painting = "";
+    $cookieName = "jsonthing";
     foreach ($paintings as $row) {
         if ($id == $row['PaintingID']) {
             $painting = $row;
+            $cookieValue = $painting['JsonAnnotations'];
+            setcookie($cookieName, $cookieValue);
         }
     }
 } catch (Exception $e) {
     die($e->getMessage());
 }
+
+
 
 
 ?>
@@ -65,17 +75,17 @@ try {
             background-color: powderblue;
         }
 
-         .tab {
+        .tab {
             background-color: whitesmoke;
             float: center;
             border-radius: 5px;
             outline: none;
             padding: 16px;
             font-size: 16px;
-            
+
 
         }
-        
+
 
         .tab button.active {
             background-color: steelblue;
@@ -88,7 +98,8 @@ try {
             background-color: powderblue;
             border-top: none;
         }
-/* 
+
+        /* 
         #description,
         #details,
         #colors {
@@ -122,7 +133,10 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <button id="favsButton">Add To Favourites</button>
+            <!-- <button id="favsButton">Add To Favourites</button> -->
+            
+            <!-- <input type="submit" value="Favourite" id="favsButton" method="post"> -->
+
 
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
@@ -159,8 +173,9 @@ try {
                 <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
             </div>
             <div id="colors" class="tabContent">
+
                 <h5> Colors </h5>
-                <img src="" alt="">
+                <div id="coloursBlock"></div>
                 <p>Hex Value:</p>
                 <p>Color Name:</p>
             </div>
