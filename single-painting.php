@@ -52,6 +52,10 @@ try {
             padding: 10px;
         }
 
+        span {
+            padding: 15px 25px;
+            margin: 5px;
+        }
 
         #favsButton {
             position: absolute;
@@ -173,22 +177,28 @@ try {
                 <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
             </div>
             <div id="colors" class="tabContent">
+                <h5> Colors </h5>
+
                 <?php
                 foreach ($json['dominantColors'] as  $value) {
-                    echo $value['web'];
+                    echo "<span style='background-color:" . $value['web'] . ";'></span>";
                 }
                 ?>
 
-                <h5> Colors </h5>
-                <div id="coloursBlock"></div>
                 <p>Hex Value:
                     <?php
                     foreach ($json['dominantColors'] as  $value) {
-                        echo $value['web'];
+                        echo $value['web'] . " ";
                     }
                     ?>
                 </p>
-                <p>Color Name:</p>
+                <p>Color Name:
+                    <?php
+                    foreach ($json['dominantColors'] as  $value) {
+                        echo $value['name'] . " ";
+                    }
+                    ?>
+                </p>
             </div>
 
 
