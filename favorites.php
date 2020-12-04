@@ -2,26 +2,14 @@
 
 <?php
 session_start();
-// if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
+// if (!isset($_SESSION["favourites"])) {
 //     $fav = [];
 // } else {
 //     $fav = $_SESSION["favourites"];
 // }
 
 // For testing
-$fav = [];
-$fav[] = 5;
-$fav[] = 7;
-$fav[] = 8;
-
-$paintings = file_get_contents("http://localhost/web2/f2020-assign2-master/api-paintings.php");
-$allPaintings = json_decode($paintings, true);
-
-foreach ($allPaintings as $p) {
-    if ($p['PaintingID'] == 0) {
-    }
-}
-// For testing
+$fav = [5, 7, 8];
 
 ?>
 
