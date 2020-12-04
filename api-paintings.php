@@ -15,7 +15,6 @@ try {
         // If no query, get all paintings
         $paintings = $gateway->getAll();
     } else if (isCorrectQueryStringInfo("gallery")) {
-        $paintings = $gateway->getDomColours(11);
         // If gallery id supplied, return all paintings from that gallery
         $paintings = $gateway->getAllForGallery($_GET["gallery"]);
         

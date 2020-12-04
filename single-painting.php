@@ -137,7 +137,7 @@ try {
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
             <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
 
-            
+
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
             <button class="tab colorstab"> Colors </button>
@@ -176,15 +176,18 @@ try {
                 <?php
                 foreach ($json['dominantColors'] as  $value) {
                     echo $value['web'];
-                    // echo $value;
                 }
-
-                // echo "<p>" . print_r($json['dominantColors']) . "</p>";
                 ?>
 
                 <h5> Colors </h5>
                 <div id="coloursBlock"></div>
-                <p>Hex Value:</p>
+                <p>Hex Value:
+                    <?php
+                    foreach ($json['dominantColors'] as  $value) {
+                        echo $value['web'];
+                    }
+                    ?>
+                </p>
                 <p>Color Name:</p>
             </div>
 
