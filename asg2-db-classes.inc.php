@@ -68,7 +68,8 @@ class ArtistDB
 class PaintingDB
 {
     private static $baseSQL = "SELECT PaintingID, Paintings.ArtistID,
-    FirstName, LastName, Paintings.GalleryID, GalleryName,
+    FirstName, LastName, Paintings.GalleryID, GalleryName, YearOfWork, Paintings.Description,
+    Medium, Width, Height, CopyrightText, WikiLink, Paintings.MuseumLink, JsonAnnotations, 
     ImageFileName, Title, Excerpt FROM Galleries INNER JOIN (Artists
     INNER JOIN Paintings ON Artists.ArtistID = Paintings.ArtistID) ON
     Galleries.GalleryID = Paintings.GalleryID ";
@@ -101,6 +102,16 @@ class PaintingDB
             $this->pdo,
             $sql,
             array($galleryID)
+        );
+        return $statement->fetchAll();
+    }
+
+    public function getDomColours($paintingID) {
+        $sql = "SELECT JSON_QUERY(@JsonAnnotations, '$.dominantColors') FROM Paintings WHERE PaintingID=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($paintingID)
         );
         return $statement->fetchAll();
     }
