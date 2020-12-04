@@ -17,13 +17,13 @@ try {
     } else if (isCorrectQueryStringInfo("gallery")) {
         // If gallery id supplied, return all paintings from that gallery
         $paintings = $gateway->getAllForGallery($_GET["gallery"]);
-        
     } else {
         // If query other than 'gallery' supplied, display error message
         $paintings = ["message" => "gallery doesnt exist"];
     }
 
     echo json_encode($paintings, JSON_NUMERIC_CHECK);
+    $conn = null;
 } catch (Exception $e) {
     die($e->getMessage());
 }

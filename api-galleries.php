@@ -23,6 +23,7 @@ try {
     }
 
     echo json_encode($galleries, JSON_NUMERIC_CHECK);
+    $conn = null;
 } catch (Exception $e) {
     die($e->getMessage());
 }

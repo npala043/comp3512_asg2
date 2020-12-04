@@ -2,15 +2,14 @@
 
 <?php
 session_start();
-if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
-    $fav[] = 5;
-    $fav[] = 7;
-    $fav[] = 8;
-} else {
-    $fav = $_SESSION["favourites"];
-}
+// if (!isset($_SESSION["favourites"])) {
+//     $fav = [];
+// } else {
+//     $fav = $_SESSION["favourites"];
+// }
 
-
+// For testing
+$fav = [5, 7, 8];
 
 ?>
 
@@ -33,14 +32,18 @@ if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
                 <th>Year</th>
             </tr>
             <?php
-            foreach ($fav as $f) { ?>
-                <tr>
-                    <td></td> <!-- Painting Thumbnail -->
-                    <td></td> <!-- Artist -->
-                    <td></td> <!-- Title -->
-                    <td></td> <!-- Year -->
-                </tr>
-            <?php } ?>
+            if (empty($fav)) {
+                echo "No favourites to display!";
+            } else {
+                foreach ($fav as $f) { ?>
+                    <tr>
+                        <td></td> <!-- Painting Thumbnail -->
+                        <td><?= $f ?></td> <!-- Artist -->
+                        <td></td> <!-- Title -->
+                        <td></td> <!-- Year -->
+                    </tr>
+            <?php }
+            } ?>
         </table>
     </div>
 </body>
