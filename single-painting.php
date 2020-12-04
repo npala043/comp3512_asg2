@@ -54,21 +54,14 @@ try {
 
         #favsButton {
             position: absolute;
-            right: 100px;
-            top: 50px;
+            right: 90px;
+            top: 85px;
         }
 
-        /* #description {
-            width: 50%;
+        #favsButton a, #favsButton a:visited {
+            text-decoration: none;
+        }
 
-        } */
-
-        /* div.tab {
-            border: lightskyblue 1px solid;
-            width: 50%;
-            padding: 10px;
-
-        } */
 
         .tab {
             overflow: hidden;
