@@ -2,9 +2,6 @@
 
 <?php
 
-require_once 'config.inc.php';
-require_once 'asg2-db-classes.inc.php';
-
 session_start();
 // do we have a favourites array already?
 if (!isset($_SESSION["favourites"])) {
@@ -27,7 +24,7 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // re-save modified array back to session state
     $_SESSION["favourites"] = $fav;
 } else {
-    // some sort of error message?
+    echo "<script>alert('Invalid query')</script>";
 }
 
 // redirect back to the requesting page
