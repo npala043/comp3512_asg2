@@ -21,7 +21,7 @@ include_once('asg2-db-classes.inc.php');
     ?>
     <main>
         <div id="filters">
-            <form method="post">
+            <form method="GET" action="browse-paintings.php">
                 <label>Title</label>
                 <input type="text" name="title" />
                 <br />
@@ -51,7 +51,7 @@ include_once('asg2-db-classes.inc.php');
                 <label>Gallery</label>
                 <!-- Create Select List of Gallery -->
                 <select>
-                    <option value=0>Choose an artist</option>
+                    <option value=0>Choose a Gallery</option>
                     <?php
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
@@ -88,10 +88,15 @@ include_once('asg2-db-classes.inc.php');
                 <input type="text" name="between-before" />
                 <br />
                 <input type="text" name="between-after" />
+                <br />
+                <br />
+                <button type="submit" value="Submit">Submit</button>
+                <button type="reset" value="Reset"><a href="browse-paintings.php">Clear</a></button>
             </form>
         </div>
 
         <div id="paintings">
+
         </div>
     </main>
 </body>

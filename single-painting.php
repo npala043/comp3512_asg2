@@ -11,18 +11,20 @@ if (isset($_POST['Favourite'])) {
 }
 
 try {
-    $id = $_GET['id'];
+    $id = 11; //$_GET['id'];
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
     $paintings = $gateway->getAll();
-    // $domColours = array($gateway->getDomColours($id));
+
     $painting = "";
-    $cookieName = "jsonthing";
+    $json = "";
+    // $cookieName = "jsonthing";
     foreach ($paintings as $row) {
         if ($id == $row['PaintingID']) {
             $painting = $row;
-            $cookieValue = $painting['JsonAnnotations'];
-            setcookie($cookieName, $cookieValue);
+            $json = json_decode($row['JsonAnnotations'], true);
+            // $cookieValue = $painting['JsonAnnotations'];
+            // setcookie($cookieName, $cookieValue);
         }
     }
 } catch (Exception $e) {
@@ -133,11 +135,9 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <!-- <button id="favsButton">Add To Favourites</button> -->
+            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
+
             
-            <!-- <input type="submit" value="Favourite" id="favsButton" method="post"> -->
-
-
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
             <button class="tab colorstab"> Colors </button>
@@ -173,6 +173,14 @@ try {
                 <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
             </div>
             <div id="colors" class="tabContent">
+                <?php
+                foreach ($json['dominantColors'] as  $value) {
+                    echo $value['web'];
+                    // echo $value;
+                }
+
+                // echo "<p>" . print_r($json['dominantColors']) . "</p>";
+                ?>
 
                 <h5> Colors </h5>
                 <div id="coloursBlock"></div>
