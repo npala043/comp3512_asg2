@@ -9,7 +9,11 @@ session_start();
 // }
 
 // For testing
-$fav = [5, 7, 8];
+$fav = [
+    ["id" => 1, "title" => "first painting", "filename" => "001020"],
+    ["id" => 2, "title" => "second painting", "filename" => "001050"],
+    ["id" => 3, "title" => "third painting", "filename" => "001060"]
+];
 
 ?>
 
@@ -27,9 +31,7 @@ $fav = [5, 7, 8];
         <table>
             <tr>
                 <th></th> <!-- Painting Thumbnail -->
-                <th>Artist</th>
                 <th>Title</th>
-                <th>Year</th>
             </tr>
             <?php
             if (empty($fav)) {
@@ -37,10 +39,10 @@ $fav = [5, 7, 8];
             } else {
                 foreach ($fav as $f) { ?>
                     <tr>
-                        <td></td> <!-- Painting Thumbnail -->
-                        <td><?= $f ?></td> <!-- Artist -->
-                        <td></td> <!-- Title -->
-                        <td></td> <!-- Year -->
+                        <td>
+                            <img src="images/paintings/square-medium/<?= $f['filename'] ?>.jpg" alt="<?= $f['title'] ?>">
+                        </td> <!-- Painting Thumbnail -->
+                        <td><?= $f['title'] ?></td> <!-- Title -->
                     </tr>
             <?php }
             } ?>
