@@ -106,15 +106,15 @@ class PaintingDB
         return $statement->fetchAll();
     }
 
-    public function getDomColours($paintingID) {
-        $sql = "SELECT JSON_QUERY(@JsonAnnotations, '$.dominantColors') FROM Paintings WHERE PaintingID=?";
-        $statement = DatabaseHelper::runQuery(
-            $this->pdo,
-            $sql,
-            array($paintingID)
-        );
-        return $statement->fetchAll();
-    }
+    // public function getDomColours($paintingID) {
+    //     $sql = "SELECT JSON_QUERY(@JsonAnnotations, '$.dominantColors') FROM Paintings WHERE PaintingID=?";
+    //     $statement = DatabaseHelper::runQuery(
+    //         $this->pdo,
+    //         $sql,
+    //         array($paintingID)
+    //     );
+    //     return $statement->fetchAll();
+    // }
 }
 
 class GalleryDB

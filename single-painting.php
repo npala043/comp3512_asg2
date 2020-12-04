@@ -52,6 +52,10 @@ try {
             padding: 10px;
         }
 
+        span {
+            padding: 15px 25px;
+            margin: 5px;
+        }
 
         #favsButton {
             position: absolute;
@@ -137,7 +141,7 @@ try {
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
             <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
 
-            
+
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
             <button class="tab colorstab"> Colors </button>
@@ -173,19 +177,28 @@ try {
                 <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
             </div>
             <div id="colors" class="tabContent">
+                <h5> Colors </h5>
+
                 <?php
                 foreach ($json['dominantColors'] as  $value) {
-                    echo $value['web'];
-                    // echo $value;
+                    echo "<span style='background-color:" . $value['web'] . ";'></span>";
                 }
-
-                // echo "<p>" . print_r($json['dominantColors']) . "</p>";
                 ?>
 
-                <h5> Colors </h5>
-                <div id="coloursBlock"></div>
-                <p>Hex Value:</p>
-                <p>Color Name:</p>
+                <p>Hex Value:
+                    <?php
+                    foreach ($json['dominantColors'] as  $value) {
+                        echo $value['web'] . " ";
+                    }
+                    ?>
+                </p>
+                <p>Color Name:
+                    <?php
+                    foreach ($json['dominantColors'] as  $value) {
+                        echo $value['name'] . " ";
+                    }
+                    ?>
+                </p>
             </div>
 
 

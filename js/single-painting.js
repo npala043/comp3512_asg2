@@ -43,26 +43,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    /*creates the colour blocks based on the colours that is most prominent within the single painting.  */
-    function colourBlocks(painting) {
-        // let painting = JSON.parse(jsoncolours);
-        console.log(document.cookie);
-        console.log("hello?");
-        let div = document.querySelector("#coloursBlock")
-        div.textContent = "";
-        for (let p of painting.dominantColors) {
-            let span = document.createElement("span");
-            let colour = p.web;
-            span.style.backgroundColor = colour;
-            span.style.padding = "15px 25px";
-            span.style.margin = "5px";
-            span.title = `${colour}, ${p.name}`;
-            div.appendChild(span);
-
-        }
-    }
-
-
-
 
 });
