@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     colors.addEventListener("click", function () {
         tabs(colors, "#colors");
-        colourBlocks(document.cookie);
 
     });
 
