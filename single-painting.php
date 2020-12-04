@@ -58,10 +58,19 @@ try {
             top: 85px;
         }
 
-        #favsButton a, #favsButton a:visited {
+        #favsButton a,
+        #favsButton a:visited {
             text-decoration: none;
+            color: black;
         }
 
+        .link {
+            text-decoration: none;
+            border: oldlace 1px solid;
+            background-color: whitesmoke;
+            padding: 3px;
+            color: black;
+        }
 
         .tab {
             overflow: hidden;
@@ -80,7 +89,6 @@ try {
 
         }
 
-
         .tab button.active {
             background-color: steelblue;
         }
@@ -91,6 +99,7 @@ try {
             border: 1px solid lightskyblue;
             background-color: powderblue;
             border-top: none;
+            
         }
 
         /* 
@@ -157,10 +166,10 @@ try {
                 <?php
                 //if the Wikilink is null then don't add the markup for it 
                 if (!is_null($painting['WikiLink'])) {
-                    echo "<a href=" .  $painting['WikiLink'] . ">WikiLink</a>";
+                    echo "<a href=" .  $painting['WikiLink'] . " class='link'>WikiLink</a>";
                 }
                 ?>
-                <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
+                <a href="<?= $painting['MuseumLink'] ?>" class="link">Museum Link</a>
             </div>
             <div id="colors" class="tabContent">
                 <h4> Colors </h4>
@@ -170,7 +179,7 @@ try {
                     echo "<span style='background-color:" . $value['web'] . ";'></span>";
                 }
                 ?>
-                
+
 
                 <p><b>Hex Value: </b>
                     <?php
@@ -181,11 +190,11 @@ try {
                 </p>
                 <p><b>Color Name: </b><br>
                     <ul>
-                    <?php
-                    foreach ($json['dominantColors'] as  $value) {
-                        echo "<li>" . $value['name'] . '</li>';
-                    }
-                    ?>
+                        <?php
+                        foreach ($json['dominantColors'] as  $value) {
+                            echo "<li>" . $value['name'] . '</li>';
+                        }
+                        ?>
                     </ul>
                 </p>
             </div>
