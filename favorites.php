@@ -4,8 +4,8 @@
 session_start();
 
 // If requested through post (which happens when removing paintings from favourites),
-// remove paintings from $_SESSION['favourites'] with matching IDs
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESSION['favourites'])) {
+// remove painting from $_SESSION['favourites'] with matching ID (or all if selected)
+if (removalDataPresent()) {
     $remove = $_POST['id'];
     unset($_POST['id']);
     if ($remove == "all") {
@@ -20,6 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
             }
         }
     }
+}
+
+function removalDataPresent()
+{
+    return $_SERVER['REQUEST_METHOD'] === 'POST'
+        && isset($_POST['id']) && isset($_SESSION['favourites']) ? true : false;
 }
 
 /* Format of $_SESSION['favourites'] */
