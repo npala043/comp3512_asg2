@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             titleTd.textContent = `${p.Title}`;
-            titleTd.setAttribute("id", `${p.ImageFileName}`);
+            titleTd.setAttribute("id", `${p.paintingID}`);
             yearTd.textContent = `${p.YearOfWork}`;
 
             tr.appendChild(artistTd);
@@ -118,8 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function clickPainting(painting) {
-        painting.href = `single-painting.php${painting.paintingID}`; 
+     function clickPainting(painting) {
+        let p =`single-painting.php?id=${painting.paintingID}`;
+        document.getElementById(`${painting.paintingID}`).innerHTML = '<a href="' + p + '">Link</a>';        
     }
 
      // Function lets us sort through the paintings list by clicking on artists, title, year.
