@@ -35,10 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
 //         [filename] => __
 //     ,} etc.
 
-// If not favourites in session 
+// If no favourites in session, create one
 if (!isset($_SESSION["favourites"])) {
     $fav = [];
 } else {
+    //otherwise grab and store it
     $fav = $_SESSION["favourites"];
 }
 
