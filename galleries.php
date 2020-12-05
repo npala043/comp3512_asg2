@@ -1,9 +1,5 @@
 <!-- Mason Will Start This Page -->
 
-<?php
-include 'api-paintings.php';
-include 'api-galleries.php';
-?>
 
 
 <!DOCTYPE html>
@@ -27,9 +23,7 @@ include 'api-galleries.php';
             <section>
                 <h2>Gallery List </h2>
                 <ul id="galleryList">
-                <!-- <?php
-                    foreach()
-                ?> -->
+              
 
                     <!-- insert il using js -->
                 </ul>
