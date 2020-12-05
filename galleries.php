@@ -34,10 +34,22 @@
                 height: 600px;
             }
 
+            ul#galleryList {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
             .info {
                 grid-column: 2 / span 1;
                 grid-row: 1 / span 1;
                 height: 260px;
+            }
+
+            div.info section {
+                display: none;
+                grid-gap: 5px;
+                grid-template-columns: 6rem auto;
             }
 
             .map {
@@ -51,6 +63,20 @@
                 grid-row: 1 / span 3;
                 overflow: auto;
                 height: 600px;
+            }
+
+            table {
+                width: 100%;
+                margin: 5px 10px 5px 5px;
+            }
+
+            th {
+                text-align: left;
+                padding: 5px;
+            }
+
+            td {
+                padding: 5px;
             }
 
         </style>
