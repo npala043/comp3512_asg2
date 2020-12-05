@@ -28,13 +28,6 @@ if (!isset($_SESSION["favourites"])) {
     $fav = $_SESSION["favourites"];
 }
 
-// // For testing
-// $fav = [
-//     ["id" => 5, "title" => "first painting", "filename" => "001020"],
-//     ["id" => 7, "title" => "second painting", "filename" => "001050"],
-//     ["id" => 8, "title" => "third painting", "filename" => "001060"]
-// ];
-
 ?>
 
 <!DOCTYPE HTML>
@@ -55,9 +48,12 @@ if (!isset($_SESSION["favourites"])) {
                     <th>Title</th>
                 </tr>
                 <?php
-                if (empty($fav)) {
-                    echo "No favourites to display!";
-                } else {
+                if (empty($fav)) { ?>
+                    <tr>
+                        <td><img src="images/nahuel/shrug.png" alt="shrug"></td>
+                        <td>No favourites to display!</td>
+                    </tr>
+                    <?php } else {
                     foreach ($fav as $f) { ?>
                         <tr>
                             <td>
