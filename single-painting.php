@@ -4,7 +4,7 @@
 
 require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
-
+session_start();
 
 try {
     $id = $_GET['id'];
@@ -137,7 +137,13 @@ try {
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
             <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
+            <?php
 
+                if (isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                  }
+            ?>
 
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
