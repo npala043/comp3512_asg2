@@ -30,9 +30,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
 
 // For testing
 $fav = [
-    ["id" => 1, "title" => "first painting", "filename" => "001020"],
-    ["id" => 2, "title" => "second painting", "filename" => "001050"],
-    ["id" => 3, "title" => "third painting", "filename" => "001060"]
+    ["id" => 5, "title" => "first painting", "filename" => "001020"],
+    ["id" => 7, "title" => "second painting", "filename" => "001050"],
+    ["id" => 8, "title" => "third painting", "filename" => "001060"]
 ];
 
 ?>
