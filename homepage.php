@@ -42,6 +42,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             background-size: cover;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
 
         button {
@@ -50,6 +51,15 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             font-size: 26px;
             border-radius: 5px;
             margin: 10px;
+        }
+
+        input {
+            width: 390px;
+            height: 60px;
+            font-size: 26px;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
         }
     </style>
 
@@ -60,6 +70,9 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
         <div>
             <button class="login"> Login </button>
             <button class="join"> Join </button>
+        </div>
+        <div>
+            <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
         </div>
     </section>
 
