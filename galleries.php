@@ -1,6 +1,9 @@
 <!-- Mason Will Start This Page -->
 <?php
 
+    require_once 'config.inc.php';
+    include 'asg2-db-classes.inc.php';
+    
     try {
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $gateway = new GalleryDB($conn);
