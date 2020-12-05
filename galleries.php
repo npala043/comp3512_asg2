@@ -8,10 +8,11 @@ try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new GalleryDB($conn);
     $galleries = $gateway->getAll();
+    $gateway2 = new PaintingDB($conn);
+    $paintings = $gateway2->getAll();
 } catch (Exception $e) {
     die($e->getMessage());
 }
-
 
 ?>
 
@@ -94,6 +95,28 @@ try {
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+                        foreach ($paintings as $row) {
+                        ?>
+                        <tr>
+                            <td><?= $row['ImageFileName'] ?></td>
+                            <td>
+                            <?php
+                                if (is_null($painting['FirstName'])) {
+                                    echo $painting['LastName'];
+                                } else if (is_null($painting['LastName'])) {
+                                    echo $painting['FirstName'];
+                                } else {
+                                    echo $painting['FirstName'] .  " " . $painting['LastName'];
+                                }
+                                ?>
+                            </td>
+                            <td><?= $row['Title'] ?></td>
+                            <td><?= $row['YearOfWork'] ?></td>
+                        </tr>
+                        <?php 
+                        } 
+                        ?>
                     </tbody>
                 </table>
             </section>
