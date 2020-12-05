@@ -140,6 +140,17 @@ try {
         <!-- Creates the map where the gallery is located -->
         <div class="box map">
             <p>map</p>
+            <script type="text/javascript">
+            <?php foreach ($galleries as $row) { ?>
+                map = new google.maps.Map(document.querySelector(".box.map"), {
+                center: { lat: <?= $row['Latitude']?>, lng: <?= $row['Longitude']?> },
+                zoom: 17,
+                mapTypeId: 'satellite'
+                })
+            <?php
+            }
+            ?>
+            </script>
             <!-- insert map given -->
         </div>
 
