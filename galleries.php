@@ -189,7 +189,7 @@ try {
     </main>
 
     <script src="js/galleries.js"></script>
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script>
 </body>
 
 </html>
