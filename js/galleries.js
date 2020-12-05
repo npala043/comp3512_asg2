@@ -1,11 +1,11 @@
 // // Mason's File
-// function initMap() {
-//     map = new google.maps.Map(document.querySelector(".box.map"), {
-//         center: { lat: 51.011238, lng: -114.133142 },
-//         zoom: 17,
-//         mapTypeId: 'satellite'
-//     })
-// }
+function initMap() {
+    map = new google.maps.Map(document.querySelector(".box.map"), {
+        center: { lat: 51.011238, lng: -114.133142 },
+        zoom: 17,
+        mapTypeId: 'satellite'
+    })
+}
 
 // document.addEventListener("DOMContentLoaded", function () {
 
@@ -38,7 +38,7 @@
 //         }
 document.addEventListener("DOMContentLoaded", function () {
     console.log("jkasdfj");
-    let list = document.querySelector("#galleryList li");
+    let list = document.querySelector("#galleryList li a");
     list.addEventListener("click", function () {
         console.log("im here");
         document.querySelector(".info ").style.display = "grid";
