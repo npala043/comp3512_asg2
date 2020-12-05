@@ -2,7 +2,11 @@
 <?php
 
     try {
-        
+        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+        $gateway = new GalleryDB($conn);
+        $galleries = $gateway->getAll();
+
+
     } catch (Exception $e) {
         die($e->getMessage());
     }
@@ -32,7 +36,11 @@
             <section>
                 <h2>Gallery List </h2>
                 <ul id="galleryList">
-              
+                <?php 
+                    foreach ($galleries as $row) {
+                        echo "<li>" . $row['GalleryName'] . "</li>";
+                    }
+                ?>
 
                     <!-- insert il using js -->
                 </ul>
@@ -42,18 +50,24 @@
         <!-- Creates the gallery info -->
         <div class = "box info"> 
             <section>
-                <label> </label>
-                <h2 id="galleryName"></h2>
-                <label>Native Name:</label>
-                <span id="galleryNative"></span>          
-                <label>Address:</label>
+                <?php 
+                foreach ($galleries as $row) {
+                ?>
+                <label> <?= $row['GalleryName']?> </label>
+                <h2 id="galleryName"></h2>;
+                <label>Native Name: <?= $row['GalleryNativeName'] ?></label>;
+                <span id="galleryNative"></span>;          
+                <label>Address: <?= $row['GalleryAddress'] ?></label>
                 <span id="galleryAddress"></span>
-                <label>City:</label>
+                <label>City: <?= $row['GalleryCity'] ?></label>
                 <span id="galleryCity"></span>          
-                <label>Country:</label>
+                <label>Country: <?= $row['GalleryCountry'] ?></label>
                 <span id="galleryCountry"></span>            
                 <label>Website:</label>
-                <span><a href="" id="galleryWebsite"></a></span>
+                <span><a href="<?= $row['GalleryWebsite'] ?>" id=galleryWebsite"> Website </a></span>
+                <?php 
+                }
+                ?>
             </section>
         </div>
 
