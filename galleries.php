@@ -9,10 +9,9 @@ try {
     $gateway = new GalleryDB($conn);
     $galleries = $gateway->getAll();
     $gateway2 = new PaintingDB($conn);
-    $galleryPaintings = $gateway2->getAllForGallery(11);
+    $galleryPaintings = $gateway2->getAllForGallery($_GET['galleryID']);
     $paintings = $gateway2->getAll();
-    $galleryInfo = $gateway->getInfo(51);
-
+    $galleryInfo = $gateway->getGallery($_GET['galleryID']);
 } catch (Exception $e) {
     die($e->getMessage());
 }
@@ -26,7 +25,7 @@ try {
 <head>
     <meta charset="utf-8" />
     <title>Galleries Page</title>
-    
+
     <!-- <link rel="stylesheet" href="css/galleries.css"> -->
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
@@ -60,7 +59,7 @@ try {
                     <?php
 
                     foreach ($galleries as $row) {
-                        echo "<li>" . $row['GalleryName'] . "</li>";
+                        echo "<li><a href='galleries.php?galleryID=" . $row['GalleryID'] . "'>" . $row['GalleryName'] . "</a></li>";
                     }
                     ?>
 

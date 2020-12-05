@@ -111,7 +111,7 @@ class GalleryDB
 {
     private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, 
     GalleryCity, GalleryAddress, GalleryCountry, Latitude, Longitude, GalleryWebSite, 
-    GooglePlaceID FROM Galleries ORDER BY GalleryName";
+    GooglePlaceID FROM Galleries";
 
 
 
@@ -123,14 +123,14 @@ class GalleryDB
 
     public function getAll()
     {
-        $sql = self::$baseSQL;
+        $sql = self::$baseSQL . " ORDER BY GalleryName";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
 
     public function getGallery($galleryID)
     {
-        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
+        $sql = self::$baseSQL . " WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,
@@ -139,14 +139,5 @@ class GalleryDB
         return $statement->fetchAll();
     }
 
-    public function getInfo($galleryID)
-    {
-        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
-        $statement = DatabaseHelper::runQuery(
-            $this->pdo,
-            $sql,
-            array($galleryID)
-        );
-        return $statement->fetchAll();
-    }
+  
 }
