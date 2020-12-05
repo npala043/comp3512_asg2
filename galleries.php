@@ -11,6 +11,8 @@ try {
     $gateway2 = new PaintingDB($conn);
     $galleryPaintings = $gateway2->getAllForGallery(11);
     $paintings = $gateway2->getAll();
+    $galleryInfo = $gateway->getInfo(51);
+
 } catch (Exception $e) {
     die($e->getMessage());
 }
@@ -71,7 +73,7 @@ try {
         <div class="box info">
             <section>
                 <?php
-                foreach ($galleries as $row) {
+                foreach ($galleryInfo as $row) {
                 ?>
                     <label> <?= $row['GalleryName'] ?> </label>
                     <h2 id="galleryName"></h2>
@@ -123,7 +125,7 @@ try {
                                     } else if (is_null($row['LastName'])) {
                                         echo $row['FirstName'];
                                     } else {
-                                        echo $row['FirstName'] .  " " . $row['LastName'];
+                                        echo $row['FirstName'] . " " . $row['LastName'];
                                     }
                                     ?>
                                 </td>

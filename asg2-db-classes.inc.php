@@ -141,7 +141,7 @@ class GalleryDB
 
     public function getInfo($galleryID)
     {
-        $sql = self::$baseSQL . "WHERE Galleries.GalleryID=?";
+        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,
