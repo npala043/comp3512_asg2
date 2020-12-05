@@ -20,9 +20,9 @@ function initMap() {
 //         .catch(err => console.error(err));
 
 //     function listGalleries(gallery) {
-       
+
 //         for (let g of gallery) {
-           
+
 //             let li = document.createElement("li");
 //             li.textContent = g.GalleryName;
 //             document.querySelector("#galleryList").appendChild(li);
@@ -37,14 +37,34 @@ function initMap() {
 //             sortPaintings(g);
 //         }
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("jkasdfj");
-    let list = document.querySelector("#galleryList li a");
-    list.addEventListener("click", function () {
-        console.log("im here");
-        document.querySelector(".info ").style.display = "grid";
-        document.querySelector(".paintings").style.display = "block";
-    });
 
+    const galleries = "api-galleries.php";
+    console.log(galleries);
+
+    fetch(galleries)
+        .then(resp => resp.json())
+        .then(gallery => {
+            console.log(gallery);
+            let list = document.querySelector("#galleryList li a");
+            list.addEventListener("click", function () {
+                document.querySelector(".info ").style.display = "grid";
+                document.querySelector(".paintings").style.display = "block";
+                displayMap(gallery);
+            });
+                    
+        })
+        .catch(err => console.error(err));
+
+
+  
+        function displayMap(gallery) {
+            console.log("map");
+            map = new google.maps.Map(document.querySelector(".map"), {
+                center: { lat: gallery.Latitude, lng: gallery.Longitude },
+                zoom: 17,
+                mapTypeId: 'satellite'
+            });
+        }
 
 });
 
@@ -62,20 +82,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //         website.innerHTML = "Website";
 //     }
 
-//     //This function displays the location given from the JSON file 
-//     function displayMap(gallery) {
-//         map = new google.maps.Map(document.querySelector(".box.map"), {
-//             center: { lat: gallery.Latitude, lng: gallery.Longitude },
-//             zoom: 17,
-//             mapTypeId: 'satellite'
-//         });
-//     }
+//This function displays the location given from the JSON file 
+
 //     //This function displays the painting in order from the galleries page.
 //     function displayPaintings(gallery) {
 //         fetch(`api-paintings.php?gallery=${gallery.GalleryID}`)
 //             .then(resp => resp.json())
 //             .then(paintings => {
-                
+
 //                 createPaintingTable(paintings);
 //                 sortPaintings(paintings);
 
@@ -86,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //     // it takes the api-galleries and creates the table with painting 
 //     function createPaintingTable(paintings) {
 //         document.querySelector("tbody").innerHTML = "";
-        
+
 //         for (let p of paintings) {
 
 //             let tableBody = document.querySelector("#paintingTable tbody");
@@ -172,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //         img.id = `${painting.ImageFileName}`;
 //         img.style.width = "20px";
 //         img.style.height = "20px";
-        
+
 //         return img;
 //     }
 // })

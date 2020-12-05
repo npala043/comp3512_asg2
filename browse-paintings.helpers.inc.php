@@ -18,31 +18,44 @@ function submitNothing()
     }
 }
 
-function displayFilteredPaintings($connection)
+function displayByArtist($connection)
 {
     $paintingGateway = new PaintingDB($connection);
+    $list = $paintingGateway->getAllSortByArtist();
+    generateTable($list);
 }
 
-function displayDefaultPaintings($connection)
+function displayByYear($connection)
 {
     $paintingGateway = new PaintingDB($connection);
-    $list = $paintingGateway->getAll();
+    $list = $paintingGateway->getAllSortByYear();
+    generateTable($list);
+}
+
+function displayByTitle($connection)
+{
+    $paintingGateway = new PaintingDB($connection);
+    $list = $paintingGateway->getAllSortByTitle();
+    generateTable($list);
+}
+
+function generateTable($list)
+{
     foreach ($list as $row) { ?>
         <tr class="tempTr">
             <td class="img">
-                <!-- Gotta fix -->
-                <?= $row['ImageFileName'] ?>
+                <img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg' />
             </td>
-            <td class="artist"><?= $row['ArtistID'] ?></td>
+            <td class="artist"><?= $row['FirstName'] ?> <?= $row['LastName'] ?></td>
             <td class="title" id="<?= $row['ImageFileName'] ?>" style="text-align:center;"><?= $row['Title'] ?></td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
-            <td><button>Add to Favorites</button></td>
-            <td><button>View</button></td>
+            <td><button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>">Add to Favorites</a></button></td>
+            <td><button><a href="single-painting.php?id=<?= $row['PaintingID'] ?>">View</a></button></td>
         </tr>
 <?php }
+}
 
-    function generateQueryString($sortCategory)
-    {
-        return "browse-paintings.php?sort=$sortCategory&title=$_GET[title]&";
-    }
+function generateQueryString($sortCategory)
+{
+    return "browse-paintings.php?sort=$sortCategory&title=$_GET[title]&";
 }

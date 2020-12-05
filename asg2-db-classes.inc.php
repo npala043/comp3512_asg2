@@ -105,6 +105,36 @@ class PaintingDB
         );
         return $statement->fetchAll();
     }
+    public function getAllSortByArtist()
+    {
+        $sql = self::$baseSQL . " ORDER BY LastName";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
+    public function getAllSortByTitle()
+    {
+        $sql = self::$baseSQL . " ORDER BY Title";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
+    public function getAllSortByYear()
+    {
+        $sql = self::$baseSQL . " ORDER BY YearOfWork";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
 }
 
 class GalleryDB
