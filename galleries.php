@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-        <title>Assignment 1</title>
+        <title>Galleries Page</title>
         <style>
             main {
                 display: grid;
@@ -49,10 +49,6 @@
 </head>
 
 <body>
-    <header>
-        <h1>COMP 3512 Assign1</h1>
-        <h3> Darren Lam & Mason Lee</h3>
-    </header>
 
     <!-- We located the html information from lab10-text05 -->
     <main>
