@@ -51,6 +51,13 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             font-size: 26px;
             border-radius: 5px;
             margin: 10px;
+            text-decoration: none;
+        }
+
+        button,
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         input {
@@ -68,11 +75,14 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
 <body>
     <section class="logout" style="display:<?= $displayOut ?>;">
         <div>
-            <button class="login"> Login </button>
+            <button class="login"><a href="login.php"> Login </a></button>
             <button class="join"> Join </button>
         </div>
         <div>
-            <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
+            <form method="GET" action="browse-paintings.php">
+                <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
+                <button class="search" type="submit" value="Submit"><a href="browse-paintings.php?"> Search </a></button>
+            </form>
         </div>
     </section>
 
