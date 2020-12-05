@@ -17,7 +17,7 @@ if (loginDataPresent()) {
         if (isset($data['Pass'])) {
             // if matching user was found, does pass match?
             if (password_verify($_POST['pass'], $data['Pass'])) { // uses bcrypt
-                $_SESSION['user'] = $data['CustomerID'];
+                $_SESSION['user'] = array("id" => $data['CustomerID'], "loginStatus" => true);
                 header("Location: homepage.php");
                 exit();
             } else {
