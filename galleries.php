@@ -1,5 +1,14 @@
 <!-- Mason Will Start This Page -->
+<?php
 
+    try {
+        
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+
+
+?>
 
 
 <!DOCTYPE html>
