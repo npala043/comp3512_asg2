@@ -109,8 +109,9 @@ class PaintingDB
 
 class GalleryDB
 {
-    private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, GalleryCity, GalleryAddress, 
-                               GalleryCountry, Latitude, Longitude, GalleryWebSite, GooglePlaceID FROM Galleries ORDER BY GalleryName";
+    private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, 
+    GalleryCity, GalleryAddress, GalleryCountry, Latitude, Longitude, GalleryWebSite, 
+    GooglePlaceID FROM Galleries ORDER BY GalleryName";
 
 
 
