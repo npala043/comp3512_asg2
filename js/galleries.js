@@ -38,14 +38,14 @@
 //         }
 document.addEventListener("DOMContentLoaded", function () {
     console.log("jkasdfj");
-    let list = document.querySelector("#galleryList li");
+    let list = document.querySelector("#galleryList li a");
     list.addEventListener("click", function () {
         console.log("im here");
         document.querySelector(".info ").style.display = "grid";
         document.querySelector(".paintings").style.display = "block";
     });
 
-    
+
 });
 
 //     }

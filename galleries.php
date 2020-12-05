@@ -32,17 +32,58 @@ try {
     <!-- <link rel="stylesheet" href="css/style.css"> -->
 
     <style>
-        .info,
-        .paintings {
+        main {
             display: grid;
-            border: blue 1px solid;
-
+            grid-gap: 15px;
+            grid-template-columns: 20rem 25rem auto;
+            height: 650px;
         }
 
-        .info,
+        .box {
+            background-color: #C4DFE6;
+            color: #003b46;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1rem;
+        }
+        
+        .list {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 3;
+            overflow: auto;
+            height: 600px;
+        }
+
+        .info {
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 1;
+            height: 260px;
+        }
+
+        .map {
+            grid-column: 2 / span 1;
+            grid-row: 2 / span 2;
+            height: 305px;
+        }
+
         .paintings {
-            display: none;
+            grid-column: 3 / span 1;
+            grid-row: 1 / span 3;
+            overflow: auto;
+            height: 600px;
         }
+
+                /* .info,
+                .paintings {
+                    display: grid;
+                    border: blue 1px solid;
+
+                }
+
+                .info,
+                .paintings {
+        display: none;
+                } */
     </style>
 </head>
 
