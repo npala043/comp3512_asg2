@@ -114,11 +114,12 @@ include_once('browse-paintings.helpers.inc.php');
                     <?php
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-                        if (filterIsSet() && !submitNothing()) {
-                            displayFilteredPaintings($conn);
-                        } else {
-                            displayDefaultPaintings($conn);
-                        }
+                        // if (filterIsSet() && !submitNothing()) {
+                        //     displayFilteredPaintings($conn);
+                        // } else {
+                        //     displayByYear($conn);
+                        // }
+                        displayByYear($conn);
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
