@@ -38,12 +38,14 @@ function initMap() {
 //         }
 document.addEventListener("DOMContentLoaded", function () {
     console.log("jkasdfj");
+    const galleries = "api-galleries.php";
     let list = document.querySelector("#galleryList li a");
     list.addEventListener("click", function () {
         console.log("im here");
         document.querySelector(".info ").style.display = "grid";
         document.querySelector(".paintings").style.display = "block";
     });
+    displayMap(galleries);
 
 
 });
@@ -62,14 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //         website.innerHTML = "Website";
 //     }
 
-//     //This function displays the location given from the JSON file 
-//     function displayMap(gallery) {
-//         map = new google.maps.Map(document.querySelector(".box.map"), {
-//             center: { lat: gallery.Latitude, lng: gallery.Longitude },
-//             zoom: 17,
-//             mapTypeId: 'satellite'
-//         });
-//     }
+    //This function displays the location given from the JSON file 
+    function displayMap(gallery) {
+        map = new google.maps.Map(document.querySelector(".box.map"), {
+            center: { lat: gallery.Latitude, lng: gallery.Longitude },
+            zoom: 17,
+            mapTypeId: 'satellite'
+        });
+    }
 //     //This function displays the painting in order from the galleries page.
 //     function displayPaintings(gallery) {
 //         fetch(`api-paintings.php?gallery=${gallery.GalleryID}`)
