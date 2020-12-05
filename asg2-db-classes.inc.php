@@ -105,13 +105,43 @@ class PaintingDB
         );
         return $statement->fetchAll();
     }
+    public function getAllSortByArtist()
+    {
+        $sql = self::$baseSQL . " ORDER BY LastName";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
+    public function getAllSortByTitle()
+    {
+        $sql = self::$baseSQL . " ORDER BY Title";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
+    public function getAllSortByYear()
+    {
+        $sql = self::$baseSQL . " ORDER BY YearOfWork";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetchAll();
+    }
 }
 
 class GalleryDB
 {
     private static $baseSQL = "SELECT Galleries.GalleryID, GalleryName, GalleryNativeName, 
     GalleryCity, GalleryAddress, GalleryCountry, Latitude, Longitude, GalleryWebSite, 
-    GooglePlaceID FROM Galleries ORDER BY GalleryName";
+    GooglePlaceID FROM Galleries";
 
 
 
@@ -123,14 +153,14 @@ class GalleryDB
 
     public function getAll()
     {
-        $sql = self::$baseSQL;
+        $sql = self::$baseSQL . " ORDER BY GalleryName";
         $statement = DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
     }
 
     public function getGallery($galleryID)
     {
-        $sql = self::$baseSQL . " WHERE Galleries.GalleryID=?";
+        $sql = self::$baseSQL . " WHERE GalleryID=?";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,
@@ -138,4 +168,6 @@ class GalleryDB
         );
         return $statement->fetchAll();
     }
+
+  
 }
