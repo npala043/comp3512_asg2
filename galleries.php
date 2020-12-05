@@ -23,8 +23,8 @@ try {
 <head>
     <meta charset="utf-8" />
     <title>Galleries Page</title>
-    <link rel="stylesheet" href="css/galleries.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/galleries.css">
+    <link rel="stylesheet" href="css/style.css"> -->
 </head>
 
 <body>
@@ -36,11 +36,11 @@ try {
     <main>
         <!-- Creates the gallery list  -->
         <div class="box list">
-            <section> 
-                <h2>Gallery List </h2> 
+            <section>
+                <h2>Gallery List </h2>
                 <ul id="galleryList">
                     <?php
-                   
+
                     foreach ($galleries as $row) {
                         echo "<li>" . $row['GalleryName'] . "</li>";
                     }
@@ -98,24 +98,24 @@ try {
                         <?php
                         foreach ($paintings as $row) {
                         ?>
-                        <tr>
-                            <td><?= $row['ImageFileName'] ?></td>
-                            <td>
-                            <?php
-                                if (is_null($painting['FirstName'])) {
-                                    echo $painting['LastName'];
-                                } else if (is_null($painting['LastName'])) {
-                                    echo $painting['FirstName'];
-                                } else {
-                                    echo $painting['FirstName'] .  " " . $painting['LastName'];
-                                }
-                                ?>
-                            </td>
-                            <td><?= $row['Title'] ?></td>
-                            <td><?= $row['YearOfWork'] ?></td>
-                        </tr>
-                        <?php 
-                        } 
+                            <tr>
+                                <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
+                                <td>
+                                    <?php
+                                    if (is_null($row['FirstName'])) {
+                                        echo $row['LastName'];
+                                    } else if (is_null($row['LastName'])) {
+                                        echo $row['FirstName'];
+                                    } else {
+                                        echo $row['FirstName'] .  " " . $row['LastName'];
+                                    }
+                                    ?>
+                                </td>
+                                <td id="title"><a href="single-painting.php?id=<?=$row['PaintingID']?>"><?= $row['Title'] ?></a></td>
+                                <td><?= $row['YearOfWork'] ?></td>
+                            </tr>
+                        <?php
+                        }
                         ?>
                     </tbody>
                 </table>
