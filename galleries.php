@@ -1,18 +1,16 @@
 <!-- Mason Will Start This Page -->
 <?php
 
-    require_once 'config.inc.php';
-    include 'asg2-db-classes.inc.php';
-    
-    try {
-        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-        $gateway = new GalleryDB($conn);
-        $galleries = $gateway->getAll();
+require_once 'config.inc.php';
+include 'asg2-db-classes.inc.php';
 
-
-    } catch (Exception $e) {
-        die($e->getMessage());
-    }
+try {
+    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+    $gateway = new GalleryDB($conn);
+    $galleries = $gateway->getAll();
+} catch (Exception $e) {
+    die($e->getMessage());
+}
 
 
 ?>
@@ -20,11 +18,12 @@
 
 <!DOCTYPE html>
 <html>
-<head> 
-    <meta charset="utf-8"/>
-        <title>Galleries Page</title>
-        <link rel="stylesheet" href="css/galleries.css">
-        <link rel="stylesheet" href="css/style.css">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Galleries Page</title>
+    <link rel="stylesheet" href="css/galleries.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -32,56 +31,57 @@
     <header>
         <h1> Galleries Page </h1>
     </header>
-<!-- We located the html information from lab10-text05 -->
-<main>
+    <!-- We located the html information from lab10-text05 -->
+    <main>
         <!-- Creates the gallery list  -->
-        <div class = "box list"> 
-            <section>
-                <h2>Gallery List </h2>
+        <div class="box list">
+            <section> 
+                <h2>Gallery List </h2> 
                 <ul id="galleryList">
-                <?php 
+                    <?php
+                   
                     foreach ($galleries as $row) {
                         echo "<li>" . $row['GalleryName'] . "</li>";
                     }
-                ?>
+                    ?>
 
                     <!-- insert il using js -->
                 </ul>
-            </section>    
+            </section>
         </div>
 
         <!-- Creates the gallery info -->
-        <div class = "box info"> 
+        <div class="box info">
             <section>
-                <?php 
+                <?php
                 foreach ($galleries as $row) {
                 ?>
-                <label> <?= $row['GalleryName']?> </label>
-                <h2 id="galleryName"></h2>;
-                <label>Native Name: <?= $row['GalleryNativeName'] ?></label>;
-                <span id="galleryNative"></span>;          
-                <label>Address: <?= $row['GalleryAddress'] ?></label>
-                <span id="galleryAddress"></span>
-                <label>City: <?= $row['GalleryCity'] ?></label>
-                <span id="galleryCity"></span>          
-                <label>Country: <?= $row['GalleryCountry'] ?></label>
-                <span id="galleryCountry"></span>            
-                <label>Website:</label>
-                <span><a href="<?= $row['GalleryWebsite'] ?>" id=galleryWebsite"> Website </a></span>
-                <?php 
+                    <label> <?= $row['GalleryName'] ?> </label>
+                    <h2 id="galleryName"></h2>
+                    <label>Native Name: <?= $row['GalleryNativeName'] ?></label>
+                    <span id="galleryNative"></span>
+                    <label>Address: <?= $row['GalleryAddress'] ?></label>
+                    <span id="galleryAddress"></span>
+                    <label>City: <?= $row['GalleryCity'] ?></label>
+                    <span id="galleryCity"></span>
+                    <label>Country: <?= $row['GalleryCountry'] ?></label>
+                    <span id="galleryCountry"></span>
+                    <label>Website:</label>
+                    <span><a href="<?= $row['GalleryWebSite'] ?>" id="galleryWebsite"> Website </a></span>
+                <?php
                 }
                 ?>
             </section>
         </div>
 
         <!-- Creates the map where the gallery is located -->
-        <div class = "box map"> 
+        <div class="box map">
             <p>map</p>
             <!-- insert map given -->
         </div>
 
         <!-- Creates a table list of the paintings within the gallery -->
-        <div class = "box paintings"> 
+        <div class="box paintings">
             <section>
                 <h2>Paintings</h2>
                 <table id="paintingTable">
@@ -101,8 +101,8 @@
 
     </main>
 
-    <script src="js/galleries.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"
-        async defer></script>
+    <!-- <script src="js/galleries.js"></script> -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script> -->
 </body>
+
 </html>
