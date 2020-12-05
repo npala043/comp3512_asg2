@@ -1,148 +1,99 @@
-<!-- Mason Will Start This Page -->
-<?php
-
-require_once 'config.inc.php';
-include 'asg2-db-classes.inc.php';
-
-try {
-    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-    $gateway = new GalleryDB($conn);
-    $galleries = $gateway->getAll();
-    $gateway2 = new PaintingDB($conn);
-    $paintings = $gateway2->getAll();
-    if (isset($_GET['galleryID'])) {
-        $galleryPaintings = $gateway2->getAllForGallery($_GET['galleryID']);
-        $galleryInfo = $gateway->getGallery($_GET['galleryID']);
-    }
-} catch (Exception $e) {
-    die($e->getMessage());
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <title>Galleries Page</title>
+    <meta charset="utf-8"/>
+        <title>Assignment 1</title>
+        <style>
+            main {
+                display: grid;
+                grid-gap: 15px;
+                grid-template-columns: 20rem 25rem auto;
+                height: 650px;
+            }
 
-    <!-- <link rel="stylesheet" href="css/galleries.css"> -->
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
+            .box {
+                background-color: #C4DFE6;
+                color: #003b46;
+                border-radius: 5px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
 
-    <style>
-        main {
-            display: grid;
-            grid-gap: 15px;
-            grid-template-columns: 20rem 25rem auto;
-            height: 650px;
-        }
+            .list {
+                grid-column: 1 / span 1;
+                grid-row: 1 / span 3;
+                overflow: auto;
+                height: 600px;
+            }
 
-        .box {
-            background-color: #C4DFE6;
-            color: #003b46;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 1rem;
-        }
+            .info {
+                grid-column: 2 / span 1;
+                grid-row: 1 / span 1;
+                height: 260px;
+            }
 
-        .list {
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 3;
-            overflow: auto;
-            height: 600px;
-        }
+            .map {
+                grid-column: 2 / span 1;
+                grid-row: 2 / span 2;
+                height: 305px;
+            }
 
-        .info {
-            grid-column: 2 / span 1;
-            grid-row: 1 / span 1;
-            height: 260px;
-        }
+            .paintings {
+                grid-column: 3 / span 1;
+                grid-row: 1 / span 3;
+                overflow: auto;
+                height: 600px;
+            }
 
-        .map {
-            grid-column: 2 / span 1;
-            grid-row: 2 / span 2;
-            height: 305px;
-        }
-
-        .paintings {
-            grid-column: 3 / span 1;
-            grid-row: 1 / span 3;
-            overflow: auto;
-            height: 600px;
-        }
-
-        /* .info,
-        .paintings {
-            display: grid;
-        }
-
-        .info,
-        .paintings {
-            display: none;
-        } */
-    </style>
+        </style>
 </head>
 
 <body>
-    <!-- Title for galleries page -->
     <header>
-        <h1> Galleries Page </h1>
+        <h1>COMP 3512 Assign1</h1>
+        <h3> Darren Lam & Mason Lee</h3>
     </header>
+
     <!-- We located the html information from lab10-text05 -->
     <main>
+        <!-- Button to toggle list -->
+        <button type="button" id="toggle">Hide Gallery List</button>
         <!-- Creates the gallery list  -->
-        <div class="box list">
+        <div class = "box list"> 
             <section>
-                <h2>Gallery List </h2>
+                <h2>Galleries</h2>
                 <ul id="galleryList">
-                    <?php
-
-                    foreach ($galleries as $row) {
-                        echo "<li><a href='galleries.php?galleryID=" . $row['GalleryID'] . "'>" . $row['GalleryName'] . "</a></li>";
-                    }
-                    ?>
-
                     <!-- insert il using js -->
                 </ul>
-            </section>
+            </section>    
         </div>
 
         <!-- Creates the gallery info -->
-        <div class="box info">
+        <div class = "box info"> 
             <section>
-                <?php
-                if (isset($_GET['galleryID'])) {
-                    foreach ($galleryInfo as $row) {
-                ?>
-                        <label> <?= $row['GalleryName'] ?> </label>
-                        <h2 id="galleryName"></h2>
-                        <label>Native Name: <?= $row['GalleryNativeName'] ?></label>
-                        <span id="galleryNative"></span>
-                        <label>Address: <?= $row['GalleryAddress'] ?></label>
-                        <span id="galleryAddress"></span>
-                        <label>City: <?= $row['GalleryCity'] ?></label>
-                        <span id="galleryCity"></span>
-                        <label>Country: <?= $row['GalleryCountry'] ?></label>
-                        <span id="galleryCountry"></span>
-                        <label>Website:</label>
-                        <span><a href="<?= $row['GalleryWebSite'] ?>" id="galleryWebsite"> Website </a></span>
-                <?php
-                    }
-                }
-                ?>
+                <label> </label>
+                <h2 id="galleryName"></h2>
+                <label>Native Name:</label>
+                <span id="galleryNative"></span>          
+                <label>Address:</label>
+                <span id="galleryAddress"></span>
+                <label>City:</label>
+                <span id="galleryCity"></span>          
+                <label>Country:</label>
+                <span id="galleryCountry"></span>            
+                <label>Website:</label>
+                <span><a href="" id="galleryWebsite"></a></span>
             </section>
         </div>
 
         <!-- Creates the map where the gallery is located -->
-        <div class="box map">
+        <div class = "box map"> 
             <p>map</p>
             <!-- insert map given -->
         </div>
 
         <!-- Creates a table list of the paintings within the gallery -->
-        <div class="box paintings">
+        <div class = "box paintings"> 
             <section>
                 <h2>Paintings</h2>
                 <table id="paintingTable">
@@ -155,30 +106,6 @@ try {
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php
-                                if (isset($_GET['galleryID'])) {
-                                    foreach ($galleryPaintings as $row) {
-                                ?>
-                                <tr>
-                                    <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
-                                    <td>
-                                        <?php
-                                        if (is_null($row['FirstName'])) {
-                                            echo $row['LastName'];
-                                        } else if (is_null($row['LastName'])) {
-                                            echo $row['FirstName'];
-                                        } else {
-                                            echo $row['FirstName'] . " " . $row['LastName'];
-                                        }
-                                        ?>
-                                    </td>
-                                    <td id="title"><a href="single-painting.php?id=<?= $row['PaintingID'] ?>"><?= $row['Title'] ?></a></td>
-                                    <td><?= $row['YearOfWork'] ?></td>
-                                </tr>
-                        <?php
-                                    }
-                                }
-                        ?> -->
                     </tbody>
                 </table>
             </section>
@@ -186,8 +113,46 @@ try {
 
     </main>
 
-    <script src="js/galleries.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script>
+    <!-- Creates the big view of a painting selected -->
+    <div id = "bigPainting"> 
+        <section>
+            <img id = "bigImage">
+            <label> </label>
+            <div id=pInfo>
+                <h2 id="pTitle"></h2> 
+                <label>Artist Name:</label>
+                <span id="pName"></span> </br>    
+                    <!-- concat artist name -->
+                <label>Gallery Name:</label> 
+                <span id="pGalleryName"></span> </br>          
+                <label>Gallery City:</label>
+                <span id="pGalleryCity"></span> </br>           
+                <label>Museum Website:</label>
+                <span><a href="" id="pGalleryWebsite"></a></span> </br>      
+                <label>Copyright:</label>
+                <span id="pCopyright"></span> </br>           
+                <label>Year of Work:</label>
+                <span id="pYear"></span> </br>            
+                <label>Width:</label>
+                <span id="pWidth"></span> </br>           
+                <label>Height:</label>
+                <span id="pHeight"></span> </br>           
+                <label>Medium:</label>
+                <span id="pMedium"></span> </br>           
+                <label>Description:</label>
+                <span id="pDescription"></span> <br><br>
+                <label>Colours:</label>
+                <span id="pColours"></span> <br><br>
+                <span id="pButton"><button id="closeButton">Close</button></span> <br>       
+            </div>    
+        </section>
+    </div>
+    <div id = "modal">
+        <img id="biggerImage">
+    </div>
+    <!-- Connects the html to the javascript -->
+    <script src="js/gallerypage.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"
+        async defer></script>
 </body>
-
 </html>
