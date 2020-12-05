@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function clickPainting(painting) {
-
+        painting.href = `single-painting.php${painting.paintingID}`; 
     }
 
      // Function lets us sort through the paintings list by clicking on artists, title, year.
