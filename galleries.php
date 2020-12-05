@@ -10,7 +10,7 @@ try {
     $galleries = $gateway->getAll();
     $gateway2 = new PaintingDB($conn);
     $paintings = $gateway2->getAll();
-    if(isset($_GET['galleryID'])){ 
+    if (isset($_GET['galleryID'])) {
         $galleryPaintings = $gateway2->getAllForGallery($_GET['galleryID']);
         $galleryInfo = $gateway->getGallery($_GET['galleryID']);
     }
@@ -39,10 +39,10 @@ try {
 
         }
 
-        /* .info,
+        .info,
         .paintings {
             display: none;
-        } */
+        }
     </style>
 </head>
 
@@ -74,21 +74,23 @@ try {
         <div class="box info">
             <section>
                 <?php
-                foreach ($galleryInfo as $row) {
+                if (isset($_GET['galleryID'])) {
+                    foreach ($galleryInfo as $row) {
                 ?>
-                    <label> <?= $row['GalleryName'] ?> </label>
-                    <h2 id="galleryName"></h2>
-                    <label>Native Name: <?= $row['GalleryNativeName'] ?></label>
-                    <span id="galleryNative"></span>
-                    <label>Address: <?= $row['GalleryAddress'] ?></label>
-                    <span id="galleryAddress"></span>
-                    <label>City: <?= $row['GalleryCity'] ?></label>
-                    <span id="galleryCity"></span>
-                    <label>Country: <?= $row['GalleryCountry'] ?></label>
-                    <span id="galleryCountry"></span>
-                    <label>Website:</label>
-                    <span><a href="<?= $row['GalleryWebSite'] ?>" id="galleryWebsite"> Website </a></span>
+                        <label> <?= $row['GalleryName'] ?> </label>
+                        <h2 id="galleryName"></h2>
+                        <label>Native Name: <?= $row['GalleryNativeName'] ?></label>
+                        <span id="galleryNative"></span>
+                        <label>Address: <?= $row['GalleryAddress'] ?></label>
+                        <span id="galleryAddress"></span>
+                        <label>City: <?= $row['GalleryCity'] ?></label>
+                        <span id="galleryCity"></span>
+                        <label>Country: <?= $row['GalleryCountry'] ?></label>
+                        <span id="galleryCountry"></span>
+                        <label>Website:</label>
+                        <span><a href="<?= $row['GalleryWebSite'] ?>" id="galleryWebsite"> Website </a></span>
                 <?php
+                    }
                 }
                 ?>
             </section>
@@ -115,25 +117,27 @@ try {
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($galleryPaintings as $row) {
+                        if (isset($_GET['galleryID'])) {
+                            foreach ($galleryPaintings as $row) {
                         ?>
-                            <tr>
-                                <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
-                                <td>
-                                    <?php
-                                    if (is_null($row['FirstName'])) {
-                                        echo $row['LastName'];
-                                    } else if (is_null($row['LastName'])) {
-                                        echo $row['FirstName'];
-                                    } else {
-                                        echo $row['FirstName'] . " " . $row['LastName'];
-                                    }
-                                    ?>
-                                </td>
-                                <td id="title"><a href="single-painting.php?id=<?= $row['PaintingID'] ?>"><?= $row['Title'] ?></a></td>
-                                <td><?= $row['YearOfWork'] ?></td>
-                            </tr>
+                                <tr>
+                                    <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
+                                    <td>
+                                        <?php
+                                        if (is_null($row['FirstName'])) {
+                                            echo $row['LastName'];
+                                        } else if (is_null($row['LastName'])) {
+                                            echo $row['FirstName'];
+                                        } else {
+                                            echo $row['FirstName'] . " " . $row['LastName'];
+                                        }
+                                        ?>
+                                    </td>
+                                    <td id="title"><a href="single-painting.php?id=<?= $row['PaintingID'] ?>"><?= $row['Title'] ?></a></td>
+                                    <td><?= $row['YearOfWork'] ?></td>
+                                </tr>
                         <?php
+                            }
                         }
                         ?>
                     </tbody>
