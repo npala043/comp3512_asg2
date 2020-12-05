@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
     }
 }
 
-// Format of $_SESSION['favourites']
+/* Format of $_SESSION['favourites'] */
 // $_SESSION['favourites'] = 
 //     [0] => {
 //         [id] => __,
@@ -35,9 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESS
 //         [filename] => __
 //     ,} etc.
 
+// If no favourites in session, create one
 if (!isset($_SESSION["favourites"])) {
     $fav = [];
 } else {
+    //otherwise grab and store it
     $fav = $_SESSION["favourites"];
 }
 
@@ -53,9 +55,9 @@ if (!isset($_SESSION["favourites"])) {
 </head>
 
 <body>
+    <?php include("header.php"); ?>
     <div>
         <form action="favorites.php" method="post">
-            <!-- using get for testing -->
             <table>
                 <tr>
                     <th></th> <!-- Remove from favs button -->
@@ -64,10 +66,11 @@ if (!isset($_SESSION["favourites"])) {
                 </tr>
                 <?php
                 if (empty($fav)) { ?>
+                    <!-- If no favourites, display placeholder img and msg -->
                     <tr>
                         <td></td>
                         <td><img src="images/nahuel/shrug.png" alt="shrug"></td>
-                        <td>No favourites to display!</td>
+                        <td>No favourites here</td>
                     </tr>
                     <?php } else {
                     foreach ($fav as $f) { ?>
@@ -90,7 +93,9 @@ if (!isset($_SESSION["favourites"])) {
                 <?php }
                 } ?>
             </table>
-            <input type="submit" value="Remove"> <!-- Submits chosen painting to remove -->
+            <!-- Submits chosen painting to remove -->
+            <input type="submit" value="Remove">
+            <!-- Removes all paintings from favourites -->
             <button type="submit" name="id" value="all">Remove All</button>
         </form>
     </div>
