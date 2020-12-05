@@ -27,9 +27,9 @@ include 'api-galleries.php';
             <section>
                 <h2>Gallery List </h2>
                 <ul id="galleryList">
-                <?php
+                <!-- <?php
                     foreach()
-                ?>
+                ?> -->
 
                     <!-- insert il using js -->
                 </ul>
