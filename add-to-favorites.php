@@ -18,8 +18,9 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // check if painting already in favourites
     foreach ($fav as $f) {
         if (in_array($_GET['id'], $f)) {
-            echo "<script>alert('Already added to favourites')</script>";
+            echo "<script>alert('Already added to favourites');</script>";
             header("Location:" . $_SERVER["HTTP_REFERER"]);
+            exit();
         }
     }
 
