@@ -115,6 +115,10 @@ try {
 </head>
 
 <body>
+
+        <?php include('header.php')?>
+
+
     <main>
         <div id="imgBox">
             <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" width="500px">
