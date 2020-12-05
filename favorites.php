@@ -7,20 +7,33 @@ session_start();
 // remove paintings from $_SESSION['favourites'] with matching IDs
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESSION['favourites'])) {
     $remove = $_POST['id'];
+    unset($_POST['id']);
     if ($remove == "all") {
         unset($_SESSION['favourites']);
     } else {
         $fav = $_SESSION['favourites'];
-        foreach ($remove as $r) {
-            foreach ($fav as $f) {
-                if ($r == $f['id']) {
-                    unset($f);
-                    break;
-                }
+        for ($i = 0; $i < count($fav); $i++) { // loop through each painting array in favourites
+            if ($remove == $fav[$i]['id']) {
+                unset($fav[$i]);
+                $_SESSION['favourites'] = array_values($fav);
+                break;
             }
         }
     }
 }
+
+// Format of $_SESSION['favourites']
+// $_SESSION['favourites'] = 
+//     [0] => {
+//         [id] => __,
+//         [title] => __,
+//         [filename] => __
+//     },
+//     [1] => {
+//         [id] => __,
+//         [title] => __,
+//         [filename] => __
+//     ,} etc.
 
 if (!isset($_SESSION["favourites"])) {
     $fav = [];
@@ -42,20 +55,25 @@ if (!isset($_SESSION["favourites"])) {
 <body>
     <div>
         <form action="favorites.php" method="post">
+            <!-- using get for testing -->
             <table>
                 <tr>
+                    <th></th> <!-- Remove from favs button -->
                     <th></th> <!-- Painting Thumbnail -->
                     <th>Title</th>
                 </tr>
                 <?php
                 if (empty($fav)) { ?>
                     <tr>
+                        <td></td>
                         <td><img src="images/nahuel/shrug.png" alt="shrug"></td>
                         <td>No favourites to display!</td>
                     </tr>
                     <?php } else {
                     foreach ($fav as $f) { ?>
                         <tr>
+                            <!-- Removal checkbox -->
+                            <td><input type="radio" name="id" value=<?= $f['id'] ?>></td>
                             <td>
                                 <!-- Painting Thumbnail -->
                                 <a href="single-painting.php?id=<?= $f['id'] ?>">
@@ -72,6 +90,8 @@ if (!isset($_SESSION["favourites"])) {
                 <?php }
                 } ?>
             </table>
+            <input type="submit" value="Remove"> <!-- Submits chosen painting to remove -->
+            <button type="submit" name="id" value="all">Remove All</button>
         </form>
     </div>
 </body>

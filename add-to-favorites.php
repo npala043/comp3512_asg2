@@ -35,7 +35,7 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // re-save modified array back to session state
     $_SESSION["favourites"] = $fav;
 } else {
-    $_SESSION['error'] =  "<script>alert('Invalid query')</script>";
+    $_SESSION['error'] = "<script>alert('Invalid query')</script>";
 }
 
 // redirect back to the requesting page
