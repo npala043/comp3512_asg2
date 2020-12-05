@@ -143,9 +143,6 @@ class GalleryDB
     GalleryCity, GalleryAddress, GalleryCountry, Latitude, Longitude, GalleryWebSite, 
     GooglePlaceID FROM Galleries";
 
-
-
-
     public function __construct($connection)
     {
         $this->pdo = $connection;
@@ -168,6 +165,30 @@ class GalleryDB
         );
         return $statement->fetchAll();
     }
+}
 
-  
+class CustomerLoginDB
+{
+    private static $baseSQL = "SELECT CustomerID, UserName, Pass, Salt, Password_sha256
+    DateJoined, DateLastModified FROM CustomerLogon";
+
+    public function __construct($connection)
+    {
+        $this->pdo = $connection;
+    }
+
+    public function getByUserName($user)
+    {
+        $sql = self::$baseSQL . " WHERE UserName=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($user)
+        );
+        return $statement->fetch();
+    }
+    public function updatePassword($id, $pass, $shaPass)
+    { // Not sure this is needed
+
+    }
 }
