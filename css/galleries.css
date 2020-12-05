@@ -57,23 +57,23 @@ main {
 }
 
 ul#galleryList {
-    list-style-type: none;
+    /* list-style-type: none; */
     margin: 0;
     padding: 0;
 }
 
 div.info section {
-    display: none;
+    /* display: none; */
     grid-gap: 5px;
     grid-template-columns: 6rem auto;	
 }
 
 div.list section {
-    display: none;
+    /* display: none; */
 }
 
 div.paintings section {
-    display: none;
+    /* display: none; */
 }
 
 #galleryName {
