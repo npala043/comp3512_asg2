@@ -9,6 +9,7 @@ try {
     $gateway = new GalleryDB($conn);
     $galleries = $gateway->getAll();
     $gateway2 = new PaintingDB($conn);
+    $galleryPaintings = $gateway2->getAllForGallery(11);
     $paintings = $gateway2->getAll();
 } catch (Exception $e) {
     die($e->getMessage());
@@ -111,7 +112,7 @@ try {
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($paintings as $row) {
+                        foreach ($galleryPaintings as $row) {
                         ?>
                             <tr>
                                 <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
