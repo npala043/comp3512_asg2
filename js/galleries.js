@@ -37,11 +37,13 @@
 //             sortPaintings(g);
 //         }
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("jkasdfj");
     let list = document.querySelector("#galleryList li");
     list.addEventListener("click", function () {
-        document.querySelector("div.info section").style.display = "grid";
-        document.querySelector("div.paintings section").style.display = "block";
-    })
+        console.log("im here");
+        document.querySelector(".info ").style.display = "grid";
+        document.querySelector(".paintings").style.display = "block";
+    });
 
 
 });

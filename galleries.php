@@ -23,8 +23,23 @@ try {
 <head>
     <meta charset="utf-8" />
     <title>Galleries Page</title>
-    <link rel="stylesheet" href="css/galleries.css">
+    
+    <!-- <link rel="stylesheet" href="css/galleries.css"> -->
     <!-- <link rel="stylesheet" href="css/style.css"> -->
+
+    <style>
+        .info,
+        .paintings {
+            display: grid;
+            border: blue 1px solid;
+
+        }
+
+        .info,
+        .paintings {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -42,7 +57,7 @@ try {
                     <?php
 
                     foreach ($galleries as $row) {
-                        echo "<li>" . $row['GalleryName'] . "</li>";
+                        echo "<li id='listItem'>" . $row['GalleryName'] . "</li>";
                     }
                     ?>
 
@@ -111,7 +126,7 @@ try {
                                     }
                                     ?>
                                 </td>
-                                <td id="title"><a href="single-painting.php?id=<?=$row['PaintingID']?>"><?= $row['Title'] ?></a></td>
+                                <td id="title"><a href="single-painting.php?id=<?= $row['PaintingID'] ?>"><?= $row['Title'] ?></a></td>
                                 <td><?= $row['YearOfWork'] ?></td>
                             </tr>
                         <?php
@@ -124,7 +139,7 @@ try {
 
     </main>
 
-     <script src="js/galleries.js"></script> 
+    <script src="js/galleries.js"></script>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script> -->
 </body>
 
