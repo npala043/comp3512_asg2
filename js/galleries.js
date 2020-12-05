@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 document.querySelector(".info ").style.display = "grid";
                 document.querySelector(".paintings").style.display = "block";
                 displayMap(gallery);
+                displayPaintings(gallery);
             });
                     
         })
@@ -82,69 +83,69 @@ document.addEventListener("DOMContentLoaded", function () {
 //         website.innerHTML = "Website";
 //     }
 
-//This function displays the location given from the JSON file 
+// This function displays the location given from the JSON file 
 
-//     //This function displays the painting in order from the galleries page.
-//     function displayPaintings(gallery) {
-//         fetch(`api-paintings.php?gallery=${gallery.GalleryID}`)
-//             .then(resp => resp.json())
-//             .then(paintings => {
+    //This function displays the painting in order from the galleries page.
+    function displayPaintings(gallery) {
+        fetch(`api-paintings.php?gallery=${gallery.GalleryID}`)
+            .then(resp => resp.json())
+            .then(paintings => {
 
-//                 createPaintingTable(paintings);
-//                 sortPaintings(paintings);
+                createPaintingTable(paintings);
+                sortPaintings(paintings);
 
-//             })
-//     }
+            })
+    }
 
-//     //This function creates the painting table within the galleries page.
-//     // it takes the api-galleries and creates the table with painting 
-//     function createPaintingTable(paintings) {
-//         document.querySelector("tbody").innerHTML = "";
+    //This function creates the painting table within the galleries page.
+    // it takes the api-galleries and creates the table with painting 
+    function createPaintingTable(paintings) {
+        document.querySelector("tbody").innerHTML = "";
 
-//         for (let p of paintings) {
+        for (let p of paintings) {
 
-//             let tableBody = document.querySelector("#paintingTable tbody");
-//             let tr = document.createElement("tr");
-//             tr.className = "tempTr";
-//             tableBody.appendChild(tr);
+            let tableBody = document.querySelector("#paintingTable tbody");
+            let tr = document.createElement("tr");
+            tr.className = "tempTr";
+            tableBody.appendChild(tr);
 
-//             let imgTd = document.createElement("td");
-//             let img = smallImage(p);
-//             imgTd.appendChild(img);
-//             imgTd.className = "img";
-//             tr.appendChild(imgTd);
+            let imgTd = document.createElement("td");
+            let img = smallImage(p);
+            imgTd.appendChild(img);
+            imgTd.className = "img";
+            tr.appendChild(imgTd);
 
 
-//             let artistTd = document.createElement("td");
-//             artistTd.setAttribute("class", "artist");
-//             let titleTd = document.createElement("td");
-//             titleTd.setAttribute("class", "title");
-//             titleTd.style.textDecoration = "underline";
-//             let yearTd = document.createElement("td");
-//             yearTd.setAttribute("class", "year");
+            let artistTd = document.createElement("td");
+            artistTd.setAttribute("class", "artist");
+            let titleTd = document.createElement("td");
+            titleTd.setAttribute("class", "title");
+            titleTd.style.textDecoration = "underline";
+            let yearTd = document.createElement("td");
+            yearTd.setAttribute("class", "year");
 
-//             if (p.FirstName == null) {
-//                 artistTd.textContent = `${p.LastName}`;
-//             } else if (p.LastName == null) {
-//                 artistTd.textContent = `${p.FirstName}`;
-//             } else {
-//                 artistTd.textContent = `${p.FirstName} ${p.LastName}`;
-//             }
+            if (p.FirstName == null) {
+                artistTd.textContent = `${p.LastName}`;
+            } else if (p.LastName == null) {
+                artistTd.textContent = `${p.FirstName}`;
+            } else {
+                artistTd.textContent = `${p.FirstName} ${p.LastName}`;
+            }
 
-//             titleTd.textContent = `${p.Title}`;
-//             titleTd.setAttribute("id", `${p.ImageFileName}`);
-//             yearTd.textContent = `${p.YearOfWork}`;
+            titleTd.textContent = `${p.Title}`;
+            titleTd.setAttribute("id", `${p.ImageFileName}`);
+            yearTd.textContent = `${p.YearOfWork}`;
 
-//             tr.appendChild(artistTd);
-//             tr.appendChild(titleTd);
-//             tr.appendChild(yearTd);
+            tr.appendChild(artistTd);
+            tr.appendChild(titleTd);
+            tr.appendChild(yearTd);
 
-//             // titleTd.addEventListener("click", function (e) {
-//             //     clickPainting(e);
+            // titleTd.addEventListener("click", function (e) {
+            //     clickPainting(e);
 
-//             // })
-//         }
-//     }
+            // })
+        }
+    }
 
 //     function clickPainting(painting) {
 //         let p = `single-painting.php?id=${painting.paintingID}`;
