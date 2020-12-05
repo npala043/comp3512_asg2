@@ -46,7 +46,7 @@ try {
             padding: 10px 20px;
             font-size: 1rem;
         }
-        
+
         .list {
             grid-column: 1 / span 1;
             grid-row: 1 / span 3;
@@ -73,17 +73,15 @@ try {
             height: 600px;
         }
 
-                /* .info,
-                .paintings {
-                    display: grid;
-                    border: blue 1px solid;
+        /* .info,
+        .paintings {
+            display: grid;
+        }
 
-                }
-
-                .info,
-                .paintings {
-        display: none;
-                } */
+        .info,
+        .paintings {
+            display: none;
+        } */
     </style>
 </head>
 
@@ -157,10 +155,10 @@ try {
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        if (isset($_GET['galleryID'])) {
-                            foreach ($galleryPaintings as $row) {
-                        ?>
+                        <!-- <?php
+                                if (isset($_GET['galleryID'])) {
+                                    foreach ($galleryPaintings as $row) {
+                                ?>
                                 <tr>
                                     <td><img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg'></td>
                                     <td>
@@ -178,9 +176,9 @@ try {
                                     <td><?= $row['YearOfWork'] ?></td>
                                 </tr>
                         <?php
-                            }
-                        }
-                        ?>
+                                    }
+                                }
+                        ?> -->
                     </tbody>
                 </table>
             </section>
