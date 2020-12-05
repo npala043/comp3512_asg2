@@ -2,15 +2,18 @@
 
 <?php
 session_start();
-if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
-    $fav[] = 5;
-    $fav[] = 7;
-    $fav[] = 8;
-} else {
-    $fav = $_SESSION["favourites"];
-}
+// if (!isset($_SESSION["favourites"])) {
+//     $fav = [];
+// } else {
+//     $fav = $_SESSION["favourites"];
+// }
 
-
+// For testing
+$fav = [
+    ["id" => 1, "title" => "first painting", "filename" => "001020"],
+    ["id" => 2, "title" => "second painting", "filename" => "001050"],
+    ["id" => 3, "title" => "third painting", "filename" => "001060"]
+];
 
 ?>
 
@@ -28,19 +31,21 @@ if (!isset($_SESSION["favourites"])) { // manually added paintings for testing
         <table>
             <tr>
                 <th></th> <!-- Painting Thumbnail -->
-                <th>Artist</th>
                 <th>Title</th>
-                <th>Year</th>
             </tr>
             <?php
-            foreach ($fav as $f) { ?>
-                <tr>
-                    <td></td> <!-- Painting Thumbnail -->
-                    <td></td> <!-- Artist -->
-                    <td></td> <!-- Title -->
-                    <td></td> <!-- Year -->
-                </tr>
-            <?php } ?>
+            if (empty($fav)) {
+                echo "No favourites to display!";
+            } else {
+                foreach ($fav as $f) { ?>
+                    <tr>
+                        <td>
+                            <img src="images/paintings/square-medium/<?= $f['filename'] ?>.jpg" alt="<?= $f['title'] ?>">
+                        </td> <!-- Painting Thumbnail -->
+                        <td><?= $f['title'] ?></td> <!-- Title -->
+                    </tr>
+            <?php }
+            } ?>
         </table>
     </div>
 </body>

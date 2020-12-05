@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             sortPaintings(g);
-            // toggleButton();
-            document.querySelector("#galleryList").appendChild(li);
         }
     }
      //This function displays the gallery information that has been retrieved from the JSON file.
@@ -58,9 +56,9 @@ document.addEventListener("DOMContentLoaded", function () {
             mapTypeId: 'satellite'
         });
     }
-
+    //This function displays the painting in order from the galleries page.
     function displayPaintings(gallery) {
-        fetch(`https://www.randyconnolly.com/funwebdev/3rd/api/art/paintings.php?gallery=${gallery.GalleryID}`)
+        fetch(`api-galleries.php?gallery=${gallery.GalleryID}`)
             .then(resp => resp.json())
             .then(paintings => {
 
@@ -70,6 +68,8 @@ document.addEventListener("DOMContentLoaded", function () {
             })
     }
 
+    //This function creates the painting table within the galleries page.
+    // it takes the api-galleries and creates the table with painting 
     function createPaintingTable(paintings) {
         document.querySelector("tbody").innerHTML = "";
 
@@ -111,19 +111,15 @@ document.addEventListener("DOMContentLoaded", function () {
             tr.appendChild(titleTd);
             tr.appendChild(yearTd);
 
-
-            img.addEventListener("click", function (e) {
-                bigImage(e);
-                displayPaintingInfo(e, paintings);
-
-            })
-
             titleTd.addEventListener("click", function (e) {
-                bigImage(e);
-                displayPaintingInfo(e, paintings);
+                clickPainting(e);
 
             })
         }
+    }
+
+    function clickPainting(painting) {
+        painting.href = `single-painting.php${painting.paintingID}`; 
     }
 
      // Function lets us sort through the paintings list by clicking on artists, title, year.
@@ -157,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function smallImage(painting) {
         let img = document.createElement("img");
-        img.src = `https://res.cloudinary.com/funwebdev/image/upload/w_50/art/paintings/${painting.ImageFileName}`;
+        img.src = `api-galleries.php${painting.ImageFileName}`;
         img.id = `${painting.ImageFileName}`;
         return img;
     }

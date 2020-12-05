@@ -6,23 +6,19 @@ require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
 
 
-if (isset($_POST['Favourite'])) {
-    header('Location: add-to-favorites.php');
-}
-
 try {
     $id = $_GET['id'];
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
     $paintings = $gateway->getAll();
-    // $domColours = array($gateway->getDomColours($id));
+
     $painting = "";
-    $cookieName = "jsonthing";
+    $json = "";
+
     foreach ($paintings as $row) {
         if ($id == $row['PaintingID']) {
             $painting = $row;
-            $cookieValue = $painting['JsonAnnotations'];
-            setcookie($cookieName, $cookieValue);
+            $json = json_decode($row['JsonAnnotations'], true);
         }
     }
 } catch (Exception $e) {
@@ -50,24 +46,31 @@ try {
             padding: 10px;
         }
 
+        span {
+            padding: 15px 25px;
+            margin: 5px;
+
+        }
 
         #favsButton {
             position: absolute;
-            right: 100px;
-            top: 50px;
+            right: 90px;
+            top: 85px;
         }
 
-        /* #description {
-            width: 50%;
+        #favsButton a,
+        #favsButton a:visited {
+            text-decoration: none;
+            color: black;
+        }
 
-        } */
-
-        /* div.tab {
-            border: lightskyblue 1px solid;
-            width: 50%;
-            padding: 10px;
-
-        } */
+        .link {
+            text-decoration: none;
+            border: oldlace 1px solid;
+            background-color: whitesmoke;
+            padding: 3px;
+            color: black;
+        }
 
         .tab {
             overflow: hidden;
@@ -86,7 +89,6 @@ try {
 
         }
 
-
         .tab button.active {
             background-color: steelblue;
         }
@@ -97,6 +99,7 @@ try {
             border: 1px solid lightskyblue;
             background-color: powderblue;
             border-top: none;
+            
         }
 
         /* 
@@ -133,9 +136,7 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <!-- <button id="favsButton">Add To Favourites</button> -->
-            
-            <!-- <input type="submit" value="Favourite" id="favsButton" method="post"> -->
+            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
 
 
             <button class="tab desctab"> Description </button>
@@ -143,7 +144,7 @@ try {
             <button class="tab colorstab"> Colors </button>
 
             <div id="description" class="tabContent">
-                <h5>Description </h5>
+                <h4>Description </h4>
                 <p>
                     <?php
                     if (is_null($painting['Description'])) {
@@ -157,27 +158,45 @@ try {
                 </p>
             </div>
             <div id="details" class="tabContent">
-                <h5>Details </h5>
+                <h4>Details </h4>
                 <p>Meduim: <?= $painting['Medium'] ?></p>
                 <p>Width: <?= $painting['Width'] ?></p>
                 <p>Height: <?= $painting['Height'] ?></p>
                 <p>Copyright Text: <?= $painting['CopyrightText'] ?></p>
                 <?php
-                //if the wikilink is null then don't add the markup for it 
+                //if the Wikilink is null then don't add the markup for it 
                 if (!is_null($painting['WikiLink'])) {
-                    echo "<a href=" .  $painting['WikiLink'] . ">wikiLink</a>";
+                    echo "<a href=" .  $painting['WikiLink'] . " class='link'>WikiLink</a>";
+                }
+                ?>
+                <a href="<?= $painting['MuseumLink'] ?>" class="link">Museum Link</a>
+            </div>
+            <div id="colors" class="tabContent">
+                <h4> Colors </h4>
+
+                <?php
+                foreach ($json['dominantColors'] as  $value) {
+                    echo "<span style='background-color:" . $value['web'] . ";'></span>";
                 }
                 ?>
 
-                <!-- <a href="<?= $painting['WikiLink'] ?>">wikiLink</a> -->
-                <a href="<?= $painting['MuseumLink'] ?>">Museum Link</a>
-            </div>
-            <div id="colors" class="tabContent">
 
-                <h5> Colors </h5>
-                <div id="coloursBlock"></div>
-                <p>Hex Value:</p>
-                <p>Color Name:</p>
+                <p><b>Hex Value: </b>
+                    <?php
+                    foreach ($json['dominantColors'] as  $value) {
+                        echo $value['web'] . " ";
+                    }
+                    ?>
+                </p>
+                <p><b>Color Name: </b><br>
+                    <ul>
+                        <?php
+                        foreach ($json['dominantColors'] as  $value) {
+                            echo "<li>" . $value['name'] . '</li>';
+                        }
+                        ?>
+                    </ul>
+                </p>
             </div>
 
 
