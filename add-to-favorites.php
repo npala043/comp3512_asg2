@@ -12,7 +12,7 @@ if (!isset($_SESSION["favourites"])) {
 // retrieve any existing favourites
 $fav = $_SESSION["favourites"];
 
-// add passed painting info to the array
+// check if id, title, and filename are present as querystring
 if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
 
     // check if painting already in favourites
