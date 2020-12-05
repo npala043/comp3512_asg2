@@ -9,9 +9,11 @@ try {
     $gateway = new GalleryDB($conn);
     $galleries = $gateway->getAll();
     $gateway2 = new PaintingDB($conn);
-    $galleryPaintings = $gateway2->getAllForGallery($_GET['galleryID']);
     $paintings = $gateway2->getAll();
-    $galleryInfo = $gateway->getGallery($_GET['galleryID']);
+    if(isset($_GET['galleryID'])){ 
+        $galleryPaintings = $gateway2->getAllForGallery($_GET['galleryID']);
+        $galleryInfo = $gateway->getGallery($_GET['galleryID']);
+    }
 } catch (Exception $e) {
     die($e->getMessage());
 }

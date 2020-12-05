@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector(".paintings").style.display = "block";
     });
 
-
+    
 });
 
 //     }
