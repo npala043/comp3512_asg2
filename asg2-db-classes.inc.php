@@ -167,10 +167,10 @@ class GalleryDB
     }
 }
 
-class CustomerLoginDB
+class CustomerLogonDB
 {
     private static $baseSQL = "SELECT CustomerID, UserName, Pass, Salt, Password_sha256
-    DateJoined, DateLastModified FROM CustomerLogon";
+    DateJoined, DateLastModified FROM customerlogon";
 
     public function __construct($connection)
     {
