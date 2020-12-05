@@ -69,11 +69,11 @@ div.info section {
 }
 
 div.list section {
-    /* display: none; */
+    display: none; 
 }
 
 div.paintings section {
-    /* display: none; */
+    display: none;
 }
 
 #galleryName {

@@ -36,6 +36,16 @@
 
 //             sortPaintings(g);
 //         }
+document.addEventListener("DOMContentLoaded", function () {
+    let list = document.querySelector("#galleryList li");
+    list.addEventListener("click", function () {
+        document.querySelector("div.info section").style.display = "grid";
+        document.querySelector("div.paintings section").style.display = "block";
+    })
+
+
+});
+
 //     }
 //     //This function displays the gallery information that has been retrieved from the JSON file.
 //     function displayInfo(gallery) {

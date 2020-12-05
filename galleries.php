@@ -23,8 +23,8 @@ try {
 <head>
     <meta charset="utf-8" />
     <title>Galleries Page</title>
-    <!-- <link rel="stylesheet" href="css/galleries.css">
-    <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/galleries.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
 </head>
 
 <body>
@@ -124,7 +124,7 @@ try {
 
     </main>
 
-    <!-- <script src="js/galleries.js"></script> -->
+     <script src="js/galleries.js"></script> 
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap" async defer></script> -->
 </body>
 
