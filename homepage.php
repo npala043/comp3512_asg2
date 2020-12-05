@@ -6,11 +6,11 @@ include 'asg2-db-classes.inc.php';
 if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
     session_start();
     $displayIn = "block";
-    $displayOut = "hidden";
+    $displayOut = "none";
     $searchPos = "";
 } else {
-    $displayIn = "hidden";
-    $displayOut = "flex";
+    $displayIn = "grid";
+    $displayOut = "none";
     $searchPos = "";
 }
 
@@ -68,6 +68,20 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             margin: 10px;
             padding: 10px;
         }
+
+        section.login {
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 20% 30% 50%;
+        }
+
+        div.header {
+            grid-column: 1 / span 2;
+        }
+
+        div,
+        h2 {
+            margin: auto;
+        }
     </style>
 
 </head>
@@ -87,7 +101,26 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
     </section>
 
     <section class="login" style="display:<?= $displayIn ?>;">
+        <div class="header">
+            <h2>Header Goes Here</h2>
+        </div>
+        <div class="userInfo">
+            <h2>Full Name</h2>
+            <p>City, Country</p>
 
+        </div>
+        <div class="search">
+            <form method="GET" action="browse-paintings.php">
+                <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
+                <button class="search" type="submit" value="Submit"><a href="browse-paintings.php?"> Search </a></button>
+            </form>
+        </div>
+        <div class="favorites">
+            <h2>Your Favorite Paintings</h2>
+        </div>
+        <div class="youMayLike">
+            <h2>Paintings You May Like</h2>
+        </div>
     </section>
 </body>
 

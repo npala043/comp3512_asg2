@@ -16,9 +16,10 @@ $fav = $_SESSION["favourites"];
 if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
 
     // check if painting already in favourites
+    // if yes, save error message to session and redirect back
     foreach ($fav as $f) {
         if (in_array($_GET['id'], $f)) {
-            echo "<script>alert('Already added to favourites');</script>";
+            $_SESSION['error'] = "<script>alert('Already added to favourites');</script>";
             header("Location:" . $_SERVER["HTTP_REFERER"]);
             exit();
         }
@@ -34,7 +35,7 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // re-save modified array back to session state
     $_SESSION["favourites"] = $fav;
 } else {
-    echo "<script>alert('Invalid query')</script>";
+    $_SESSION['error'] =  "<script>alert('Invalid query')</script>";
 }
 
 // redirect back to the requesting page
