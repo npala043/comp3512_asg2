@@ -3,6 +3,8 @@
 
 include_once('config.inc.php');
 include_once('asg2-db-classes.inc.php');
+include_once('browse-paintings.helpers.inc.php');
+
 
 ?>
 
@@ -96,7 +98,33 @@ include_once('asg2-db-classes.inc.php');
         </div>
 
         <div id="paintings">
-
+            <h2>Paintings</h2>
+            <table id="paintingTable">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th id="artist"><a href="browse-paintings.php?sort=artist">Artist</a></th>
+                        <th id="title"><a href="browse-paintings.php?sort=title">Title</a></th>
+                        <th id="year"><a href="browse-paintings.php?sort=year">Year</a></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    try {
+                        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                        if (filterIsSet() && !submitNothing()) {
+                            displayFilteredPaintings($conn);
+                        } else {
+                            displayDefaultPaintings($conn);
+                        }
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
     </main>
 </body>
