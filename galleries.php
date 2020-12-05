@@ -36,10 +36,10 @@ try {
 
         }
 
-        .info,
+        /* .info,
         .paintings {
             display: none;
-        }
+        } */
     </style>
 </head>
 
@@ -58,7 +58,7 @@ try {
                     <?php
 
                     foreach ($galleries as $row) {
-                        echo "<li id='listItem'>" . $row['GalleryName'] . "</li>";
+                        echo "<li>" . $row['GalleryName'] . "</li>";
                     }
                     ?>
 

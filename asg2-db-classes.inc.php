@@ -138,4 +138,15 @@ class GalleryDB
         );
         return $statement->fetchAll();
     }
+
+    public function getInfo($galleryID)
+    {
+        $sql = self::$baseSQL . "WHERE Galleries.GalleryID=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($galleryID)
+        );
+        return $statement->fetchAll();
+    }
 }
