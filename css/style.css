@@ -1,0 +1,17 @@
+header {
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#logo {
+    width: 100px;
+    border-radius: 50%;
+
+}

@@ -37,95 +37,15 @@ try {
     <title></title>
     <meta charset=utf-8>
     <script src="js\single-painting.js"></script>
-    <style>
-        /* will be using this until i can get the external file to work */
-        main {
-            background-color: lightblue;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 10px;
-        }
+ 
 
-        header {
-            border: 1px solid lightblue;
-            background-color: lightblue;
-            margin-bottom: 5px;
-            padding: 5px;
-        }
-
-        #logo {
-            width: 100px;
-            border-radius: 50%;
-            float:inline-end;
-        }
-
-        span {
-            padding: 15px 25px;
-            margin: 5px;
-
-        }
-
-        #favsButton {
-            position: absolute;
-            right: 90px;
-            top: 150px; 
-            padding: 3px;
-        }
-
-        #favsButton a,
-        #favsButton a:visited {
-            text-decoration: none;
-            color: black;
-        }
-
-        .link {
-            text-decoration: none;
-            border: oldlace 1px solid;
-            background-color: whitesmoke;
-            padding: 3px;
-            color: black;
-        }
-
-        .tab {
-            overflow: hidden;
-            border: 1px solid lightskyblue;
-            background-color: powderblue;
-        }
-
-        .tab {
-            background-color: whitesmoke;
-            float: center;
-            border-radius: 5px;
-            outline: none;
-            padding: 16px;
-            font-size: 16px;
-
-
-        }
-
-        .tab button.active {
-            background-color: steelblue;
-        }
-
-        .tabContent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid lightskyblue;
-            background-color: powderblue;
-            border-top: none;
-            
-        }
-
-
-    </style>
-
-
-    <!-- external link is not working for some reason <link rel="stlyesheet" href="css\single-painting.css" > -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/single-painting.css">
 </head>
 
 <body>
 
-        <?php include('header.php')?>
+    <?php include('header.php') ?>
 
 
     <main>
@@ -152,10 +72,10 @@ try {
             <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
             <?php
 
-                if (isset($_SESSION['error'])) {
-                    echo $_SESSION['error'];
-                    unset($_SESSION['error']);
-                  }
+            if (isset($_SESSION['error'])) {
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
             ?>
 
             <button class="tab desctab"> Description </button>
