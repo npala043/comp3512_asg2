@@ -15,9 +15,10 @@ span {
 
 #favsButton {
     position: absolute;
-    right: 90px;
-    top: 150px;
+    right: 40px;
+    top: 140px;
     padding: 3px;
+   
 }
 
 #favsButton a,
