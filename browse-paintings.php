@@ -4,6 +4,7 @@
 include_once('config.inc.php');
 include_once('asg2-db-classes.inc.php');
 include_once('browse-paintings.helpers.inc.php');
+session_start();
 
 
 ?>
