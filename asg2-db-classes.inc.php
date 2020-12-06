@@ -144,7 +144,7 @@ class PaintingDB
             $sql,
             null
         );
-        return $statement->fetch();
+        return $statement->fetchAll();
     }
 }
 

@@ -31,7 +31,7 @@ include_once('browse-paintings.helpers.inc.php');
 
                 <label>Artist</label>
                 <!-- Create Select List of Artists -->
-                <select>
+                <select name="artist">
                     <option value=0>Choose an artist</option>
                     <?php
                     try {
@@ -52,7 +52,7 @@ include_once('browse-paintings.helpers.inc.php');
 
                 <label>Gallery</label>
                 <!-- Create Select List of Gallery -->
-                <select>
+                <select name="gallery">
                     <option value=0>Choose a Gallery</option>
                     <?php
                     try {
@@ -114,8 +114,12 @@ include_once('browse-paintings.helpers.inc.php');
                     <?php
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                        if (formIsFilled()) {
+                            createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $conn);
+                        } else {
+                            displayByYear($conn);
+                        }
 
-                        //createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $conn);
                         if (isset($_GET['sort'])) {
                             if ($_GET['sort'] == 'artist') {
                                 displayByArtist($conn);
@@ -124,8 +128,6 @@ include_once('browse-paintings.helpers.inc.php');
                             } else if ($_GET['sort'] == 'year') {
                                 displayByYear($conn);
                             }
-                        } else {
-                            displayByYear($conn);
                         }
                     } catch (Exception $e) {
                         die($e->getMessage());

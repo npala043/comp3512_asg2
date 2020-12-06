@@ -1,8 +1,8 @@
 <?php
 
-function formIsNotEmpty()
+function formIsFilled()
 {
-    if ($_GET['title'] != "" || isset($_GET['artist']) || isset($_GET['gallery']) || $_GET["before"] != "" || $_GET["after"] != "" || $_GET['between-before'] != "" || $_GET['between-after'] != "") {
+    if (isset($_GET['title']) || isset($_GET['artist']) || isset($_GET['gallery']) || isset($_GET['before']) || isset($_GET['after']) || isset($_GET['between-before']) || isset($_GET['between-after'])) {
         return true;
     } else {
         return false;
@@ -65,38 +65,38 @@ function createFilter($title, $artist, $gallery, $before, $after, $connection)
 
     if ($title) {
         if ($firstFilter) {
-            $firstFilter = false;
             $filter = $filter . "WHERE";
+            $firstFilter = false;
         } else {
             $filter = $filter . " AND ";
         }
-        $filter = $filter . " Title LIKE %" . $title . "%";
+        $filter = $filter . " Title LIKE '%" . $title . "%'";
     }
 
     if ($artist) {
         if ($firstFilter) {
-            $firstFilter = false;
             $filter = $filter . "WHERE";
+            $firstFilter = false;
         } else {
             $filter = $filter . " AND ";
         }
-        $filter = $filter . " FirstName LIKE %" . $artist . "% AND LastName LIKE %" . $artist . "%";
+        $filter = $filter . " Paintings.ArtistID=" . $artist;
     }
 
     if ($gallery) {
         if ($firstFilter) {
-            $firstFilter = false;
             $filter = $filter . "WHERE";
+            $firstFilter = false;
         } else {
             $filter = $filter . " AND ";
         }
-        $filter = $filter . " GalleryName LIKE %" . $gallery . "%";
+        $filter = $filter . " Paintings.GalleryID=" . $gallery;
     }
 
     if ($before) {
         if ($firstFilter) {
-            $firstFilter = false;
             $filter = $filter . "WHERE";
+            $firstFilter = false;
         } else {
             $filter = $filter . " AND ";
         }
@@ -105,8 +105,8 @@ function createFilter($title, $artist, $gallery, $before, $after, $connection)
 
     if ($after) {
         if ($firstFilter) {
-            $firstFilter = false;
             $filter = $filter . "WHERE";
+            $firstFilter = false;
         } else {
             $filter = $filter . " AND ";
         }
