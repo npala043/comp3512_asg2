@@ -82,12 +82,8 @@ if (isset($_SESSION['user'])) {
             grid-template-rows: 20% 30% 50%;
         }
 
-        .header {
+        header {
             grid-column: 1 / span 2;
-        }
-
-        div>h2 {
-            margin: 5px 10px;
         }
     </style>
 
@@ -98,19 +94,27 @@ if (isset($_SESSION['user'])) {
         <div class="out">
             <button class="login"><a href="login.php"> Login </a></button>
             <button class="join"> Join </button>
+
+
         </div>
         <div class="out">
-            <form method="GET" action="browse-paintings.php">
+            <form method="GET" action="homepage.php">
                 <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
-                <button class="search" type="submit" value="Submit"><a href="browse-paintings.php?"> Search </a></button>
+                <button class="search" type="submit" value="Submit"> Search </button>
             </form>
+
+            <?php
+            if (isset($_GET['title'])) {
+                header("Location: browse-paintings.php?title=" . $_GET['title'] . "&artist=0&gallery=0&before=&after=&between-before=&between-after=");
+            }
+            ?>
         </div>
     </section>
 
     <section class="login" style="display:<?= $displayIn ?>;">
-        <div class="header">
+        <header>
             <?php include("header.php"); ?>
-        </div>
+        </header>
         <div class="userInfo">
             <h2>Full Name</h2>
             <p>City, Country</p>
@@ -120,10 +124,16 @@ if (isset($_SESSION['user'])) {
 
         </div>
         <div class="search">
-            <form method="GET" action="browse-paintings.php">
+            <form method="GET" action="homepage.php">
                 <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
-                <button class="search" type="submit" value="Submit"><a href="browse-paintings.php?"> Search </a></button>
+                <button class="search" type="submit" value="Submit"> Search </button>
             </form>
+
+            <?php
+            if (isset($_GET['title'])) {
+                header("Location: browse-paintings.php?title=" . $_GET['title'] . "&artist=0&gallery=0&before=&after=&between-before=&between-after=");
+            }
+            ?>
         </div>
         <div class="favorites">
             <h2>Your Favorite Paintings</h2>
