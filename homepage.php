@@ -61,8 +61,8 @@ if (isset($_SESSION['user'])) {
             <?php include("header.php"); ?>
         </header>
         <div class="userInfo">
-            <h2>Full Name</h2>
-            <p>City, Country</p>
+            <h2><?= $data['FirstName'] ?> <?= $data['LastName'] ?></h2>
+            <p><?= $data['City'] ?>, <?= $data['Country'] ?></p>
             <?php
             echo print_r($data);
             ?>
