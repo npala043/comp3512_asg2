@@ -3,6 +3,13 @@
 <?php
 
 session_start();
+
+if (!isset($_SESSION['user'])) {
+    $_SESSION['error'] = "<script>alert('Please login to access favourites');</script>";
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
+    exit();
+}
+
 // do we have a favourites array already?
 if (!isset($_SESSION["favourites"])) {
     // Doesn't exist, so init one
