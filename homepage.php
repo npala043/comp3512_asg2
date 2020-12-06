@@ -114,12 +114,19 @@ if (isset($_SESSION['user'])) {
                     die($e->getMessage());
                 }
                 $count = 0;
-                for ($i = 0; $i < count($paintData) && $i < 6; $i++) {
-                    $count++; ?>
+                for ($i = 0; $i < count($paintData) && $i < 6; $i++, $count++) { ?>
                     <a href="single-painting.php?id=<?= $paintData[$i]['PaintingID'] ?>">
                         <img src="images/paintings/square-medium/<?= $paintData[$i]['ImageFileName'] ?>.jpg" alt="<?= $paintData[$i]['Title'] ?>">
                     </a>
+                    <?php }
+                if ($count < 12) {
+                    $paintData = $paintGate->getAll();
+                    for ($i = 0; $count < 12; $i++, $count++) { ?>
+                        <a href="single-painting.php?id=<?= $paintData[$i]['PaintingID'] ?>">
+                            <img src="images/paintings/square-medium/<?= $paintData[$i]['ImageFileName'] ?>.jpg" alt="<?= $paintData[$i]['Title'] ?>">
+                        </a>
             <?php }
+                }
             }
             ?>
         </div>
