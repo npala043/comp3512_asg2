@@ -192,3 +192,25 @@ class CustomerLogonDB
 
     }
 }
+
+class CustomersDB
+{
+    private static $baseSQL = "SELECT CustomerID, FirstName, LastName, Address, City, Region, Country, 
+    Postal, Phone, Email, Privacy FROM customers";
+
+    public function __construct($connection)
+    {
+        $this->pdo = $connection;
+    }
+
+    public function getByCustomerID($id)
+    {
+        $sql = self::$baseSQL . " WHERE CustomerID=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($id)
+        );
+        return $statement->fetch();
+    }
+}
