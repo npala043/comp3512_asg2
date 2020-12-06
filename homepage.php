@@ -5,12 +5,12 @@ include 'asg2-db-classes.inc.php';
 
 if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
     session_start();
-    $displayIn = "block";
-    $displayOut = "none";
+    $displayIn = "none";
+    $displayOut = "grid";
     $searchPos = "";
 } else {
-    $displayIn = "grid";
-    $displayOut = "none";
+    $displayIn = "none";
+    $displayOut = "flex";
     $searchPos = "";
 }
 
@@ -54,8 +54,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             text-decoration: none;
         }
 
-        button,
-        a {
+        button>a {
             text-decoration: none;
             color: inherit;
         }
@@ -78,8 +77,7 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             grid-column: 1 / span 2;
         }
 
-        div,
-        h2 {
+        div>h2 {
             margin: auto;
         }
     </style>
@@ -88,11 +86,11 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
 
 <body>
     <section class="logout" style="display:<?= $displayOut ?>;">
-        <div>
+        <div class="out">
             <button class="login"><a href="login.php"> Login </a></button>
             <button class="join"> Join </button>
         </div>
-        <div>
+        <div class="out">
             <form method="GET" action="browse-paintings.php">
                 <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
                 <button class="search" type="submit" value="Submit"><a href="browse-paintings.php?"> Search </a></button>

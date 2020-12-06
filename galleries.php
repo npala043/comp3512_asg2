@@ -2,8 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-        <title>Galleries Page</title>
+        <title>Assignment 1</title>
         <style>
+            header {
+                display: block;
+                border-radius: 5px;
+                padding: 10px 20px;
+                margin: 20px 0px;
+                background-color: #C4DFE6;
+                color: #003b46;
+            }
             main {
                 display: grid;
                 grid-gap: 15px;
@@ -26,10 +34,22 @@
                 height: 600px;
             }
 
+            ul#galleryList {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+
             .info {
                 grid-column: 2 / span 1;
                 grid-row: 1 / span 1;
                 height: 260px;
+            }
+
+            div.info section {
+                display: none;
+                grid-gap: 5px;
+                grid-template-columns: 6rem auto;
             }
 
             .map {
@@ -45,11 +65,25 @@
                 height: 600px;
             }
 
+            table {
+                width: 100%;
+                margin: 5px 10px 5px 5px;
+            }
+
+            th {
+                text-align: left;
+                padding: 5px;
+            }
+
+            td {
+                padding: 5px;
+            }
+
         </style>
 </head>
 
-<body>
-
+<body>  
+    <?php include("header.php"); ?>
     <!-- We located the html information from lab10-text05 -->
     <main>
         <!-- Button to toggle list -->
@@ -109,43 +143,6 @@
 
     </main>
 
-    <!-- Creates the big view of a painting selected -->
-    <div id = "bigPainting"> 
-        <section>
-            <img id = "bigImage">
-            <label> </label>
-            <div id=pInfo>
-                <h2 id="pTitle"></h2> 
-                <label>Artist Name:</label>
-                <span id="pName"></span> </br>    
-                    <!-- concat artist name -->
-                <label>Gallery Name:</label> 
-                <span id="pGalleryName"></span> </br>          
-                <label>Gallery City:</label>
-                <span id="pGalleryCity"></span> </br>           
-                <label>Museum Website:</label>
-                <span><a href="" id="pGalleryWebsite"></a></span> </br>      
-                <label>Copyright:</label>
-                <span id="pCopyright"></span> </br>           
-                <label>Year of Work:</label>
-                <span id="pYear"></span> </br>            
-                <label>Width:</label>
-                <span id="pWidth"></span> </br>           
-                <label>Height:</label>
-                <span id="pHeight"></span> </br>           
-                <label>Medium:</label>
-                <span id="pMedium"></span> </br>           
-                <label>Description:</label>
-                <span id="pDescription"></span> <br><br>
-                <label>Colours:</label>
-                <span id="pColours"></span> <br><br>
-                <span id="pButton"><button id="closeButton">Close</button></span> <br>       
-            </div>    
-        </section>
-    </div>
-    <div id = "modal">
-        <img id="biggerImage">
-    </div>
     <!-- Connects the html to the javascript -->
     <script src="js/gallerypage.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"

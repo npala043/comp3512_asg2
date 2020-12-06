@@ -143,26 +143,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 artistTd.textContent = `${p.FirstName} ${p.LastName}`;
             }
 
-            titleTd.textContent = `${p.Title}`;
+            let a = document.createElement('a');
+            a.href = `single-painting.php?id=${p.PaintingID}`;
+            titleTd.appendChild(a);
+            a.textContent = `${p.Title}`;
             titleTd.setAttribute("id", `${p.ImageFileName}`);
             yearTd.textContent = `${p.YearOfWork}`;
-
             tr.appendChild(artistTd);
             tr.appendChild(titleTd);
             tr.appendChild(yearTd);
 
-
-            img.addEventListener("click", function (e) {
-                bigImage(e);
-                displayPaintingInfo(e, paintings);
-
-            })
-
-            titleTd.addEventListener("click", function (e) {
-                bigImage(e);
-                displayPaintingInfo(e, paintings);
-
-            })
         }
     }
 
