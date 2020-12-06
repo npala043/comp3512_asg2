@@ -103,9 +103,9 @@ include_once('browse-paintings.helpers.inc.php');
                 <thead>
                     <tr>
                         <th></th>
-                        <th id="artist"><a href="browse-paintings.php?sort=artist">Artist</a></th>
-                        <th id="title"><a href="browse-paintings.php?sort=title">Title</a></th>
-                        <th id="year"><a href="browse-paintings.php?sort=year">Year</a></th>
+                        <th id="artist"><a href="<?= generateQueryString('artist') ?>">Artist</a></th>
+                        <th id="title"><a href="<?= generateQueryString('title') ?>">Title</a></th>
+                        <th id="year"><a href="<?= generateQueryString('year') ?>">Year</a></th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -114,12 +114,19 @@ include_once('browse-paintings.helpers.inc.php');
                     <?php
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-                        // if (filterIsSet() && !submitNothing()) {
-                        //     displayFilteredPaintings($conn);
-                        // } else {
-                        //     displayByYear($conn);
-                        // }
-                        displayByYear($conn);
+
+                        //createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $conn);
+                        if (isset($_GET['sort'])) {
+                            if ($_GET['sort'] == 'artist') {
+                                displayByArtist($conn);
+                            } else if ($_GET['sort'] == 'title') {
+                                displayByTitle($conn);
+                            } else if ($_GET['sort'] == 'year') {
+                                displayByYear($conn);
+                            }
+                        } else {
+                            displayByYear($conn);
+                        }
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
