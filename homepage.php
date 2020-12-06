@@ -87,6 +87,11 @@ if (isset($_SESSION['user'])) {
             <?php
             if (isset($_SESSION['favourites'])) {
                 $favs = $_SESSION['favourites'];
+                foreach ($favs as $f) { ?>
+                    <a href="single-painting.php?id=<?= $f['id'] ?>">
+                        <img src="images/paintings/square-medium/<?= $f['filename'] ?>.jpg" alt="<?= $f['title'] ?>">
+                    </a>
+            <?php }
             } else {
                 echo "<p>You don't have any favorites yet!</p>";
                 echo "<button class='browse'><a href='browse-paintings.php'> Browse Paintings </a></button>";
