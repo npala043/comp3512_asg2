@@ -2,6 +2,7 @@
 
 require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
+include 'browse-paintings.helpers.inc.php';
 session_start();
 
 if (isset($_SESSION['user'])) {
@@ -10,8 +11,8 @@ if (isset($_SESSION['user'])) {
     $searchPos = "";
 
     try {
-        $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-        $gate = new CustomersDB($connection);
+        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+        $gate = new CustomersDB($conn);
         $data = $gate->getByCustomerID($_SESSION['user']);
     } catch (Exception $e) {
         die($e->getMessage());
@@ -108,7 +109,7 @@ if (isset($_SESSION['user'])) {
 
     <section class="login" style="display:<?= $displayIn ?>;">
         <div class="header">
-            <h2>Header Goes Here</h2>
+            <?php include("header.php"); ?>
         </div>
         <div class="userInfo">
             <h2>Full Name</h2>
