@@ -29,7 +29,7 @@ if (isset($_SESSION['user'])) {
 
 <head>
     <title>Assignment 2</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
 
 </head>
@@ -60,15 +60,16 @@ if (isset($_SESSION['user'])) {
         <header>
             <?php include("header.php"); ?>
         </header>
-        <div class="userInfo">
+        <div class="login">
             <h2><?= $data['FirstName'] ?> <?= $data['LastName'] ?></h2>
+            <p><?= $data['Address'] ?></p>
             <p><?= $data['City'] ?>, <?= $data['Country'] ?></p>
-            <?php
-            echo print_r($data);
-            ?>
+            <p><?= $data['Postal'] ?></p>
+            <p><?= $data['Phone'] ?></p>
+            <p><?= $data['Email'] ?></p>
 
         </div>
-        <div class="search">
+        <div class="login">
             <form method="GET" action="homepage.php">
                 <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
                 <button class="search" type="submit" value="Submit"> Search </button>
@@ -80,7 +81,7 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
-        <div class="favorites">
+        <div class="login">
             <h2>Your Favorite Paintings</h2>
 
             <?php
@@ -92,7 +93,7 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
-        <div class="youMayLike">
+        <div class="login">
             <h2>Paintings You May Like</h2>
         </div>
     </section>
