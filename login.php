@@ -50,7 +50,6 @@ function loginDataPresent()
     <div>
         <h2>Login</h2>
         <p><?= $msg ?></p>
-        <p>Testing email: hholy@gmail.com</p> <!-- for testing -->
         <form action="login.php" method="post">
             <label for="email">Email</label>
             <input type="email" name="email">

@@ -198,10 +198,6 @@ class CustomerLogonDB
         );
         return $statement->fetch();
     }
-    public function updatePassword($id, $pass, $shaPass)
-    { // Not sure this is needed
-
-    }
 }
 
 class CustomersDB
