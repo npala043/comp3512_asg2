@@ -12,8 +12,8 @@ if (isset($_SESSION['user'])) {
 
     try {
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-        $gate = new CustomersDB($conn);
-        $data = $gate->getByCustomerID($_SESSION['user']);
+        $customerGate = new CustomersDB($conn);
+        $customerData = $customerGate->getByCustomerID($_SESSION['user']);
     } catch (Exception $e) {
         die($e->getMessage());
     }
@@ -61,12 +61,12 @@ if (isset($_SESSION['user'])) {
             <?php include("header.php"); ?>
         </header>
         <div class="login">
-            <h2><?= $data['FirstName'] ?> <?= $data['LastName'] ?></h2>
-            <p><?= $data['Address'] ?></p>
-            <p><?= $data['City'] ?>, <?= $data['Country'] ?></p>
-            <p><?= $data['Postal'] ?></p>
-            <p><?= $data['Phone'] ?></p>
-            <p><?= $data['Email'] ?></p>
+            <h2><?= $customerData['FirstName'] ?> <?= $customerData['LastName'] ?></h2>
+            <p><?= $customerData['Address'] ?></p>
+            <p><?= $customerData['City'] ?>, <?= $customerData['Country'] ?></p>
+            <p><?= $customerData['Postal'] ?></p>
+            <p><?= $customerData['Phone'] ?></p>
+            <p><?= $customerData['Email'] ?></p>
 
         </div>
         <div class="login">
@@ -100,6 +100,28 @@ if (isset($_SESSION['user'])) {
         </div>
         <div class="login">
             <h2>Paintings You May Like</h2>
+
+            <?php
+            if (isset($_SESSION['favourites'])) {
+                $favs = $_SESSION['favourites'];
+                $artist = $favs[0]['artistid'];
+
+                try {
+                    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                    $paintGate = new PaintingDB($conn);
+                    $paintData = $paintGate->getAllForArtist($artist);
+                } catch (Exception $e) {
+                    die($e->getMessage());
+                }
+                $count = 0;
+                for ($i = 0; $i < count($paintData) && $i < 6; $i++) {
+                    $count++; ?>
+                    <a href="single-painting.php?id=<?= $paintData[$i]['PaintingID'] ?>">
+                        <img src="images/paintings/square-medium/<?= $paintData[$i]['ImageFileName'] ?>.jpg" alt="<?= $paintData[$i]['Title'] ?>">
+                    </a>
+            <?php }
+            }
+            ?>
         </div>
     </section>
 </body>
