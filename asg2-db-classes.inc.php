@@ -107,7 +107,7 @@ class PaintingDB
     }
     public function getAllSortByArtist()
     {
-        $sql = self::$baseSQL . " ORDER BY FirstName";
+        $sql = self::$baseSQL . " ORDER BY LastName";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,

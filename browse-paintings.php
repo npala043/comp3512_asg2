@@ -115,17 +115,27 @@ include_once('browse-paintings.helpers.inc.php');
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                         if (formIsFilled()) {
-                            createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $conn);
+                            $sort = "";
+                            if (isset($_GET['sort'])) {
+                                if ($_GET['sort'] == 'artist') {
+                                    $sort = 'FirstName';
+                                } else if ($_GET['sort'] == 'title') {
+                                    $sort = 'Title';
+                                } else if ($_GET['sort'] == 'year') {
+                                    $sort = 'YearOfWork';
+                                }
+                            }
+                            createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $sort, $conn);
                         } else {
-                            displayByYear($conn);
-                        }
-
-                        if (isset($_GET['sort'])) {
-                            if ($_GET['sort'] == 'artist') {
-                                displayByArtist($conn);
-                            } else if ($_GET['sort'] == 'title') {
-                                displayByTitle($conn);
-                            } else if ($_GET['sort'] == 'year') {
+                            if (isset($_GET['sort'])) {
+                                if ($_GET['sort'] == 'artist') {
+                                    displayByArtist($conn);
+                                } else if ($_GET['sort'] == 'title') {
+                                    displayByTitle($conn);
+                                } else if ($_GET['sort'] == 'year') {
+                                    displayByYear($conn);
+                                }
+                            } else {
                                 displayByYear($conn);
                             }
                         }
