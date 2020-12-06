@@ -107,7 +107,7 @@ class PaintingDB
     }
     public function getAllSortByArtist()
     {
-        $sql = self::$baseSQL . " ORDER BY LastName";
+        $sql = self::$baseSQL . " ORDER BY FirstName";
         $statement = DatabaseHelper::runQuery(
             $this->pdo,
             $sql,
@@ -134,6 +134,17 @@ class PaintingDB
             null
         );
         return $statement->fetchAll();
+    }
+    public function createFilterList($filter)
+    {
+        $sql = self::$baseSQL . $filter;
+
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            null
+        );
+        return $statement->fetch();
     }
 }
 

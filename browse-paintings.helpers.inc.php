@@ -1,17 +1,8 @@
 <?php
 
-function filterIsSet()
+function formIsNotEmpty()
 {
-    if (isset($_GET['title']) || isset($_GET['artist']) || isset($_GET['gallery']) || isset($_GET['time-period'])) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-function submitNothing()
-{
-    if ($_GET['title'] == "" && $_GET['before'] == "" && $_GET['after'] == "" && $_GET['between-before'] == "" && $_GET['between-after'] == "") {
+    if ($_GET['title'] != "" || isset($_GET['artist']) || isset($_GET['gallery']) || $_GET["before"] != "" || $_GET["after"] != "" || $_GET['between-before'] != "" || $_GET['between-after'] != "") {
         return true;
     } else {
         return false;
@@ -57,5 +48,72 @@ function generateTable($list)
 
 function generateQueryString($sortCategory)
 {
-    return "browse-paintings.php?sort=$sortCategory&title=$_GET[title]&";
+    $queryString = "";
+    foreach ($_GET as $key => $value) {
+        if ($key != 'sort') {
+            $queryString = $queryString . "$key=$value&";
+        }
+    }
+    return "browse-paintings.php?sort=$sortCategory&" . $queryString;
+}
+
+function createFilter($title, $artist, $gallery, $before, $after, $connection)
+{
+
+    $firstFilter = true;
+    $filter = "";
+
+    if ($title) {
+        if ($firstFilter) {
+            $firstFilter = false;
+            $filter = $filter . "WHERE";
+        } else {
+            $filter = $filter . " AND ";
+        }
+        $filter = $filter . " Title LIKE %" . $title . "%";
+    }
+
+    if ($artist) {
+        if ($firstFilter) {
+            $firstFilter = false;
+            $filter = $filter . "WHERE";
+        } else {
+            $filter = $filter . " AND ";
+        }
+        $filter = $filter . " FirstName LIKE %" . $artist . "% AND LastName LIKE %" . $artist . "%";
+    }
+
+    if ($gallery) {
+        if ($firstFilter) {
+            $firstFilter = false;
+            $filter = $filter . "WHERE";
+        } else {
+            $filter = $filter . " AND ";
+        }
+        $filter = $filter . " GalleryName LIKE %" . $gallery . "%";
+    }
+
+    if ($before) {
+        if ($firstFilter) {
+            $firstFilter = false;
+            $filter = $filter . "WHERE";
+        } else {
+            $filter = $filter . " AND ";
+        }
+        $filter = $filter . " YearOfWork < " . $before;
+    }
+
+    if ($after) {
+        if ($firstFilter) {
+            $firstFilter = false;
+            $filter = $filter . "WHERE";
+        } else {
+            $filter = $filter . " AND ";
+        }
+        $filter = $filter . " YearOfWork > " . $after;
+    }
+
+    $paintingGateway = new PaintingDB($connection);
+    $list = $paintingGateway->createFilterList($filter);
+    generateTable($list);
 }
