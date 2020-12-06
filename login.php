@@ -12,6 +12,7 @@ if (loginDataPresent()) {
         $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $gate = new CustomerLogonDB($connection);
         $data = $gate->getByUserName($_POST['email']);
+        $connection = null;
         if (isset($data['Pass'])) {
             // if matching user was found, does pass match?
             if (password_verify($_POST['pass'], $data['Pass'])) { // uses bcrypt
@@ -24,7 +25,6 @@ if (loginDataPresent()) {
         } else {
             $msg = "User not found";
         }
-        $connection = null;
     } catch (Exception $e) {
         die($e->getMessage());
     }
