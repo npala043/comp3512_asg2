@@ -46,6 +46,19 @@ try {
             padding: 10px;
         }
 
+        header {
+            border: 1px solid lightblue;
+            background-color: lightblue;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+
+        #logo {
+            width: 100px;
+            border-radius: 50%;
+            float:inline-end;
+        }
+
         span {
             padding: 15px 25px;
             margin: 5px;
@@ -55,7 +68,8 @@ try {
         #favsButton {
             position: absolute;
             right: 90px;
-            top: 85px;
+            top: 150px; 
+            padding: 3px;
         }
 
         #favsButton a,
@@ -102,12 +116,7 @@ try {
             
         }
 
-        /* 
-        #description,
-        #details,
-        #colors {
-            display: none;
-        } */
+
     </style>
 
 
