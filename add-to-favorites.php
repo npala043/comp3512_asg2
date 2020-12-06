@@ -37,7 +37,8 @@ if (allInfoPresent()) {
         "id" => $_GET['id'],
         "artistid" => $_GET['artistid'],
         "title" => $_GET['title'],
-        "filename" => $_GET['filename']
+        "filename" => $_GET['filename'],
+        "yearofwork" => $_GET['yearofwork']
     );
 
     // re-save modified array back to session state
@@ -52,7 +53,7 @@ exit();
 
 function allInfoPresent()
 {
-    return isset($_GET['id']) && isset($_GET['artistid']) && isset($_GET['title']) && isset($_GET['filename']);
+    return isset($_GET['id']) && isset($_GET['artistid']) && isset($_GET['title']) && isset($_GET['filename']) && isset($_GET['yearofwork']);
 }
 
 ?>
