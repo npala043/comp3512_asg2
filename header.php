@@ -1,7 +1,7 @@
 <header>
-    <!-- <h1> Assignment 2</h1> -->
+    
     <img src="images/logo/logo.jpg" alt="log" id="logo">
-    <span> Assignment 2</span>
+   <span> Assignment 2</span>
     <nav>
     
         <a href="homepage.php">Home</a>

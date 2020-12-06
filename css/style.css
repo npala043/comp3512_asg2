@@ -26,7 +26,7 @@ nav a:visited {
 
 nav a:hover {
     background-color: rgb(211, 233, 240);
-    font-weight: bold;
+    
 }
 
 #logo {
@@ -37,4 +37,5 @@ nav a:hover {
 
 header span {
    font-weight: bold;
+ 
 }
