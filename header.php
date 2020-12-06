@@ -4,6 +4,7 @@
 </header>
 
 <nav>
+    <img src="images/logo/logo.jpg" alt="log" width="100px">
     <a href="homepage.php">Home</a>
     <a href="about.php">About</a>
     <a href="browse-paintings.php">Browse Paintings</a>
@@ -16,9 +17,4 @@
         echo  "<a href=" . 'login.php' . ">Login</a>";
     }
     ?>
-
-    <!-- <a href="login.php">Login</a> -->
-
-
-
 </nav>
