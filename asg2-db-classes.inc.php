@@ -80,7 +80,7 @@ class PaintingDB
     }
     public function getAll()
     {
-        $sql = self::$baseSQL;
+        $sql = self::$baseSQL . "ORDER BY PaintingID";
         $statement =
             DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
