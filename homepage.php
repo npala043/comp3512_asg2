@@ -2,12 +2,20 @@
 
 require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
+session_start();
 
-if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
-    session_start();
-    $displayIn = "none";
-    $displayOut = "grid";
+if (isset($_SESSION['user'])) {
+    $displayIn = "grid";
+    $displayOut = "none";
     $searchPos = "";
+
+    try {
+        $connection = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+        $gate = new CustomersDB($connection);
+        $data = $gate->getByCustomerID($_SESSION['user']);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
 } else {
     $displayIn = "none";
     $displayOut = "flex";
@@ -73,12 +81,12 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
             grid-template-rows: 20% 30% 50%;
         }
 
-        div.header {
+        .header {
             grid-column: 1 / span 2;
         }
 
         div>h2 {
-            margin: auto;
+            margin: 5px 10px;
         }
     </style>
 
@@ -105,6 +113,9 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
         <div class="userInfo">
             <h2>Full Name</h2>
             <p>City, Country</p>
+            <?php
+            echo print_r(mysql_fetch_array(($data));
+            ?>
 
         </div>
         <div class="search">
@@ -115,6 +126,15 @@ if (isset($_SESSION['user']) && isset($_SESSION['pass'])) {
         </div>
         <div class="favorites">
             <h2>Your Favorite Paintings</h2>
+
+            <?php
+            if (isset($_SESSION['favourites'])) {
+                $favs = $_SESSION['favourites'];
+            } else {
+                echo "<p>You don't have any favorites yet!</p>";
+                echo "<button class='browse'><a href='browse-paintings.php'> Browse Paintings </a></button>";
+            }
+            ?>
         </div>
         <div class="youMayLike">
             <h2>Paintings You May Like</h2>
