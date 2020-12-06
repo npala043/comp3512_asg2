@@ -30,9 +30,5 @@ try {
 
 function isCorrectQueryStringInfo($param)
 {
-    if (isset($_GET[$param]) && !empty($_GET[$param])) {
-        return true;
-    } else {
-        return false;
-    }
+    return isset($_GET[$param]) && !empty($_GET[$param]);
 }
