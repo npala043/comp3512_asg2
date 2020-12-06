@@ -37,7 +37,7 @@ try {
     <title></title>
     <meta charset=utf-8>
     <script src="js\single-painting.js"></script>
- 
+
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/single-painting.css">
@@ -69,7 +69,7 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
+            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
             <?php
 
             if (isset($_SESSION['error'])) {
