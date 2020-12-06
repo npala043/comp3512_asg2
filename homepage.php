@@ -114,7 +114,7 @@ if (isset($_SESSION['user'])) {
             <h2>Full Name</h2>
             <p>City, Country</p>
             <?php
-            echo print_r(mysql_fetch_array(($data));
+            echo print_r($data);
             ?>
 
         </div>
