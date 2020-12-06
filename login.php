@@ -32,7 +32,7 @@ if (loginDataPresent()) {
 
 function loginDataPresent()
 {
-    return isset($_POST['email']) && isset($_POST['pass']) ? true : false;
+    return isset($_POST['email']) && isset($_POST['pass']);
 }
 ?>
 
