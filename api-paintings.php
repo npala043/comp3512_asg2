@@ -24,11 +24,7 @@ try {
 
     $conn = null;
 
-    if (count($paintings > 1)) {
-        echo json_encode($paintings);
-    } else {
-        echo json_encode($paintings, JSON_NUMERIC_CHECK);
-    }
+    echo json_encode($paintings);
 } catch (Exception $e) {
     die($e->getMessage());
 }
