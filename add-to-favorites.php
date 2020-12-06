@@ -12,8 +12,8 @@ if (!isset($_SESSION["favourites"])) {
 // retrieve any existing favourites
 $fav = $_SESSION["favourites"];
 
-// check if id, title, and filename are present as querystring
-if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
+// check if id, artistID, title, and filename are present as querystring
+if (allInfoPresent()) {
 
     // check if painting already in favourites
     // if yes, save error message to session and redirect back
@@ -28,6 +28,7 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // add painting to array
     $fav[] = array(
         "id" => $_GET['id'],
+        "artistid" => $_GET['artistid'],
         "title" => $_GET['title'],
         "filename" => $_GET['filename']
     );
@@ -40,4 +41,11 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
 
 // redirect back to the requesting page
 header("Location:" . $_SERVER["HTTP_REFERER"]);
+exit();
+
+function allInfoPresent()
+{
+    return isset($_GET['id']) && isset($_GET['artistid']) && isset($_GET['title']) && isset($_GET['filename']);
+}
+
 ?>
