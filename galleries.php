@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/galleries.css">
-    <title>Assignment 1</title>
+    <title>Assignment 2</title>
 </head>
 
 <body>  
