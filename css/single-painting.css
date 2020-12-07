@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+
 
 
 
@@ -18,10 +18,7 @@
     
     }
     
-    #favsButton {
-      
-    }
-    
+ 
     #favsButton a,
     #favsButton a:visited {
         text-decoration: none;
@@ -36,13 +33,13 @@
         color: black;
     }
     
-    .tab {
+    /* .tab {
         overflow: hidden;
         border: 1px solid lightskyblue;
         background-color: powderblue;
-    }
+    } */
     
-    .tab{
+    .tab, #favsButton {
         background-color: whitesmoke;
         float: center;
         border-radius: 5px;
@@ -58,20 +55,29 @@
         
     }
     
-    .tabContent div {
+    .tabContent  {
         display: none;
         padding: 6px 12px;
-        border: 1px solid lightskyblue;
-        background-color: powderblue;
-        border-top: none;
+        border: 1px solid lightskyblue; 
+        background-color: lightblue;
+        border-top: none; 
+        margin-right: 3%;
+        
     
     }
+/* 
+   #details {
+       
+    }
+     */
+    
+    /* , #description, #colors */
 
 
 
 
 
-}
+
 
 
 

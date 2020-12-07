@@ -36,10 +36,13 @@ try {
 <head>
     <title></title>
     <meta charset=utf-8>
-    <script src="js\single-painting.js"></script>
+    <script src="js/single-painting.js"></script>
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/single-painting.css">
+
+
+
 </head>
 
 <body>
@@ -69,11 +72,13 @@ try {
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
 
+            <div>
+                <button class="tab desctab"> Description </button>
+                <button class="tab detailstab"> Details </button>
+                <button class="tab colorstab"> Colors </button>
+                <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
+            </div>
 
-            <button class="tab desctab"> Description </button>
-            <button class="tab detailstab"> Details </button>
-            <button class="tab colorstab"> Colors </button>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
             <?php
 
             if (isset($_SESSION['error'])) {
@@ -81,10 +86,6 @@ try {
                 unset($_SESSION['error']);
             }
             ?>
-
-
-
-
             <div id="description" class="tabContent">
                 <h4>Description </h4>
                 <p>
@@ -96,6 +97,7 @@ try {
                     }
 
                     ?>
+
                 </p>
             </div>
             <div id="details" class="tabContent">
