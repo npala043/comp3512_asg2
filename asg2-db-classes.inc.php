@@ -181,7 +181,7 @@ class GalleryDB
 class CustomerLogonDB
 {
     private static $baseSQL = "SELECT CustomerID, UserName, Pass, Salt, Password_sha256
-    DateJoined, DateLastModified FROM customerlogon";
+    DateJoined, DateLastModified FROM CustomerLogon";
 
     public function __construct($connection)
     {
@@ -203,7 +203,7 @@ class CustomerLogonDB
 class CustomersDB
 {
     private static $baseSQL = "SELECT CustomerID, FirstName, LastName, Address, City, Region, Country, 
-    Postal, Phone, Email, Privacy FROM customers";
+    Postal, Phone, Email, Privacy FROM Customers";
 
     public function __construct($connection)
     {
