@@ -1,6 +1,6 @@
 <header>
     <nav id="navbar">
-        <img src="images/logo/hamburger-menu.jpg" id="toggle">
+        <img src="images/logo/hamburger-menu.jpg" class="toggle">
         <!-- <img src="images/logo/logo.jpg" alt="log" id="logo"> -->
         <ul id="navList">
             <img src="images/logo/logo.jpg" alt="log" id="logo">

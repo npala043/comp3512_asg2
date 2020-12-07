@@ -44,6 +44,7 @@ function loginDataPresent()
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>
