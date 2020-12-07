@@ -91,9 +91,9 @@ session_start();
 
                 <input type="radio" id="between" name="time-period" value="between" />
                 <label>Between</label>
-                <input type="text" name="between-before" />
+                <input type="text" name="between-before" placeholder="Before" />
                 <br />
-                <input type="text" name="between-after" />
+                <input type="text" name="between-after" placeholder="After" />
                 <br />
                 <br />
                 <button type="submit" value="Submit">Submit</button>
