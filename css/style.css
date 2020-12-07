@@ -16,8 +16,9 @@
         justify-content: flex-end;
     }
 
-    .navList li {
+    .navList li a {
         margin: 0;
+        padding: 5px;
     }
     
     
@@ -30,21 +31,24 @@
     }
 
     .navList li a:hover {
-        color: royalblue;
+        border: lightcyan 0.5px solid;
+        border-radius: 10px;
+        background-color: lightcyan;
+        padding: 4px;
+      
     }  
-   
-
+ 
 
  }
  
 
  #logo {
-    width: 30px;
+    width: 25px;
     border-radius: 50%;
-    height: 30px;
+    height: 25px;
     position: absolute;
-    top: 10px;
-    left: 20px;
+    top: 15px;
+    left: 15px;
 }
 
  header {
@@ -52,38 +56,41 @@
     background-color: lightblue;
     margin-bottom: 10px;
     padding: 5px;
-    
+    /* height: 30px; */
 }
 
 .toggle {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
     cursor: pointer;
     width: 20px;
-    height: 30px;
+    height: 25px;
 }
 
  .navList li a {
     text-decoration: none;
-   
+   color: black;
 }
 
 .navList li {
 text-align: center;
-margin: 15px auto;
+padding: 10px ;
 
 }
+
+/* .navList li:hover {
+    border: lightcyan 0.5px solid;
+    border-radius: 10px;
+    background-color: lightcyan;
+    /* padding: 5px; */
+
 
 .navList li, .navList li:visited {
     color: black;
 }
 
-#logo {
-    display: inline-block;
 
-
-}
 
 .navList {
     list-style-type: none;
@@ -93,4 +100,13 @@ margin: 15px auto;
 
 .clicked {
     display: block;
+}
+
+@media screen and (max-width: 768px) {
+    .navList li:hover {
+        border: lightcyan 0.5px solid;
+        border-radius: 10px;
+        background-color: lightcyan;
+        /* padding: 5px; */
+    }
 }

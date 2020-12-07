@@ -1,8 +1,4 @@
-
-
-
-
-
+@media screen and (min-width: 768px) { 
     main {
         background-color: lightblue;
         display: grid;
@@ -32,13 +28,7 @@
         padding: 3px;
         color: black;
     }
-    
-    /* .tab {
-        overflow: hidden;
-        border: 1px solid lightskyblue;
-        background-color: powderblue;
-    } */
-    
+        
     .tab, #favsButton {
         background-color: whitesmoke;
         float: center;
@@ -46,7 +36,7 @@
         outline: none;
         padding: 16px;
         font-size: 16px;
-    
+        cursor: pointer;
     
     }
     
@@ -63,18 +53,10 @@
         border-top: none; 
         margin-right: 3%;
         
-    
     }
-/* 
-   #details {
-       
-    }
-     */
-    
-    /* , #description, #colors */
 
 
-
+}
 
 
 
