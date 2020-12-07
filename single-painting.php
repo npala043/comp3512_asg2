@@ -48,8 +48,8 @@ try {
 
 
     <main>
-        <div id="imgBox">
-            <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" width="500px">
+        <div>
+            <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" id="imgBox">
         </div>
 
         <section>
