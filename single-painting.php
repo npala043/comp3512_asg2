@@ -73,7 +73,7 @@ try {
             <button class="tab desctab"> Description </button>
             <button class="tab detailstab"> Details </button>
             <button class="tab colorstab"> Colors </button>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
+            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $painting['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
             <?php
 
             if (isset($_SESSION['error'])) {
