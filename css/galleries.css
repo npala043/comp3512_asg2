@@ -1,12 +1,5 @@
 @media screen and (min-width: 768px) { 
-    header {
-        display: block;
-        border-radius: 5px;
-        padding: 10px 20px;
-        margin: 20px 0px;
-        background-color: lightcyan;
-        color: #003b46;
-    }
+    
     main {
         display: grid;
         grid-gap: 15px;
@@ -15,7 +8,7 @@
     }
 
     .box {
-        background-color: lightcyan;
+        background-color: lightblue;
         color: #003b46;
         border-radius: 5px;
         padding: 10px 20px;
@@ -96,7 +89,7 @@
     }
 
     .box {
-        background-color: lightcyan;
+        background-color: lightblue;
         color: #003b46;
         border-radius: 5px;
         padding: 10px 20px;

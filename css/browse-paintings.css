@@ -1,17 +1,49 @@
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
+@media screen and (min-width: 768px) {
 
-#filters {
-    display: grid;
-    grid-column: 1,2;
-    height: 600px;
-    width: 450px;
-    background-color: lightblue;
-}
+    .container {
+        display: grid;
+        grid-template-columns: 20rem 1uto;
+    }
 
-#paintings {
-    display: grid;
-    grid-column: 2,3;
+    #filters {
+        border-radius: 5px;
+        display: grid;
+        grid-column: 1 / span 1;
+        height: 600px;
+        padding: 10px 20px;
+        width: 400px;
+        background-color: lightblue;
+    }
+
+    #paintings {
+        border-radius: 5px;
+        display: grid;
+        grid-column: 2 /span 1;
+        width: 950px;
+        height: 600px;
+        padding: 10px 20px;
+        background-color: lightblue;
+        overflow: auto;
+    }
+    
+    img {
+        width: 100px;
+        height: 100px;
+    }
+
+    table {
+        width: 100%;
+        margin: 5px 5px 5px 5px;
+    }
+
+    th {
+        padding: 5px;
+        text-align: left;
+    }
+
+    td.id   {
+        padding: 5px;
+        text-align: left;
+    }   
+
 }
