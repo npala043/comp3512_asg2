@@ -4,7 +4,7 @@
         border-radius: 5px;
         padding: 10px 20px;
         margin: 20px 0px;
-        background-color: #C4DFE6;
+        background-color: lightcyan;
         color: #003b46;
     }
     main {
@@ -15,7 +15,7 @@
     }
 
     .box {
-        background-color: #C4DFE6;
+        background-color: lightcyan;
         color: #003b46;
         border-radius: 5px;
         padding: 10px 20px;
@@ -96,7 +96,7 @@
     }
 
     .box {
-        background-color: #C4DFE6;
+        background-color: lightcyan;
         color: #003b46;
         border-radius: 5px;
         padding: 10px 20px;
