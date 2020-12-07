@@ -43,22 +43,28 @@ function generateTable($list)
                 <img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg' />
             </td>
             <td class="artist"><?= formatName($row) ?></td>
-            <td class="title" id="<?= $row['ImageFileName'] ?>"><?= $row['Title'] ?></td>
+            <td class="title" id="<?= $row['ImageFileName'] ?>">
+                <a href="single-painting.php?id=<?= $row['PaintingID'] ?>"><?= $row['Title'] ?></a>
+            </td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
             <td>
                 <form method="post">
                     <input type="hidden" name="addToFavorites">
+                    <input type="hidden" name="PaintingID" value="<?= $row['PaintingID'] ?>">
+                    <input type="hidden" name="ArtistID" value="<?= $row['ArtistID'] ?>">
+                    <input type="hidden" name="Title" value="<?= $row['Title'] ?>">
+                    <input type="hidden" name="ImageFileName" value="<?= $row['ImageFileName'] ?>">
+                    <input type="hidden" name="YearOfWork" value="<?= $row['YearOfWork'] ?>">
                     <input type="submit" value="Add to Favorites">
                 </form>
-                <?php
-                if (isset($_POST['addToFavorites'])) {
-                    addToFavorites($row['PaintingID'], $row['ArtistID'], $row['Title'], $row['ImageFileName'], $row['YearOfWork']);
-                }
-                ?>
             </td>
             <td><button><a href="single-painting.php?id=<?= $row['PaintingID'] ?>">View</a></button></td>
         </tr>
 <?php }
+
+    if (isset($_POST['addToFavorites'])) {
+        addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
+    }
 }
 
 function formatName($row)
