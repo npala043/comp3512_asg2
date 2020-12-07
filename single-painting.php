@@ -11,7 +11,7 @@ try {
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
     $paintings = $gateway->getAll();
-
+    $conn = null;
     $painting = "";
     $json = "";
 
