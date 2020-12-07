@@ -4,6 +4,7 @@
 
 require_once 'config.inc.php';
 include 'asg2-db-classes.inc.php';
+include 'add-to-favorites.php';
 session_start();
 
 try {
@@ -73,13 +74,23 @@ try {
                 <button class="tab desctab"> Description </button>
                 <button class="tab detailstab"> Details </button>
                 <button class="tab colorstab"> Colors </button>
-                <button class="tab" id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $painting['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
+                <!-- <button class="tab" id="favsButton"> -->
+                <form method="post">
+                    <input type="hidden" name="addToFavorites">
+                    <input type="submit" value="Add to Favorites">
+                </form>
+
+
                 <?php
 
-                if (isset($_SESSION['error'])) {
-                    echo $_SESSION['error'];
-                    unset($_SESSION['error']);
+                if (isset($_POST['addToFavorites'])) {
+                    addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
                 }
+
+                // if (isset($_SESSION['error'])) {
+                //     echo $_SESSION['error'];
+                //     unset($_SESSION['error']);
+                // }
                 ?>
             </div>
 
