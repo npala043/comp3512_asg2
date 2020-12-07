@@ -148,7 +148,6 @@ if (isset($_SESSION['user'])) {
                 $added = 0;
 
                 for ($i = 0; $i < count($artistData) && $added < 6; $i++) {
-                    print_r($paintings);
                     if (!in_array($artistData[$i]['PaintingID'], $paintings)) {
                         $count++;
                         $added++; ?>
