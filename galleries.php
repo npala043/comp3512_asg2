@@ -2,92 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-        <title>Assignment 1</title>
-        <style>
-            header {
-                display: block;
-                border-radius: 5px;
-                padding: 10px 20px;
-                margin: 20px 0px;
-                background-color: #C4DFE6;
-                color: #003b46;
-            }
-            main {
-                display: grid;
-                grid-gap: 15px;
-                grid-template-columns: 20rem 25rem auto;
-                height: 650px;
-            }
-
-            .box {
-                background-color: #C4DFE6;
-                color: #003b46;
-                border-radius: 5px;
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-
-            .list {
-                grid-column: 1 / span 1;
-                grid-row: 1 / span 3;
-                overflow: auto;
-                height: 600px;
-            }
-
-            ul#galleryList {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-
-            .info {
-                grid-column: 2 / span 1;
-                grid-row: 1 / span 1;
-                height: 260px;
-            }
-
-            div.info section {
-                display: none;
-                grid-gap: 5px;
-                grid-template-columns: 6rem auto;
-            }
-
-            .map {
-                grid-column: 2 / span 1;
-                grid-row: 2 / span 2;
-                height: 305px;
-            }
-
-            .paintings {
-                grid-column: 3 / span 1;
-                grid-row: 1 / span 3;
-                overflow: auto;
-                height: 600px;
-            }
-
-            table {
-                width: 100%;
-                margin: 5px 10px 5px 5px;
-            }
-
-            th {
-                text-align: left;
-                padding: 5px;
-            }
-
-            td {
-                padding: 5px;
-            }
-
-        </style>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/galleries.css">
+    <title>Assignment 2</title>
 </head>
 
 <body>  
     <?php include("header.php"); ?>
     <!-- We located the html information from lab10-text05 -->
     <main>
-        <!-- Button to toggle list -->
-        <button type="button" id="toggle">Hide Gallery List</button>
         <!-- Creates the gallery list  -->
         <div class = "box list"> 
             <section>
@@ -145,6 +69,7 @@
 
     <!-- Connects the html to the javascript -->
     <script src="js/gallerypage.js"></script>
+    <script src="js/navbar.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"
         async defer></script>
 </body>

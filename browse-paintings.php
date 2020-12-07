@@ -16,6 +16,9 @@ session_start();
 <head>
     <meta charset="utf-8">
     <title>Browse Paintings</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>
