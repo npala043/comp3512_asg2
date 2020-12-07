@@ -23,6 +23,7 @@ if (loginDataPresent()) {
                 $msg = "Incorrect password";
             }
         } else {
+            // No matching user was found, return error
             $msg = "User not found";
         }
     } catch (Exception $e) {
@@ -44,7 +45,7 @@ function loginDataPresent()
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
-    
+
 </head>
 
 <body>
