@@ -1,22 +1,6 @@
-// document.addEventListener("DOMContentLoaded", function () {
-
-//     const galleries = `api-galleries.php`;
-//     console.log(galleries);
-
-//     fetch(galleries)
-//         .then(resp => resp.json())
-//         .then(gallery => {
-//             console.log(gallery);
-//             let list = document.querySelector("galleryList li a");
-//             list.addEventListener("click", function () {
-//                 console.log(list);
-//             })
-            
-//         })
-// });
 function initMap() {
     map = new google.maps.Map(document.querySelector(".box.map"), {
-        center: { lat: 44.525049, lng: -110.83819 },
+        center: { lat: 51.011608, lng: -114.133074 },
         zoom: 17,
         mapTypeId: 'satellite'
     })
@@ -48,33 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             sortPaintings(g);
-            toggleButton();
             document.querySelector("#galleryList").appendChild(li);
         }
-    }
-
-    function toggleButton() {
-        let toggle = document.querySelector("#toggle")
-        toggle.addEventListener("click", e => {
-            let list = document.querySelector(".list");
-            let info = document.querySelector(".info");
-            let main = document.querySelector("main");
-            let map = document.querySelector(".map");
-            if (e.target.nodeName.toLowerCase() == 'button' && list.style.display != "none") {
-                list.style.display = "none";
-                main.style.gridTemplateColumns = "17.5% 17.5% auto";
-                info.style.gridColumn = "1 / span 2";
-                map.style.gridColumn = "1 / span 2";
-                toggle.textContent = "Show Gallery List"
-            } else {
-                list.style.display = "grid";
-                main.style.gridTemplateColumns = "20rem 25rem auto";
-                info.style.gridColumn = "2 / span 1";
-                map.style.gridColumn = "2/ span 1";
-                toggle.textContent = "Hide Gallery List"
-
-            }
-        })
     }
 
     //This function displays the gallery information that has been retrieved from the JSON file.
@@ -131,7 +90,6 @@ document.addEventListener("DOMContentLoaded", function () {
             artistTd.setAttribute("class", "artist");
             let titleTd = document.createElement("td");
             titleTd.setAttribute("class", "title");
-            titleTd.style.textDecoration = "underline";
             let yearTd = document.createElement("td");
             yearTd.setAttribute("class", "year");
 

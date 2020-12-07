@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/galleries.css">
-    <title>Assignment 1</title>
+    <script src="js/navbar.js"></script>
+    <title>Assignment 2</title>
 </head>
 
 <body>  
     <?php include("header.php"); ?>
     <!-- We located the html information from lab10-text05 -->
     <main>
-        <!-- Button to toggle list -->
-        <button type="button" id="toggle">Hide Gallery List</button>
         <!-- Creates the gallery list  -->
         <div class = "box list"> 
             <section>
