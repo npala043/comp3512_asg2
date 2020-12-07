@@ -1,67 +1,82 @@
-main {
-    background-color: lightblue;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px;
+@media screen and (min-width: 768px) {
+
+
+
+
+    main {
+        background-color: lightblue;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+    }
+    
+    
+    
+    span {
+        padding: 15px 25px;
+        margin: 5px;
+    
+    }
+    
+    #favsButton {
+      
+    }
+    
+    #favsButton a,
+    #favsButton a:visited {
+        text-decoration: none;
+        color: black;
+    }
+    
+    .link {
+        text-decoration: none;
+        border: oldlace 1px solid;
+        background-color: whitesmoke;
+        padding: 3px;
+        color: black;
+    }
+    
+    .tab {
+        overflow: hidden;
+        border: 1px solid lightskyblue;
+        background-color: powderblue;
+    }
+    
+    .tab{
+        background-color: whitesmoke;
+        float: center;
+        border-radius: 5px;
+        outline: none;
+        padding: 16px;
+        font-size: 16px;
+    
+    
+    }
+    
+    .tab button.active {
+        background-color: steelblue;
+        
+    }
+    
+    .tabContent div {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid lightskyblue;
+        background-color: powderblue;
+        border-top: none;
+    
+    }
+
+
+
+
+
 }
 
 
 
-span {
-    padding: 15px 25px;
-    margin: 5px;
-
-}
-
-#favsButton {
-    position: absolute;
-    right: 40px;
-    top: 140px;
-    padding: 3px;
-   
-}
-
-#favsButton a,
-#favsButton a:visited {
-    text-decoration: none;
-    color: black;
-}
-
-.link {
-    text-decoration: none;
-    border: oldlace 1px solid;
-    background-color: whitesmoke;
-    padding: 3px;
-    color: black;
-}
-
-.tab {
-    overflow: hidden;
-    border: 1px solid lightskyblue;
-    background-color: powderblue;
-}
-
-.tab {
-    background-color: whitesmoke;
-    float: center;
-    border-radius: 5px;
-    outline: none;
-    padding: 16px;
-    font-size: 16px;
 
 
-}
 
-.tab button.active {
-    background-color: steelblue;
-    display: inline;
-}
 
-.tabContent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid lightskyblue;
-    background-color: powderblue;
-    border-top: none;
 
-}

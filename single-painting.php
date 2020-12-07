@@ -68,6 +68,11 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
+
+
+            <button class="tab desctab"> Description </button>
+            <button class="tab detailstab"> Details </button>
+            <button class="tab colorstab"> Colors </button>
             <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
             <?php
 
@@ -77,9 +82,8 @@ try {
             }
             ?>
 
-            <button class="tab desctab"> Description </button>
-            <button class="tab detailstab"> Details </button>
-            <button class="tab colorstab"> Colors </button>
+
+
 
             <div id="description" class="tabContent">
                 <h4>Description </h4>
@@ -92,7 +96,6 @@ try {
                     }
 
                     ?>
-
                 </p>
             </div>
             <div id="details" class="tabContent">
