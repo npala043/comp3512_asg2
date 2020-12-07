@@ -21,7 +21,7 @@ function addToFavorites($id, $artistid, $title, $filename, $yearofwork)
     // check if painting already in favourites
     // if yes, save error message to session and redirect back
     foreach ($fav as $f) {
-        if (in_array($id, $f['id'])) {
+        if (in_array($id, $f)) {
             echo "<script>alert('Already added to favourites');</script>";
             exit();
         }
