@@ -18,6 +18,7 @@ session_start();
     <title>Browse Paintings</title>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/browse-paintings.css">
     <script src="js/navbar.js"></script>
 </head>
 
@@ -25,9 +26,10 @@ session_start();
     <?php
     include_once('header.php');
     ?>
-    <main>
+    <main class="container">
         <div id="filters">
             <form method="GET" action="browse-paintings.php">
+                <h2>Painting Filters</h2>
                 <label>Title</label>
                 <input type="text" name="title" />
                 <br />
@@ -78,7 +80,7 @@ session_start();
                 <label>Year</label>
                 <br />
                 <input type="radio" id="before" name="time-period" value="before" />
-                <label>Before</label>
+                <label>Before </label>
                 <input type="text" name="before" />
                 <br />
                 <br />
