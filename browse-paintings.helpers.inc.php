@@ -46,7 +46,7 @@ function generateTable($list)
             <td class="title" id="<?= $row['ImageFileName'] ?>"><?= $row['Title'] ?></td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
             <td>
-                <form>
+                <form method="post">
                     <input type="hidden" name="addToFavorites">
                     <input type="submit" value="Add to Favorites">
                 </form>
