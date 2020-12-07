@@ -8,7 +8,8 @@
         align-items: center;
     }
 
-    .navList {
+
+    nav .navList {
         display: flex;
         margin-right: 30px;
         flex-direction: row;
