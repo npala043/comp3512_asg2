@@ -44,6 +44,7 @@ session_start();
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                         $artistGateway = new ArtistDB($conn);
                         $data = $artistGateway->getAll();
+                        $conn = null;
                     } catch (PDOException $e) {
                         die($e->getMessage());
                     }
@@ -65,6 +66,7 @@ session_start();
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                         $galleryGateway = new GalleryDB($conn);
                         $data = $galleryGateway->getAll();
+                        $conn = null;
                     } catch (PDOException $e) {
                         die($e->getMessage());
                     }
@@ -145,6 +147,7 @@ session_start();
                                 displayByYear($conn);
                             }
                         }
+                        $conn = null;
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
