@@ -40,7 +40,15 @@ function generateTable($list)
             <td class="artist"><?= formatName($row) ?></td>
             <td class="title" id="<?= $row['ImageFileName'] ?>" style="text-align:center;"><?= $row['Title'] ?></td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
-            <td><button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>">Add to Favorites</a></button></td>
+            <td>
+                <button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>">Add to Favorites</a></button>
+                <?php
+                if (isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
+            </td>
             <td><button><a href="single-painting.php?id=<?= $row['PaintingID'] ?>">View</a></button></td>
         </tr>
 <?php }

@@ -118,7 +118,7 @@ include_once('browse-paintings.helpers.inc.php');
                             $sort = "";
                             if (isset($_GET['sort'])) {
                                 if ($_GET['sort'] == 'artist') {
-                                    $sort = 'FirstName';
+                                    $sort = 'LastName';
                                 } else if ($_GET['sort'] == 'title') {
                                     $sort = 'Title';
                                 } else if ($_GET['sort'] == 'year') {
