@@ -52,7 +52,7 @@ function generateTable($list)
                 </form>
                 <?php
                 if (isset($_POST['addToFavorites'])) {
-                    addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
+                    addToFavorites($row['PaintingID'], $row['ArtistID'], $row['Title'], $row['ImageFileName'], $row['YearOfWork']);
                 }
                 ?>
             </td>
