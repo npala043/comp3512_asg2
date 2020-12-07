@@ -112,25 +112,31 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
         $filter = $filter . " Paintings.GalleryID=" . $gallery;
     }
 
-    if ($before) {
-        if ($firstFilter) {
-            $filter = $filter . "WHERE";
-            $firstFilter = false;
-        } else {
-            $filter = $filter . " AND ";
+    if (isset($_GET['time-period'])) {
+        if ($_GET['time-period'] == 'before') {
+            if ($before) {
+                if ($firstFilter) {
+                    $filter = $filter . "WHERE";
+                    $firstFilter = false;
+                } else {
+                    $filter = $filter . " AND ";
+                }
+                $filter = $filter . " YearOfWork < " . $before;
+            }
+        } else if ($_GET['time-period'] == 'after') {
+            if ($after) {
+                if ($firstFilter) {
+                    $filter = $filter . "WHERE";
+                    $firstFilter = false;
+                } else {
+                    $filter = $filter . " AND ";
+                }
+                $filter = $filter . " YearOfWork > " . $after;
+            }
+        } else if ($_GET['time-period'] == 'between') {
         }
-        $filter = $filter . " YearOfWork < " . $before;
     }
 
-    if ($after) {
-        if ($firstFilter) {
-            $filter = $filter . "WHERE";
-            $firstFilter = false;
-        } else {
-            $filter = $filter . " AND ";
-        }
-        $filter = $filter . " YearOfWork > " . $after;
-    }
 
     if ($sort) {
         $filter = $filter . " ORDER BY " . $sort;
