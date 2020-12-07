@@ -12,6 +12,7 @@ session_start();
     <title>Assignment 2</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>

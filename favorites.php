@@ -56,6 +56,7 @@ if (!isset($_SESSION["favourites"])) {
 <head>
     <title>Favorites</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
 </head>
 

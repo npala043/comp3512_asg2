@@ -35,6 +35,8 @@ if (isset($_SESSION['user'])) {
     <title>Assignment 2</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
+    <meta name="viewport" content="width=device-width">
+    
 
 </head>
 
