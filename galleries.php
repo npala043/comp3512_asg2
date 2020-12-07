@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/galleries.css">
+    <script src="js/navbar.js"></script>
     <title>Assignment 2</title>
 </head>
 
