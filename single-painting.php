@@ -37,86 +37,15 @@ try {
     <title></title>
     <meta charset=utf-8>
     <script src="js\single-painting.js"></script>
-    <style>
-        /* will be using this until i can get the external file to work */
-        main {
-            background-color: lightblue;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            padding: 10px;
-        }
-
-        span {
-            padding: 15px 25px;
-            margin: 5px;
-
-        }
-
-        #favsButton {
-            position: absolute;
-            right: 90px;
-            top: 85px;
-        }
-
-        #favsButton a,
-        #favsButton a:visited {
-            text-decoration: none;
-            color: black;
-        }
-
-        .link {
-            text-decoration: none;
-            border: oldlace 1px solid;
-            background-color: whitesmoke;
-            padding: 3px;
-            color: black;
-        }
-
-        .tab {
-            overflow: hidden;
-            border: 1px solid lightskyblue;
-            background-color: powderblue;
-        }
-
-        .tab {
-            background-color: whitesmoke;
-            float: center;
-            border-radius: 5px;
-            outline: none;
-            padding: 16px;
-            font-size: 16px;
 
 
-        }
-
-        .tab button.active {
-            background-color: steelblue;
-        }
-
-        .tabContent {
-            display: none;
-            padding: 6px 12px;
-            border: 1px solid lightskyblue;
-            background-color: powderblue;
-            border-top: none;
-            
-        }
-
-        /* 
-        #description,
-        #details,
-        #colors {
-            display: none;
-        } */
-    </style>
-
-
-    <!-- external link is not working for some reason <link rel="stlyesheet" href="css\single-painting.css" > -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/single-painting.css">
 </head>
 
 <body>
 
-        <?php include('header.php')?>
+    <?php include('header.php') ?>
 
 
     <main>
@@ -140,13 +69,13 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>"> Add to Favourites</a></button>
+            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
             <?php
 
-                if (isset($_SESSION['error'])) {
-                    echo $_SESSION['error'];
-                    unset($_SESSION['error']);
-                  }
+            if (isset($_SESSION['error'])) {
+                echo $_SESSION['error'];
+                unset($_SESSION['error']);
+            }
             ?>
 
             <button class="tab desctab"> Description </button>

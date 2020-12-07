@@ -1,8 +1,15 @@
-<!-- Nahuel is working on this -->
+<!-- Nahuel -->
 
 <?php
 
 session_start();
+
+if (!isset($_SESSION['user'])) {
+    $_SESSION['error'] = "<script>alert('Please login to access favourites');</script>";
+    header("Location:" . $_SERVER["HTTP_REFERER"]);
+    exit();
+}
+
 // do we have a favourites array already?
 if (!isset($_SESSION["favourites"])) {
     // Doesn't exist, so init one
@@ -12,8 +19,8 @@ if (!isset($_SESSION["favourites"])) {
 // retrieve any existing favourites
 $fav = $_SESSION["favourites"];
 
-// check if id, title, and filename are present as querystring
-if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
+// check if id, artistID, title, and filename are present as querystring
+if (allInfoPresent()) {
 
     // check if painting already in favourites
     // if yes, save error message to session and redirect back
@@ -28,8 +35,10 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
     // add painting to array
     $fav[] = array(
         "id" => $_GET['id'],
+        "artistid" => $_GET['artistid'],
         "title" => $_GET['title'],
-        "filename" => $_GET['filename']
+        "filename" => $_GET['filename'],
+        "yearofwork" => $_GET['yearofwork']
     );
 
     // re-save modified array back to session state
@@ -40,4 +49,11 @@ if (isset($_GET['id']) && isset($_GET['title']) && isset($_GET['filename'])) {
 
 // redirect back to the requesting page
 header("Location:" . $_SERVER["HTTP_REFERER"]);
+exit();
+
+function allInfoPresent()
+{
+    return isset($_GET['id']) && isset($_GET['artistid']) && isset($_GET['title']) && isset($_GET['filename']) && isset($_GET['yearofwork']);
+}
+
 ?>

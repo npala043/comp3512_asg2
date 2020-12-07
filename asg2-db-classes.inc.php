@@ -80,7 +80,7 @@ class PaintingDB
     }
     public function getAll()
     {
-        $sql = self::$baseSQL;
+        $sql = self::$baseSQL . "ORDER BY PaintingID";
         $statement =
             DatabaseHelper::runQuery($this->pdo, $sql, null);
         return $statement->fetchAll();
@@ -197,10 +197,6 @@ class CustomerLogonDB
             array($user)
         );
         return $statement->fetch();
-    }
-    public function updatePassword($id, $pass, $shaPass)
-    { // Not sure this is needed
-
     }
 }
 

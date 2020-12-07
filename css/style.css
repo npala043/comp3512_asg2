@@ -1,0 +1,53 @@
+ @media screen and (min-width: 700px) {
+
+    nav #navList {
+        list-style: none;
+    }
+    
+    #logo {
+        width: 30px;
+        border-radius: 50%;
+        height: 30px;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+
+
+ }
+ 
+ header {
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    margin-bottom: 10px;
+    padding: 5px;
+    
+}
+
+#toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    width: 30px;
+}
+
+ #navList li a {
+    text-decoration: none;
+   
+}
+
+#navList li {
+text-align: center;
+margin: 15px auto;
+}
+
+#logo {
+    display: inline-block;
+
+
+}
+
+nav #navList {
+    list-style: none;
+}

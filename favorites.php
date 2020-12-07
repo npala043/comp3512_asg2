@@ -1,4 +1,4 @@
-<!-- Nahuel will work on this :) -->
+<!-- Nahuel -->
 
 <?php
 session_start();
@@ -24,8 +24,7 @@ if (removalDataPresent()) {
 
 function removalDataPresent()
 {
-    return $_SERVER['REQUEST_METHOD'] === 'POST'
-        && isset($_POST['id']) && isset($_SESSION['favourites']) ? true : false;
+    return $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id']) && isset($_SESSION['favourites']);
 }
 
 /* Format of $_SESSION['favourites'] */

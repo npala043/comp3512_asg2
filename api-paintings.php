@@ -19,20 +19,17 @@ try {
         $paintings = $gateway->getAllForGallery($_GET["gallery"]);
     } else {
         // If query other than 'gallery' supplied, display error message
-        $paintings = ["message" => "gallery doesnt exist"];
+        $paintings = ["message" => "gallery " . $_GET['gallery'] . " doesnt exist"];
     }
 
-    echo json_encode($paintings, JSON_NUMERIC_CHECK);
     $conn = null;
+
+    echo json_encode($paintings);
 } catch (Exception $e) {
     die($e->getMessage());
 }
 
 function isCorrectQueryStringInfo($param)
 {
-    if (isset($_GET[$param]) && !empty($_GET[$param])) {
-        return true;
-    } else {
-        return false;
-    }
+    return isset($_GET[$param]) && !empty($_GET[$param]);
 }
