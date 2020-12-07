@@ -11,7 +11,7 @@
             <!-- should only be avaliable if the user is logged in -->
             <?php
             if (isset($_SESSION['user'])) {
-                echo  "<li><a href=" . 'favorites.php' . ">Favorties</a></li>";
+                echo  "<li><a href=" . 'favorites.php' . ">Favorites</a></li>";
                 echo  "<li><a href=" . 'logout.php' . ">Logout</a></li>";
             } else {
                 echo  "<li><a href=" . 'login.php' . ">Login</a></li>";
