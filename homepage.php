@@ -41,7 +41,7 @@ if (isset($_SESSION['user'])) {
 <body>
     <section class="logout" style="display:<?= $displayOut ?>;">
         <div class="out">
-            <button class="login"><a href="login.php"> Login </a></button>
+            <a href="login.php"><button class="login"> Login </button></a>
             <button class="join"> Join </button>
 
 
@@ -160,9 +160,9 @@ if (isset($_SESSION['user'])) {
                 $count = 0;
                 $added = 0;
 
-                // loop through all artist paintings or until 6 paintings have been added from this artist
+                // display up to 6 paintings of an artist found in favourites
                 for ($i = 0; $i < count($artistData) && $added < 6; $i++) {
-                    // only add paintings that are not already displayed
+                    // don't add paintings that are already displayed
                     if (!in_array($artistData[$i]['PaintingID'], $paintings)) {
                         $count++;
                         $added++; ?>
@@ -170,17 +170,18 @@ if (isset($_SESSION['user'])) {
                             <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
                         </a>
                         <?php
-                        // add new painting id to list of displayed paintings
+                        // add new painting id to list of paintings displayed
                         $paintings[] = $artistData[$i]['PaintingID'];
                     }
                 }
 
                 $added = 0;
-                // loop through all paintings in era or until 6 paintings have been added from this era
-                for ($i = 0; $added < 6; $i++) {
-                    // only add paintings that were created within the era of favourite painting
+
+                // display up to 6 paintings of an era found in favourites
+                for ($i = 0; $added < 6 && $yearData[$i]['YearOfWork'] < $maxYear; $i++) {
+                    // don't display paintings outside of min/max years of era
                     if ($yearData[$i]['YearOfWork'] >= $minYear && $yearData[$i]['YearOfWork'] <= $maxYear) {
-                        // only add paintings that are not already displayed
+                        // dont add paintings that are already displayed
                         if (!in_array($yearData[$i]['PaintingID'], $paintings)) {
                             $count++;
                             $added++; ?>
@@ -188,26 +189,22 @@ if (isset($_SESSION['user'])) {
                                 <img src="images/paintings/square-medium/<?= $yearData[$i]['ImageFileName'] ?>.jpg" alt="<?= $yearData[$i]['Title'] ?>">
                             </a>
                         <?php
-                            // add new painting id to list of displayed paintings
+                            // add new painting id to list of paintings displayed
                             $paintings[] = $yearData[$i]['PaintingID'];
                         }
                     }
                 }
-
-                // if there are less than 12 paintings showing in recommended area, display more from top of painting table until there are 12
+                // if less than 12 paintings are recommended, add more from top of painting table until 12 are displayed.
                 if ($count < 12) {
                     $artistData = $artistGate->getAll();
-                    for ($i = 0; $count < 12; $i++) {
-                        // only add paintings that are not already displayed
-                        if (!in_array($artistData[$i]['PaintingID'], $paintings)) {
-                            $count++; ?>
-                            <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
-                                <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
-                            </a>
+                    for ($i = 0; $count < 12; $i++, $count++) { ?>
+                        <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
+                            <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
+                        </a>
                     <?php }
-                    }
                 }
             } else {
+                // if no favourites found, display 12 paintings from top of painting table
                 try {
                     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                     $artistGate = new PaintingDB($conn);
@@ -216,7 +213,6 @@ if (isset($_SESSION['user'])) {
                     die($e->getMessage());
                 }
                 $count = 0;
-                // display 12 paintings from top of painting table
                 for ($i = 0; $count < 12; $i++, $count++) { ?>
                     <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
                         <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
