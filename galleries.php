@@ -4,84 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
-        <title>Assignment 1</title>
-        <style>
-            header {
-                display: block;
-                border-radius: 5px;
-                padding: 10px 20px;
-                margin: 20px 0px;
-                background-color: #C4DFE6;
-                color: #003b46;
-            }
-            main {
-                display: grid;
-                grid-gap: 15px;
-                grid-template-columns: 20rem 25rem auto;
-                height: 650px;
-            }
-
-            .box {
-                background-color: #C4DFE6;
-                color: #003b46;
-                border-radius: 5px;
-                padding: 10px 20px;
-                font-size: 1rem;
-            }
-
-            .list {
-                grid-column: 1 / span 1;
-                grid-row: 1 / span 3;
-                overflow: auto;
-                height: 600px;
-            }
-
-            ul#galleryList {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-
-            .info {
-                grid-column: 2 / span 1;
-                grid-row: 1 / span 1;
-                height: 260px;
-            }
-
-            div.info section {
-                display: none;
-                grid-gap: 5px;
-                grid-template-columns: 6rem auto;
-            }
-
-            .map {
-                grid-column: 2 / span 1;
-                grid-row: 2 / span 2;
-                height: 305px;
-            }
-
-            .paintings {
-                grid-column: 3 / span 1;
-                grid-row: 1 / span 3;
-                overflow: auto;
-                height: 600px;
-            }
-
-            table {
-                width: 100%;
-                margin: 5px 10px 5px 5px;
-            }
-
-            th {
-                text-align: left;
-                padding: 5px;
-            }
-
-            td {
-                padding: 5px;
-            }
-
-        </style>
+    <link rel="stylesheet" href="css/galleries.css">
+    <title>Assignment 1</title>
 </head>
 
 <body>  

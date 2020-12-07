@@ -189,6 +189,8 @@ document.addEventListener("DOMContentLoaded", function () {
         let img = document.createElement("img");
         img.src = `images/paintings/square-medium/${painting.ImageFileName}.jpg`;
         img.id = `${painting.ImageFileName}`;
+        img.height = "20px";
+        img.width = "20px";
         return img;
     }
 });
