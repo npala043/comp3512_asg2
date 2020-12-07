@@ -37,8 +37,7 @@ try {
     <title></title>
     <meta charset=utf-8>
     <script src="js\single-painting.js"></script>
-
-
+    <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/single-painting.css">
 </head>

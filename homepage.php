@@ -36,7 +36,7 @@ if (isset($_SESSION['user'])) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
     <meta name="viewport" content="width=device-width">
-    
+    <script src="js/navbar.js"></script>
 
 </head>
 

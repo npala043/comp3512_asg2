@@ -8,19 +8,19 @@
         align-items: center;
     }
 
-    #navList {
+    .navList {
         display: flex;
         margin-right: 30px;
         flex-direction: row;
         justify-content: flex-end;
     }
 
-    #navList li {
+    .navList li {
         margin: 0;
     }
     
     
-    #navList li a {
+    .navList li a {
         margin-left: 40px;
     }
 
@@ -28,7 +28,7 @@
         display: none;
     }
 
-    #navList li a:hover {
+    .navList li a:hover {
         color: royalblue;
     }  
    
@@ -63,18 +63,18 @@
     height: 30px;
 }
 
- #navList li a {
+ .navList li a {
     text-decoration: none;
    
 }
 
-#navList li {
+.navList li {
 text-align: center;
 margin: 15px auto;
 
 }
 
-#navList li, #navList li:visited {
+.navList li, .navList li:visited {
     color: black;
 }
 
@@ -84,9 +84,9 @@ margin: 15px auto;
 
 }
 
-#navList {
+.navList {
     list-style-type: none;
-    /* display: none; */
+    display: none;
 }
 
 

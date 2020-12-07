@@ -3,7 +3,7 @@
         <img src="images/logo/hamburger-menu.jpg" class="toggle">
         <!-- <img src="images/logo/logo.jpg" alt="log" id="logo"> -->
         <img src="images/logo/logo.jpg" alt="log" id="logo">
-        <ul id="navList">
+        <ul class="navList">
             <li><a href="homepage.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="galleries.php">Galleries</a></li>
