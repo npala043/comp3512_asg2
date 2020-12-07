@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
             tab.className.replace("active", " ");
         }
 
-        document.querySelector(information).style.display = "inline";
+        document.querySelector(information).style.display = "block";
         tabActivated.classList.toggle("active");
 
 

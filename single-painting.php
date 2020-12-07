@@ -69,19 +69,19 @@ try {
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
 
+            <div>
+                <button class="tab desctab"> Description </button>
+                <button class="tab detailstab"> Details </button>
+                <button class="tab colorstab"> Colors </button>
+                <button class="tab" id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $painting['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
+                <?php
 
-            <button class="tab desctab"> Description </button>
-            <button class="tab detailstab"> Details </button>
-            <button class="tab colorstab"> Colors </button>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $painting['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
-            <?php
-
-            if (isset($_SESSION['error'])) {
-                echo $_SESSION['error'];
-                unset($_SESSION['error']);
-            }
-            ?>
-
+                if (isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
+            </div>
 
 
 
