@@ -5,12 +5,15 @@ include 'asg2-db-classes.inc.php';
 include 'browse-paintings.helpers.inc.php';
 session_start();
 
+// check for user session data
 if (isset($_SESSION['user'])) {
+    // user session data found: show logged in homepage
     $displayIn = "grid";
     $displayOut = "none";
     $searchPos = "";
 
     try {
+        // create new CustomerDB gateway with user session data
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $customerGate = new CustomersDB($conn);
         $customerData = $customerGate->getByCustomerID($_SESSION['user']);
@@ -18,6 +21,7 @@ if (isset($_SESSION['user'])) {
         die($e->getMessage());
     }
 } else {
+    // user session data not found: show logged out homepage
     $displayIn = "none";
     $displayOut = "flex";
     $searchPos = "";
@@ -85,14 +89,18 @@ if (isset($_SESSION['user'])) {
             <h2>Your Favorite Paintings</h2>
 
             <?php
+            // check for favourites session data
             if (isset($_SESSION['favourites'])) {
+                // favourites session data found: store for use
                 $favs = $_SESSION['favourites'];
+                // loop through favourites array, extract filenames and use to create thumbnail link
                 foreach ($favs as $f) { ?>
                     <a href="single-painting.php?id=<?= $f['id'] ?>">
                         <img src="images/paintings/square-medium/<?= $f['filename'] ?>.jpg" alt="<?= $f['title'] ?>">
                     </a>
             <?php }
             } else {
+                // no favourites session data found: give option to browse paintings
                 echo "<p>You don't have any favorites yet!</p>";
                 echo "<button class='browse'><a href='browse-paintings.php'> Browse Paintings </a></button>";
             }
@@ -102,7 +110,9 @@ if (isset($_SESSION['user'])) {
             <h2>Paintings You May Like</h2>
 
             <?php
+            // check for favourites session data
             if (isset($_SESSION['favourites'])) {
+                // favourites session data found: store needed info
                 $favs = $_SESSION['favourites'];
                 $paintings = array();
                 $artist = $favs[0]['artistid'];
@@ -110,10 +120,12 @@ if (isset($_SESSION['user'])) {
                 $minYear = 0;
                 $maxYear = 0;
 
+                // create array of painting ids being displayed
                 foreach ($favs as $f) {
                     $paintings[] = $f['id'];
                 }
 
+                // determine era of favourite painting chosen
                 if ($year < 1400) {
                     $maxYear = 1399;
                 } elseif ($year >= 1400 && $year < 1550) {
@@ -133,6 +145,7 @@ if (isset($_SESSION['user'])) {
                     $maxYear = 2020;
                 }
 
+                // create new PaintingDB gateway with favourites session data
                 try {
                     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                     $artistGate = new PaintingDB($conn);
@@ -147,7 +160,9 @@ if (isset($_SESSION['user'])) {
                 $count = 0;
                 $added = 0;
 
+                // loop through all artist paintings or until 6 paintings have been added from this artist
                 for ($i = 0; $i < count($artistData) && $added < 6; $i++) {
+                    // only add paintings that are not already displayed
                     if (!in_array($artistData[$i]['PaintingID'], $paintings)) {
                         $count++;
                         $added++; ?>
@@ -155,14 +170,17 @@ if (isset($_SESSION['user'])) {
                             <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
                         </a>
                         <?php
+                        // add new painting id to list of displayed paintings
                         $paintings[] = $artistData[$i]['PaintingID'];
                     }
                 }
 
                 $added = 0;
-
+                // loop through all paintings in era or until 6 paintings have been added from this era
                 for ($i = 0; $added < 6; $i++) {
+                    // only add paintings that were created within the era of favourite painting
                     if ($yearData[$i]['YearOfWork'] >= $minYear && $yearData[$i]['YearOfWork'] <= $maxYear) {
+                        // only add paintings that are not already displayed
                         if (!in_array($yearData[$i]['PaintingID'], $paintings)) {
                             $count++;
                             $added++; ?>
@@ -170,18 +188,24 @@ if (isset($_SESSION['user'])) {
                                 <img src="images/paintings/square-medium/<?= $yearData[$i]['ImageFileName'] ?>.jpg" alt="<?= $yearData[$i]['Title'] ?>">
                             </a>
                         <?php
+                            // add new painting id to list of displayed paintings
                             $paintings[] = $yearData[$i]['PaintingID'];
                         }
                     }
                 }
 
+                // if there are less than 12 paintings showing in recommended area, display more from top of painting table until there are 12
                 if ($count < 12) {
                     $artistData = $artistGate->getAll();
-                    for ($i = 0; $count < 12; $i++, $count++) { ?>
-                        <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
-                            <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
-                        </a>
+                    for ($i = 0; $count < 12; $i++) {
+                        // only add paintings that are not already displayed
+                        if (!in_array($artistData[$i]['PaintingID'], $paintings)) {
+                            $count++; ?>
+                            <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
+                                <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
+                            </a>
                     <?php }
+                    }
                 }
             } else {
                 try {
@@ -192,6 +216,7 @@ if (isset($_SESSION['user'])) {
                     die($e->getMessage());
                 }
                 $count = 0;
+                // display 12 paintings from top of painting table
                 for ($i = 0; $count < 12; $i++, $count++) { ?>
                     <a class="fill" href="single-painting.php?id=<?= $artistData[$i]['PaintingID'] ?>">
                         <img src="images/paintings/square-medium/<?= $artistData[$i]['ImageFileName'] ?>.jpg" alt="<?= $artistData[$i]['Title'] ?>">
