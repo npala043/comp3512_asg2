@@ -1,5 +1,7 @@
 <?php
 
+include_once('add-to-favorites.php');
+
 function formIsFilled()
 {
     if (isset($_GET['title']) || isset($_GET['artist']) || isset($_GET['gallery']) || isset($_GET['before']) || isset($_GET['after']) || isset($_GET['between-before']) || isset($_GET['between-after'])) {
@@ -13,6 +15,7 @@ function displayByArtist($connection)
 {
     $paintingGateway = new PaintingDB($connection);
     $list = $paintingGateway->getAllSortByArtist();
+    $connection = null;
     generateTable($list);
 }
 
@@ -20,6 +23,7 @@ function displayByYear($connection)
 {
     $paintingGateway = new PaintingDB($connection);
     $list = $paintingGateway->getAllSortByYear();
+    $connection = null;
     generateTable($list);
 }
 
@@ -27,6 +31,7 @@ function displayByTitle($connection)
 {
     $paintingGateway = new PaintingDB($connection);
     $list = $paintingGateway->getAllSortByTitle();
+    $connection = null;
     generateTable($list);
 }
 
@@ -38,14 +43,16 @@ function generateTable($list)
                 <img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg' />
             </td>
             <td class="artist"><?= formatName($row) ?></td>
-            <td class="title" id="<?= $row['ImageFileName'] ?>" style="text-align:center;"><?= $row['Title'] ?></td>
+            <td class="title" id="<?= $row['ImageFileName'] ?>"><?= $row['Title'] ?></td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
             <td>
-                <button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>&yearofwork=<?= $row['YearOfWork'] ?>">Add to Favorites</a></button>
+                <form>
+                    <input type="hidden" name="addToFavorites">
+                    <input type="submit" value="Add to Favorites">
+                </form>
                 <?php
-                if (isset($_SESSION['error'])) {
-                    echo $_SESSION['error'];
-                    unset($_SESSION['error']);
+                if (isset($_POST['addToFavorites'])) {
+                    addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
                 }
                 ?>
             </td>
@@ -155,5 +162,6 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
 
     $paintingGateway = new PaintingDB($connection);
     $list = $paintingGateway->createFilterList($filter);
+    $connection = null;
     generateTable($list);
 }
