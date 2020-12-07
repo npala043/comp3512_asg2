@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/galleries.css">
-    <script src="js/navbar.js"></script>
     <title>Assignment 2</title>
 </head>
 
@@ -70,6 +69,7 @@
 
     <!-- Connects the html to the javascript -->
     <script src="js/gallerypage.js"></script>
+    <script src="js/navbar.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4uNdwAr_TMLM_3ZvKejjqMmGER11AoEU&callback=initMap"
         async defer></script>
 </body>
