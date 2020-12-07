@@ -48,8 +48,8 @@ try {
 
 
     <main>
-        <div id="imgBox">
-            <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" width="500px">
+        <div>
+            <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" id="imgBox">
         </div>
 
         <section>
@@ -68,18 +68,22 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <button id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
-            <?php
 
-            if (isset($_SESSION['error'])) {
-                echo $_SESSION['error'];
-                unset($_SESSION['error']);
-            }
-            ?>
+            <div>
+                <button class="tab desctab"> Description </button>
+                <button class="tab detailstab"> Details </button>
+                <button class="tab colorstab"> Colors </button>
+                <button class="tab" id="favsButton"><a href="add-to-favorites.php?id=<?= $painting['PaintingID'] ?>&artistid=<?= $painting['ArtistID'] ?>&title=<?= $painting['Title'] ?>&filename=<?= $painting['ImageFileName'] ?>&yearofwork=<?= $painting['YearOfWork'] ?>"> Add to Favourites</a></button>
+                <?php
 
-            <button class="tab desctab"> Description </button>
-            <button class="tab detailstab"> Details </button>
-            <button class="tab colorstab"> Colors </button>
+                if (isset($_SESSION['error'])) {
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                }
+                ?>
+            </div>
+
+
 
             <div id="description" class="tabContent">
                 <h4>Description </h4>
@@ -92,7 +96,6 @@ try {
                     }
 
                     ?>
-
                 </p>
             </div>
             <div id="details" class="tabContent">

@@ -24,16 +24,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function tabs(tabActivated, information) {
-        // let allTabs = document.querySelectorAll(".tabs");
+        let allTabs = document.querySelectorAll(".tabs");
         let allTabContent = document.querySelectorAll(".tabContent");
 
         for (let a of allTabContent) {
             a.style.display = "none";
         }
 
-        // for (let tab of allTabs) {
-        //     tab.className.replace("active", " ");
-        // }
+        for (let tab of allTabs) {
+            tab.className.replace("active", " ");
+        }
 
         document.querySelector(information).style.display = "block";
         tabActivated.classList.toggle("active");

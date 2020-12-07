@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     hamburger.addEventListener('click', function() {
-        
-        navBar.classList.toggle("active");
+        navBar.classList.toggle("clicked");
     });
 
 

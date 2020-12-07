@@ -72,6 +72,10 @@ document.addEventListener("DOMContentLoaded", function () {
     function createPaintingTable(paintings) {
         document.querySelector("tbody").innerHTML = ""
 
+        paintings.sort((a, b) => {
+            return a.YearOfWork < b.YearOfWork ? -1 : 1;
+        });
+
         for (let p of paintings) {
 
             let tableBody = document.querySelector("#paintingTable tbody");

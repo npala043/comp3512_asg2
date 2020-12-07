@@ -41,7 +41,7 @@ function generateTable($list)
             <td class="title" id="<?= $row['ImageFileName'] ?>" style="text-align:center;"><?= $row['Title'] ?></td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
             <td>
-                <button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>">Add to Favorites</a></button>
+                <button><a href="add-to-favorites.php?id=<?= $row['PaintingID'] ?>&artistid=<?= $row['ArtistID'] ?>&title=<?= $row['Title'] ?>&filename=<?= $row['ImageFileName'] ?>&yearofwork=<?= $row['YearOfWork'] ?>">Add to Favorites</a></button>
                 <?php
                 if (isset($_SESSION['error'])) {
                     echo $_SESSION['error'];
@@ -134,12 +134,23 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
                 $filter = $filter . " YearOfWork > " . $after;
             }
         } else if ($_GET['time-period'] == 'between') {
+            if ($_GET['between-before'] && $_GET['between-after']) {
+                if ($firstFilter) {
+                    $filter = $filter . "WHERE";
+                    $firstFilter = false;
+                } else {
+                    $filter = $filter . " AND ";
+                }
+                $filter = $filter . " YearOfWork > " . $_GET['between-after'] . " AND " . "YearOfWork < " . $_GET['between-before'];
+            }
         }
     }
 
 
     if ($sort) {
         $filter = $filter . " ORDER BY " . $sort;
+    } else {
+        $filter = $filter . " ORDER BY YearOfWork";
     }
 
     $paintingGateway = new PaintingDB($connection);
