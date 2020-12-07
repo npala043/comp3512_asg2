@@ -54,6 +54,7 @@ span {
 
 .tab button.active {
     background-color: steelblue;
+    display: inline;
 }
 
 .tabContent {
