@@ -147,6 +147,7 @@ session_start();
                                 displayByYear($conn);
                             }
                         }
+                        $conn = null;
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
