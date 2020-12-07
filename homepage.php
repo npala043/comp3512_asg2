@@ -10,13 +10,14 @@ if (isset($_SESSION['user'])) {
     // user session data found: show logged in homepage
     $displayIn = "grid";
     $displayOut = "none";
-    $searchPos = "";
+    $displayHeader = "block";
 
     try {
         // create new CustomerDB gateway with user session data
         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
         $customerGate = new CustomersDB($conn);
         $customerData = $customerGate->getByCustomerID($_SESSION['user']);
+        $conn = null;
     } catch (Exception $e) {
         die($e->getMessage());
     }
@@ -24,7 +25,7 @@ if (isset($_SESSION['user'])) {
     // user session data not found: show logged out homepage
     $displayIn = "none";
     $displayOut = "flex";
-    $searchPos = "";
+    $displayHeader = "none";
 }
 
 ?>
@@ -62,11 +63,12 @@ if (isset($_SESSION['user'])) {
         </div>
     </section>
 
+    <header class='header' style="display:<?= $displayHeader ?>;">
+        <?php include("header.php"); ?>
+    </header>
     <section class="login" style="display:<?= $displayIn ?>;">
-        <header>
-            <?php include("header.php"); ?>
-        </header>
-        <div class="login">
+
+        <div class="login" id="userInfo">
             <h2><?= $customerData['FirstName'] ?> <?= $customerData['LastName'] ?></h2>
             <p><?= $customerData['Address'] ?></p>
             <p><?= $customerData['City'] ?>, <?= $customerData['Country'] ?></p>
@@ -75,7 +77,7 @@ if (isset($_SESSION['user'])) {
             <p><?= $customerData['Email'] ?></p>
 
         </div>
-        <div class="login">
+        <div class="login" id="search">
             <form method="GET" action="homepage.php">
                 <input type="text" name="title" placeholder="SEARCH BOX FOR Paintings">
                 <button class="search" type="submit" value="Submit"> Search </button>
@@ -87,7 +89,7 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
-        <div class="login">
+        <div class="login" id="favourites">
             <h2>Your Favorite Paintings</h2>
 
             <?php
@@ -108,7 +110,7 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
-        <div class="login">
+        <div class="login" id="recommended">
             <h2>Paintings You May Like</h2>
 
             <?php
@@ -155,6 +157,7 @@ if (isset($_SESSION['user'])) {
 
                     $yearGate = new PaintingDB($conn);
                     $yearData = $yearGate->getAllSortByYear();
+                    $conn = null;
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }
@@ -211,6 +214,7 @@ if (isset($_SESSION['user'])) {
                     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
                     $artistGate = new PaintingDB($conn);
                     $artistData = $artistGate->getAll();
+                    $con = null;
                 } catch (Exception $e) {
                     die($e->getMessage());
                 }

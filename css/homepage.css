@@ -1,5 +1,4 @@
 body {
-    margin: 0;
     height: 100%;
 }
 
@@ -19,13 +18,9 @@ section.logout {
 }
 
 section.login {
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 20% 30% 50%;
-}
-
-div.login {
-    margin: 20px 40px;
-    height: 400px;
+    padding: 0 2%;
+    grid-template-columns: 50fr 50fr;
+    grid-template-rows: 15% 10% 25% 25% 25%;
 }
 button {
     width: 160px;
@@ -50,8 +45,26 @@ input {
     padding: 10px;
 }
 
+  #userInfo {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    padding: 20px;
+  }
 
+  #search {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 20px;
+  }
 
-header {
-    grid-column: 1 / span 2;
-}
+  #favourites {
+    grid-column: 1/2; 
+    grid-row: 3/6;
+    padding: 20px;
+  }
+
+  #recommended {
+    grid-column: 2/3;
+    grid-row: 2/6;
+    padding: 20px;
+  }
