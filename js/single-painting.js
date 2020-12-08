@@ -5,41 +5,29 @@ document.addEventListener("DOMContentLoaded", function () {
     let desciption = document.querySelector(".desctab");
     let details = document.querySelector(".detailstab");
     let colors = document.querySelector(".colorstab");
-
+    let descid = document.querySelector("#description");
+    let detailsid = document.querySelector("#details");
+    let colorsid = document.querySelector("#colors");
 
     desciption.addEventListener("click", function () {
-        tabs(desciption, "#description");
+        tabs(desciption, descid);
 
     });
 
     details.addEventListener("click", function () {
-        tabs(details, "#details");
+        tabs(details, detailsid);
 
     });
 
     colors.addEventListener("click", function () {
-        tabs(colors, "#colors");
+
+        tabs(colors, colorsid);
 
     });
 
+    console.log(document.querySelector("#thing"));
 
-    desciption.addEventListener("onsubmit", function () {
-        tabs(desciption, "#description");
-
-    });
-
-    details.addEventListener("onsubmit", function () {
-        tabs(details, "#details");
-
-    });
-
-    colors.addEventListener("onsubmit", function () {
-        tabs(colors, "#colors");
-
-    });
-
-
-    function tabs(tabActivated, information) {
+    function tabs(tabActivated, id) {
         let allTabs = document.querySelectorAll(".tabs");
         let allTabContent = document.querySelectorAll(".tabContent");
 
@@ -50,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let tab of allTabs) {
             tab.className.replace("active", " ");
         }
-
-        document.querySelector(information).style.display = "block";
+        console.log(id);
+        id.style.display = "block";
         tabActivated.classList.toggle("active");
 
 

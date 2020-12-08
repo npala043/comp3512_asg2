@@ -42,19 +42,20 @@
         padding: 4px;
       
     }  
+
+    #logo {
+        width: 50px;
+        border-radius: 50%;
+        height: 50px;
+        position: absolute;
+        top: 15px;
+        left: 7%;
+    }
  
 
  }
  
 
- #logo {
-    width: 25px;
-    border-radius: 50%;
-    height: 25px;
-    position: absolute;
-    top: 15px;
-    left: 7%;
-}
 
  .header {
     border: 1px solid lightblue;
@@ -119,4 +120,15 @@ padding: 10px ;
     .minimize {
         height: 250px;
     }
+
+    
+ #logo {
+    width: 30px;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    left: 7%;
+    /* float: left; */
+}
 }

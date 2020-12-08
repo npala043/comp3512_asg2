@@ -6,7 +6,7 @@ function addToFavorites($id, $artistid, $title, $filename, $yearofwork)
 {
     if (!isset($_SESSION['user'])) {
         echo "<script>alert('Please login to access favourites');</script>";
-        exit();
+        return;
     }
 
     // do we have a favourites array already?
@@ -23,7 +23,7 @@ function addToFavorites($id, $artistid, $title, $filename, $yearofwork)
     foreach ($fav as $f) {
         if (in_array($id, $f)) {
             echo "<script>alert('Already added to favourites');</script>";
-            exit();
+            return;
         }
     }
     // add painting to array
