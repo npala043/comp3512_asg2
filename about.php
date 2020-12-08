@@ -6,7 +6,7 @@ session_start();
 
 ?>
 
-<html lang="eng">
+<html lang="en">
 
 <head>
     <title>Assignment 2</title>
