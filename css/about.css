@@ -1,7 +1,8 @@
 #info {
     display: block;
     border-radius: 5px;
-    background-color: lightblue;
+    background-color: #003060;
+    color: white;
     padding: 10px 20px;
 }
 
@@ -15,7 +16,7 @@ a, a:hover {
 
 #groupButton  {
     margin-top: 4px;
-    border: 1px solid whitesmoke;
+    color: #003060;
     border-radius: 5px;;
     background-color: whitesmoke;
     padding: 4px;
@@ -24,5 +25,5 @@ a, a:hover {
 }
 
  a:hover {
-    color: steelblue;
+    color: white;
 }
