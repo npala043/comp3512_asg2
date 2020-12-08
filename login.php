@@ -46,7 +46,7 @@ function loginDataPresent()
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/login.css">
-
+    <script src="js/navbar.js"></script>
 </head>
 
 <body>
@@ -56,7 +56,7 @@ function loginDataPresent()
         <form action="login.php" method="post">
             <table>
                 <tr>
-                    <td> 
+                    <td>
                         <h2> Login </h2>
                     </td>
                     <td>
@@ -64,26 +64,26 @@ function loginDataPresent()
                 </tr>
                 <tr>
                     <td>
-                    <label for="email">Email:</label>
+                        <label for="email">Email:</label>
                     </td>
                     <td>
-                    <input type="email" name="email">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                    <label for="pass">Password:</label>
-                    </td>
-                    <td>
-                    <input type="password" name="pass">
+                        <input type="email" name="email">
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        
+                        <label for="pass">Password:</label>
                     </td>
                     <td>
-                    <input type="submit" value="Login">
+                        <input type="password" name="pass">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                    </td>
+                    <td>
+                        <input type="submit" value="Login">
                     </td>
                 </tr>
         </form>
