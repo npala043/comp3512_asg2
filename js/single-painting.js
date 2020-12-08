@@ -23,21 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    desciption.addEventListener("onsubmit", function () {
-        tabs(desciption, "#description");
-
-    });
-
-    details.addEventListener("onsubmit", function () {
-        tabs(details, "#details");
-
-    });
-
-    colors.addEventListener("onsubmit", function () {
-        tabs(colors, "#colors");
-
-    });
-
 
     function tabs(tabActivated, information) {
         let allTabs = document.querySelectorAll(".tabs");

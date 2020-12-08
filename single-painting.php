@@ -80,8 +80,7 @@ try {
             <div>
                 <button class="tab desctab"> Description </button>
                 <button class="tab detailstab"> Details </button>
-                <button class="tab colorstab"> Colors </button>
-                
+                <button class="tab colorstab"> Colors </button>     
             </div>
            
            
