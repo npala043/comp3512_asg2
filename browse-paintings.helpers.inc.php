@@ -1,5 +1,7 @@
 <?php
 
+// This isn't in the includes folder because we kept getting a "file doesn't exist" error when including the add-to-favorites.php page, even with the seemingly correct path (../add-to-favorites.php)
+
 include_once "add-to-favorites.php";
 
 
