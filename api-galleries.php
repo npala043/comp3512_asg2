@@ -1,6 +1,6 @@
 <?php
-require_once 'config.inc.php';
-require_once 'asg2-db-classes.inc.php';
+require_once 'includes/config.inc.php';
+require_once 'includes/asg2-db-classes.inc.php';
 
 // Tell the browser to expect JSON rather than HTML
 header('Content-type: application/json');
