@@ -31,7 +31,9 @@ session_start();
     </div>
     <div>
         <h3>Brief Description</h3>
-        <p>???</p>
+        <p>This is a multi page website that will utilize HTML, CSS, MySQL, JavaScript and PHP to facilitate its function. The functionality of the website is instructed within the Assignment 2 pdf.</p>
+        <p>The website allows a user to sign into the website to view their own homepage. From there, the user will be able to browse through galleries and paintings throughout the world. </p>
+        <p>They are also able to add paintings to their favorite list for later use. Once they are done, the user is able to log out.</p>
     </div>
     <div>
         <h3>Technologies Used</h3>
