@@ -38,7 +38,7 @@ session_start();
         </div>
         <div id="technology">
             <h3>Technologies Used</h3>
-            <p>???</p>
+            <p>HTML, CSS, JavaScript, PHP, SQL, and JSON</p>
         </div>
         <div id="members">
             <h3>Group Members</h3>
@@ -50,15 +50,15 @@ session_start();
                 Nahuel Paladino <a href="https://github.com/npala043">(Git Repository: npala043)</a><br>
 
             </p>
-            <a href="https://github.com/npala043/comp3512_asg2">Group Repository</a>
+            <a href="https://github.com/npala043/comp3512_asg2" id="groupButton">Group Repository</a>
         </div>
 
         <div id="external">
             <h3>External Sources</h3>
-            <p>
-                <a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a><br>
-                <a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar</a>
-            </p>
+            <ul>
+                <li><a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a</li>
+                <li><a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar</a></li>
+            </ul>
         </div>
     </div>
 </body>
