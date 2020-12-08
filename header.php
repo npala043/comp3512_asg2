@@ -1,4 +1,4 @@
-<header>
+<header class="header">
     <nav id="navbar">
         <img src="images/logo/hamburger-menu.jpg" class="toggle">
         <!-- <img src="images/logo/logo.jpg" alt="log" id="logo"> -->

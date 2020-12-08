@@ -56,13 +56,13 @@
     left: 7%;
 }
 
- header {
+ .header {
     border: 1px solid lightblue;
     background-color: lightblue;
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
-    height: 30px;
+   
 }
 
 .toggle {
@@ -85,12 +85,6 @@ padding: 10px ;
 
 }
 
-/* .navList li:hover {
-    border: lightcyan 0.5px solid;
-    border-radius: 10px;
-    background-color: lightcyan;
-    /* padding: 5px; */
-
 
 .navList li, .navList li:visited {
     color: black;
@@ -108,11 +102,21 @@ padding: 10px ;
     display: block;
 }
 
+
+
 @media screen and (max-width: 768px) {
     .navList li:hover {
         border: lightcyan 0.5px solid;
         border-radius: 10px;
         background-color: lightcyan;
         /* padding: 5px; */
+    }
+
+    .header {
+        height: 30px;
+    }
+
+    .minimize {
+        height: 250px;
     }
 }
