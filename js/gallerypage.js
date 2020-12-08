@@ -87,7 +87,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let img = smallImage(p);
             let a1 = document.createElement('a');
             a1.href = `single-painting.php?id=${p.PaintingID}`;
-            imgTd.appendChild(img);
+            a1.appendChild(img);
+            imgTd.appendChild(a1);
             imgTd.className = "img";
             tr.appendChild(imgTd);
 

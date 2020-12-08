@@ -1,4 +1,4 @@
-// reference: https://www.w3schools.com/howto/howto_js_tabs.asp
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tabs(colors, "#colors");
 
     });
+
 
 
     function tabs(tabActivated, information) {

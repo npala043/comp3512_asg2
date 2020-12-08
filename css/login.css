@@ -1,0 +1,20 @@
+div {
+    display: block;
+    background-color: lightblue;
+    text-align: left;
+    border-radius: 5px;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 20px;
+    box-shadow: 5px 10px 8px lightgray;
+
+}
+
+table {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}

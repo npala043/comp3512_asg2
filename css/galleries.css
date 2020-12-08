@@ -15,6 +15,10 @@
         font-size: 1rem;
     }
 
+    ul#galleryList li:hover {
+        cursor: pointer;
+    }
+
     .list {
         grid-column: 1 / span 1;
         grid-row: 1 / span 3;
@@ -103,6 +107,10 @@
         overflow: auto;
         height: 500px;
         text-align: center;
+    }
+
+    ul#galleryList li:hover {
+        cursor: pointer;
     }
 
     ul#galleryList {

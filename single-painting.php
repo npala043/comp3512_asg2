@@ -55,7 +55,7 @@ try {
 
         <section>
             <h1><?= $painting['Title'] ?></h1>
-            <h3>
+            <h4>
                 <?php
 
                 if (is_null($painting['FirstName'])) {
@@ -67,19 +67,24 @@ try {
                 }
 
                 ?>
-            </h3>
-            <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
-            <form method="post">
+            </h4>
+            <h4><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h4>
+            
+            <form method="post" id="form">
                 <input type="hidden" name="addToFavorites">
                 <input type="submit" value="Add to Favorites" id="favsButton">
+                <!-- <button type="submit" formmethod="POST"   id="favsButton" >Add to Favorites</button> -->
             </form>
+
 
             <div>
                 <button class="tab desctab"> Description </button>
                 <button class="tab detailstab"> Details </button>
-                <button class="tab colorstab"> Colors </button>
-                <!-- <button class="tab" id="favsButton"> -->
+                <button class="tab colorstab"> Colors </button>     
             </div>
+           
+           
+          
 
 
             <?php
