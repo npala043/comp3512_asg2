@@ -63,9 +63,10 @@ if (isset($_SESSION['user'])) {
         </div>
     </section>
 
-    <header class='header' style="display:<?= $displayHeader ?>;">
+    <section class='header' style="display:<?= $displayHeader ?>;">
         <?php include("header.php"); ?>
-    </header>
+    </section>
+
     <section class="login" style="display:<?= $displayIn ?>;">
 
         <div class="login" id="userInfo">

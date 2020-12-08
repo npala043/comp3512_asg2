@@ -84,7 +84,7 @@ section.logout {
     padding: 0;
     width: 100vw;
     height: 100%;
-    overflow: hidden;
+    overflow: none;
     background-image: url("https://wallpapercave.com/wp/wp4158371.jpg");
     opacity: 50%;
     background-position: center;
