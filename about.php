@@ -11,7 +11,7 @@ session_start();
 <head>
     <title>Assignment 2</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="css/about.css">
     <script src="js/navbar.js"></script>
 </head>
 
@@ -21,7 +21,7 @@ session_start();
     </header>
     <h2>Assignment 2</h2>
 
-    <div>
+    <div id="intro">
         <p>
             COMP-3512
             Mount Royal Univesity
@@ -29,17 +29,17 @@ session_start();
             Fall 2020
         </p>
     </div>
-    <div>
+    <div id="description">
         <h3>Brief Description</h3>
         <p>This is a multi page website that will utilize HTML, CSS, MySQL, JavaScript and PHP to facilitate its function. The functionality of the website is instructed within the Assignment 2 pdf.</p>
         <p>The website allows a user to sign into the website to view their own homepage. From there, the user will be able to browse through galleries and paintings throughout the world. </p>
         <p>They are also able to add paintings to their favorite list for later use. Once they are done, the user is able to log out.</p>
     </div>
-    <div>
+    <div id="technology">
         <h3>Technologies Used</h3>
         <p>???</p>
     </div>
-    <div>
+    <div id="members">
         <h3>Group Members</h3>
         <p>
             Hatoon Al-Nakshabandi <a href="https://github.com/halna399">Git Repository</a><br>
