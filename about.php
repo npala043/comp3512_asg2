@@ -21,6 +21,16 @@ session_start();
     </header>
     <h2>Assignment 2</h2>
     <h5>Hatoon Al-Nakshabandi, Anthony Dang, Darren Lam, Mason Lee, Nahuel Paladino</h5>
+    <div>
+        <h3>Brief Description</h3>
+        <p></p>
+    </div>
+    <div>
+        <h3>Technologies Used</h3>
+        <p></p>
+    </div>
+    <div></div>
+
 </body>
 
 </html>
