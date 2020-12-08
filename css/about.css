@@ -4,3 +4,9 @@
     background-color: lightblue;
     padding: 10px 20px;
 }
+
+a, a:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    }
