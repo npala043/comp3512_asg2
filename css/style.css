@@ -1,6 +1,11 @@
  @media screen and (min-width: 768px) {
 
+    * {
+        font-family: verdana;
+    }
+    
     body {
+        background-color: #D4F1F4;
         margin-right: 10%;
         margin-left: 10%;
     }
@@ -19,11 +24,13 @@
         justify-content: flex-end;
     }
 
-
     .navList li a {
         margin: 0;
         padding: 5px;
         margin-left: 0px;
+        text-decoration: none;
+        color: white;
+        font-size: 14px;
     }
 
     .toggle {
@@ -31,9 +38,9 @@
     }
 
     .navList li a:hover {
-        border: lightcyan 0.5px solid;
         border-radius: 10px;
-        background-color: lightcyan;
+        background-color: #68BBE3;
+        color: #003060;
         padding: 4px;
       
     }  
@@ -51,8 +58,9 @@
  }
  
  .header {
-    border: 1px solid lightblue;
-    background-color: lightblue;
+    background-color: #003060;
+    color: white;
+    font-family: verdana;
     margin-bottom: 10px;
     padding: 5px;
     border-radius: 5px;
@@ -66,11 +74,6 @@
     cursor: pointer;
     width: 20px;
     height: 25px;
-}
-
- .navList li a {
-    text-decoration: none;
-    color: black;
 }
 
 .navList li {
@@ -96,10 +99,15 @@
 }
 
 @media screen and (max-width: 768px) {
+    .navList li a{
+        color: white;
+        text-decoration: none;
+    }
+    
     .navList li:hover {
-        border: lightcyan 0.5px solid;
         border-radius: 10px;
-        background-color: lightcyan;
+        background-color:#68BBE3;
+        
         /* padding: 5px; */
     }
 
