@@ -20,16 +20,27 @@ session_start();
         <?php include("header.php"); ?>
     </header>
     <h2>Assignment 2</h2>
-    <h5>Hatoon Al-Nakshabandi, Anthony Dang, Darren Lam, Mason Lee, Nahuel Paladino</h5>
+
+    <div>
+        <p>
+            COMP-3512
+            Mount Royal Univesity
+            Randy Connolly
+            Fall 2020
+        </p>
+    </div>
     <div>
         <h3>Brief Description</h3>
-        <p></p>
+        <p>???</p>
     </div>
     <div>
         <h3>Technologies Used</h3>
-        <p></p>
+        <p>???</p>
     </div>
-    <div></div>
+    <div>
+        <h3>Group Members</h3>
+        <h5>Hatoon Al-Nakshabandi, Anthony Dang, Darren Lam, Mason Lee, Nahuel Paladino</h5>
+    </div>
 
 </body>
 
