@@ -1,5 +1,10 @@
  @media screen and (min-width: 768px) {
 
+    body {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
     #navbar {
         display: flex;
         justify-content: space-between;
@@ -48,7 +53,7 @@
     height: 25px;
     position: absolute;
     top: 15px;
-    left: 15px;
+    left: 7%;
 }
 
  header {
