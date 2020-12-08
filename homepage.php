@@ -2,7 +2,7 @@
 
 require_once 'includes/config.inc.php';
 include 'includes/asg2-db-classes.inc.php';
-include 'includes/browse-paintings.helpers.inc.php';
+include 'browse-paintings.helpers.inc.php';
 session_start();
 
 // check for user session data
