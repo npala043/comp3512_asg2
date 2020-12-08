@@ -1,4 +1,4 @@
- @media screen and (min-width: 801px) {
+ @media screen and (min-width: 769px) {
 
     * {
         font-family: verdana;
@@ -98,7 +98,7 @@
     display: block;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .navList li a {
         color: white;
         text-decoration: none;
