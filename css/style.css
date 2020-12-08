@@ -9,26 +9,21 @@
         display: flex;
         justify-content: space-between;
         padding-bottom: 0;
-        height: 70px;
-        align-items: center;
+        height: 50px;
     }
 
 
     nav .navList {
         display: flex;
-        margin-right: 30px;
         flex-direction: row;
         justify-content: flex-end;
     }
 
+
     .navList li a {
         margin: 0;
         padding: 5px;
-    }
-    
-    
-    .navList li a {
-        margin-left: 40px;
+        margin-left: 0px;
     }
 
     .toggle {
@@ -48,15 +43,13 @@
         border-radius: 50%;
         height: 50px;
         position: absolute;
-        top: 15px;
-        left: 7%;
+        top: 14px;
+        left: 11%;
     }
  
 
  }
  
-
-
  .header {
     border: 1px solid lightblue;
     background-color: lightblue;
@@ -77,33 +70,30 @@
 
  .navList li a {
     text-decoration: none;
-   color: black;
+    color: black;
 }
 
 .navList li {
-text-align: center;
-padding: 10px ;
+    text-align: center;
+    align-content: center;
+    padding: 10px 8px;
 
 }
-
 
 .navList li, .navList li:visited {
     color: black;
 }
 
 
-
 .navList {
     list-style-type: none;
     display: none;
+    padding-left: 60px;
 }
-
 
 .clicked {
     display: block;
 }
-
-
 
 @media screen and (max-width: 768px) {
     .navList li:hover {

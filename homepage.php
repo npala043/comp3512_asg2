@@ -63,7 +63,7 @@ if (isset($_SESSION['user'])) {
         </div>
     </section>
 
-    <section class='header' style="display:<?= $displayHeader ?>;">
+    <section style="display:<?= $displayHeader ?>;">
         <?php include("header.php"); ?>
     </section>
 
