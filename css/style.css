@@ -41,7 +41,7 @@
         border-radius: 10px;
         background-color: #68BBE3;
         color: #003060;
-        padding: 4px;
+        /* padding: 1px; */
       
     }  
 
@@ -99,7 +99,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .navList li a{
+    .navList li a {
         color: white;
         text-decoration: none;
     }
