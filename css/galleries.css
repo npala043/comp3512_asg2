@@ -43,7 +43,8 @@
     .map {
         grid-column: 2 / span 1;
         grid-row: 2 / span 2;
-        height: 305px;
+        height: 290px;
+
     }
 
     .paintings {
