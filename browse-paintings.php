@@ -29,77 +29,113 @@ session_start();
     <main class="container">
         <div id="filters">
             <form method="GET" action="browse-paintings.php">
-                <h2>Painting Filters</h2>
-                <label>Title</label>
-                <input type="text" name="title" />
-                <br />
-                <br />
+                <table>
+                    <th>Painting Filters</th>
+                    <tr>
+                        <td>
+                            <label>Title</label>
+                        </td>
+                        <td class="second">
+                            <input type="text" name="title" />
+                        </td>
+                    </tr>
 
-                <label>Artist</label>
-                <!-- Create Select List of Artists -->
-                <select name="artist">
-                    <option value=0>Choose an artist</option>
-                    <?php
-                    try {
-                        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-                        $artistGateway = new ArtistDB($conn);
-                        $data = $artistGateway->getAll();
-                        $conn = null;
-                    } catch (PDOException $e) {
-                        die($e->getMessage());
-                    }
+                    <tr>
+                        <td>
+                            <label>Artist</label>
+                        </td>
+                        <td class="second">
+                            <!-- Create Select List of Artists -->
+                            <select name="artist">
+                                <option value=0>Choose an artist</option>
+                                <?php
+                                try {
+                                    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                                    $artistGateway = new ArtistDB($conn);
+                                    $data = $artistGateway->getAll();
+                                    $conn = null;
+                                } catch (PDOException $e) {
+                                    die($e->getMessage());
+                                }
 
-                    foreach ($data as $row) { ?>
-                        <option value='<?= $row['ArtistID'] ?>'><?= $row['LastName'] ?>, <?= $row['FirstName'] ?></option>
-                    <?php }
-                    ?>
-                </select>
-                <br />
-                <br />
+                                foreach ($data as $row) { ?>
+                                    <option value='<?= $row['ArtistID'] ?>'><?= $row['LastName'] ?>, <?= $row['FirstName'] ?></option>
+                                <?php }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
 
-                <label>Gallery</label>
-                <!-- Create Select List of Gallery -->
-                <select name="gallery">
-                    <option value=0>Choose a Gallery</option>
-                    <?php
-                    try {
-                        $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
-                        $galleryGateway = new GalleryDB($conn);
-                        $data = $galleryGateway->getAll();
-                        $conn = null;
-                    } catch (PDOException $e) {
-                        die($e->getMessage());
-                    }
+                    <tr>
+                        <td>
+                            <label>Gallery</label>
+                        </td>
+                        <td class="second">
+                            <!-- Create Select List of Gallery -->
+                            <select name="gallery">
+                                <option value=0>Choose a Gallery</option>
+                                <?php
+                                try {
+                                    $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                                    $galleryGateway = new GalleryDB($conn);
+                                    $data = $galleryGateway->getAll();
+                                    $conn = null;
+                                } catch (PDOException $e) {
+                                    die($e->getMessage());
+                                }
 
-                    foreach ($data as $row) { ?>
-                        <option value='<?= $row['GalleryID'] ?>'><?= $row['GalleryName'] ?></option>
-                    <?php }
-                    ?>
-                </select>
-                <br />
-                <br />
+                                foreach ($data as $row) { ?>
+                                    <option value='<?= $row['GalleryID'] ?>'><?= $row['GalleryName'] ?></option>
+                                <?php }
+                                ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Year</label>
+                        </td>
+                        <td></td>
+                    </tr>
 
-                <label>Year</label>
-                <br />
-                <input type="radio" id="before" name="time-period" value="before" />
-                <label>Before </label>
-                <input type="text" name="before" />
-                <br />
-                <br />
+                    <tr>
+                        <td>
+                            <input type="radio" id="before" name="time-period" value="before" />
+                            <label>Before </label>
+                        </td>
+                        <td class="second">
+                            <input type="text" name="before" />
+                        </td>
+                    </tr>
 
-                <input type="radio" id="after" name="time-period" value="after" />
-                <label>After</label>
-                <input type="text" name="after" />
-                <br />
-                <br />
+                    <tr>
+                        <td>
+                            <input type="radio" id="after" name="time-period" value="after" />
+                            <label>After</label>
+                        </td>
+                        <td class="second">
+                            <input type="text" name="after" />
+                        </td>
+                    </tr>
 
-                <input type="radio" id="between" name="time-period" value="between" />
-                <label>Between</label>
-                <input type="text" name="between-before" placeholder="Before" />
-                <br />
-                <input type="text" name="between-after" placeholder="After" />
-                <br />
-                <br />
+                    <tr>
+                        <td>
+                            <input type="radio" id="between" name="time-period" value="between" />
+                            <label>Between</label>
+                        </td>
+                        <td class="second">
+                            <input type="text" name="between-before" placeholder="Before" />
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td class="second">
+                            <input type="text" name="between-after" placeholder="After" />
+                        </td>
+                    </tr>
+                </table>
+
                 <button type="submit" value="Submit">Submit</button>
                 <button type="reset" value="Reset"><a href="browse-paintings.php">Clear</a></button>
             </form>

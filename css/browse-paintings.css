@@ -52,7 +52,11 @@
     td.id   {
         padding: 5px;
         text-align: left;
-    }   
+    }  
+    
+    .second {
+        align-content: right; 
+    }
 
 }
 
