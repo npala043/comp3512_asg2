@@ -35,8 +35,6 @@ input {
     padding: 10px;
 }
 
-
-
 #userInfo {
     grid-column: 1/3;
     grid-row: 1/3;
@@ -80,12 +78,12 @@ input {
   }
 
 section.logout {
-    margin: -5vw -10vw;
+    margin: -1vw -10vw;
     padding: 0;
     width: 100vw;
     height: 100%;
-    overflow: none;
-    background-image: url("https://wallpapercave.com/wp/wp4158371.jpg");
+    overflow: hidden;
+    background: url('https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg');
     opacity: 50%;
     background-position: center;
     background-size: cover;
