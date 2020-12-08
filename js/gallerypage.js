@@ -8,7 +8,7 @@ function initMap() {
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const galleries = "api-galleries.php";
+    const galleries = "api/api-galleries.php";
 
     fetch(galleries)
         .then(resp => resp.json())
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function displayPaintings(gallery) {
-        fetch(`api-paintings.php?gallery=${gallery.GalleryID}`)
+        fetch(`api/api-paintings.php?gallery=${gallery.GalleryID}`)
             .then(resp => resp.json())
             .then(paintings => {
 
