@@ -1,4 +1,4 @@
-@media screen and (min-width: 801px) { 
+@media screen and (min-width: 769px) { 
 
     body {
         height: 100%;
@@ -80,7 +80,7 @@
         color: white;
         font-family: verdana;
         border-radius: 5px;
-        padding: 5% 9%;
+        padding: 5% 7%;
         font-size: 1rem;
         overflow: auto;
     }
@@ -101,7 +101,7 @@
     }
 }
 
-@media screen and (max-width: 800px) { 
+@media screen and (max-width: 768px) { 
     #search {
         grid-column: 3/6;
         grid-row: 1/2;
