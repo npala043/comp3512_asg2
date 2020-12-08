@@ -4,7 +4,7 @@
 
 require_once 'includes/config.inc.php';
 include 'includes/asg2-db-classes.inc.php';
-include 'includes/add-to-favorites.php';
+include 'add-to-favorites.php';
 session_start();
 
 try {
