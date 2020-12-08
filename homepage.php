@@ -106,7 +106,7 @@ if (isset($_SESSION['user'])) {
             } else {
                 // no favourites session data found: give option to browse paintings
                 echo "<p>You don't have any favorites yet!</p>";
-                echo "<button class='browse'><a href='browse-paintings.php'> Browse Paintings </a></button>";
+                echo "<a href='browse-paintings.php'><button class='browse'> Browse Paintings </button></a>";
             }
             ?>
         </div>
