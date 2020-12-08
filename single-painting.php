@@ -2,8 +2,8 @@
 
 <?php
 
-require_once 'config.inc.php';
-include 'asg2-db-classes.inc.php';
+require_once 'includes/config.inc.php';
+include 'includes/asg2-db-classes.inc.php';
 include 'add-to-favorites.php';
 session_start();
 
@@ -69,22 +69,22 @@ try {
                 ?>
             </h4>
             <h4><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h4>
-            
+
             <form method="post" id="form">
                 <input type="hidden" name="addToFavorites">
                 <input type="submit" value="Add to Favorites" id="favsButton">
-                
+
             </form>
 
 
             <div>
                 <button class="tab desctab"> Description </button>
                 <button class="tab detailstab"> Details </button>
-                <button class="tab colorstab"> Colors </button>     
+                <button class="tab colorstab"> Colors </button>
             </div>
-           
-           
-          
+
+
+
 
 
             <?php
@@ -92,7 +92,7 @@ try {
                 addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
             }
 
-            
+
             ?>
 
 

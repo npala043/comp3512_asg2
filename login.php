@@ -1,8 +1,8 @@
 <!-- Nahuel -->
 
 <?php
-require_once 'config.inc.php';
-require_once 'asg2-db-classes.inc.php';
+require_once 'includes/config.inc.php';
+require_once 'includes/asg2-db-classes.inc.php';
 
 session_start();
 $msg = "";
