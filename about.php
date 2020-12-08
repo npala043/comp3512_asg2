@@ -41,7 +41,16 @@ session_start();
     </div>
     <div>
         <h3>Group Members</h3>
-        <h5>Hatoon Al-Nakshabandi, Anthony Dang, Darren Lam, Mason Lee, Nahuel Paladino</h5>
+        <p>
+            Hatoon Al-Nakshabandi <a href="https://github.com/halna399">Git Repository</a><br>
+            Anthony Dang <a href="https://github.com/AnthonyDang307">Git Repository</a><br>
+            Darren Lam <a href="https://github.com/dlam071">Git Repository</a><br>
+            Mason Lee <a href="https://github.com/mlee950">Git Repository</a><br>
+            Nahuel Paladino <a href="https://github.com/npala043">Git Repository</a><br>
+
+        </p>
+
+
     </div>
 
 </body>
