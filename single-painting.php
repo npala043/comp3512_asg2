@@ -69,30 +69,25 @@ try {
                 ?>
             </h3>
             <h3><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h3>
+            <form method="post">
+                <input type="hidden" name="addToFavorites">
+                <input type="submit" value="Add to Favorites" id="favsButton">
+            </form>
 
             <div>
                 <button class="tab desctab"> Description </button>
                 <button class="tab detailstab"> Details </button>
                 <button class="tab colorstab"> Colors </button>
                 <!-- <button class="tab" id="favsButton"> -->
-                <form method="post">
-                    <input type="hidden" name="addToFavorites">
-                    <input type="submit" value="Add to Favorites">
-                </form>
-
-
-                <?php
-
-                if (isset($_POST['addToFavorites'])) {
-                    addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
-                }
-
-                // if (isset($_SESSION['error'])) {
-                //     echo $_SESSION['error'];
-                //     unset($_SESSION['error']);
-                // }
-                ?>
             </div>
+
+
+            <?php
+            if (isset($_POST['addToFavorites'])) {
+                addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
+            }
+            ?>
+
 
 
 
