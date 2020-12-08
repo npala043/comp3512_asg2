@@ -45,22 +45,47 @@ function loginDataPresent()
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
 
 </head>
 
 <body>
     <?php include("header.php"); ?>
     <div>
-        <h2>Login</h2>
         <p><?= $msg ?></p>
         <form action="login.php" method="post">
-            <label for="email">Email</label>
-            <input type="email" name="email">
-
-            <label for="pass">Password</label>
-            <input type="password" name="pass">
-
-            <input type="submit" value="Login">
+            <table>
+                <tr>
+                    <td> 
+                        <h2> Login </h2>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <label for="email">Email:</label>
+                    </td>
+                    <td>
+                    <input type="email" name="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <label for="pass">Password:</label>
+                    </td>
+                    <td>
+                    <input type="password" name="pass">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                    <input type="submit" value="Login">
+                    </td>
+                </tr>
         </form>
     </div>
 </body>
