@@ -1,6 +1,7 @@
 <?php
 
-include_once('../add-to-favorites.php');
+include_once "add-to-favorites.php";
+
 
 function formIsFilled()
 {
