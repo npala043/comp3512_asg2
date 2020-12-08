@@ -1,4 +1,4 @@
-@media screen and (min-width: 801px) {
+@media screen and (min-width: 769px) {
 
     .container {
         display: grid;
@@ -59,7 +59,7 @@
 
 }
 
-@media screen and (max-width: 800px) { 
+@media screen and (max-width: 768px) { 
 
     .container {
         display: grid;
