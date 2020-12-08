@@ -26,8 +26,13 @@
         background-color: lightblue;
         overflow: auto;
     }
+
+    a, a:hover {
+        text-decoration: none;
+        color: inherit;
+        }
     
-    img {
+    .img {
         width: 125px;
         height: 125px;
         padding: 15px;
@@ -66,8 +71,6 @@
         grid-row: 1 / span 1;
         height: 100%;
         padding: 10px 20px;
-        width: 100%;
-        margin-bottom: 10px;
         background-color: lightblue;
     }
 
@@ -76,14 +79,19 @@
         display: grid;
         grid-row: 2 /span 1;
         margin-top: 50px;
-        width: 100%;
         height: 600px;
         padding: 10px 20px;
         background-color: lightblue;
         overflow: auto;
+        text-decoration: none;
     }
 
-    img {
+    a, a:hover {
+        text-decoration: none;
+        color: inherit;
+        }
+
+    .img {
         width: 125px;
         height: 125px;
         padding: 15px;
