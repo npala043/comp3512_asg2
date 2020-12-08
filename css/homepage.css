@@ -1,4 +1,4 @@
-@media screen and (min-width: 800px) { 
+@media screen and (min-width: 801px) { 
 
     body {
         height: 100%;
@@ -115,7 +115,7 @@
 
     section.login {
         grid-template-columns: 100%;
-        grid-template-rows: 20% 10% 25% 45%;
+        grid-template-rows: 25% 5% 25% 45%;
         grid-gap: 15px;
     }
 
