@@ -58,6 +58,7 @@ if (!isset($_SESSION["favourites"])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/favorites.css">
     <script src="js/navbar.js"></script>
 </head>
 
