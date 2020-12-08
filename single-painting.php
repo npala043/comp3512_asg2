@@ -37,7 +37,7 @@ try {
 <head>
     <title></title>
     <meta charset=utf-8>
-    <script src="js\single-painting.js"></script>
+    <script src="js/single-painting.js"></script>
     <script src="js/navbar.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/single-painting.css">
@@ -49,7 +49,7 @@ try {
 
 
     <main>
-        <div>
+        <div id="thing">
             <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" id="imgBox">
         </div>
 
@@ -73,7 +73,7 @@ try {
             <form method="post" id="form">
                 <input type="hidden" name="addToFavorites">
                 <input type="submit" value="Add to Favorites" id="favsButton">
-                <!-- <button type="submit" formmethod="POST"   id="favsButton" >Add to Favorites</button> -->
+                
             </form>
 
 
@@ -91,6 +91,8 @@ try {
             if (isset($_POST['addToFavorites'])) {
                 addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
             }
+
+            
             ?>
 
 

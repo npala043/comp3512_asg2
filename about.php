@@ -56,7 +56,7 @@ session_start();
         <div id="external">
             <h3>External Sources</h3>
             <p>
-                <a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a>
+                <a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a><br>
                 <a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar</a>
             </p>
         </div>
