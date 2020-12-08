@@ -92,6 +92,10 @@ session_start();
                         </td>
                     </tr>
                     <tr>
+                        <td><br /></td>
+                        <td><br /></td>
+                    </tr>
+                    <tr>
                         <td>
                             <label>Year</label>
                         </td>
