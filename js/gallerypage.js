@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 displayMap(g);
             });
 
-            sortPaintings(g);
             document.querySelector("#galleryList").appendChild(li);
         }
     }
@@ -63,6 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(resp => resp.json())
             .then(paintings => {
 
+                paintings.sort((a, b) => {
+                    return a.YearOfWork < b.YearOfWork ? -1 : 1;
+                });
+                
                 createPaintingTable(paintings);
                 sortPaintings(paintings);
 
@@ -71,10 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createPaintingTable(paintings) {
         document.querySelector("tbody").innerHTML = ""
-
-        paintings.sort((a, b) => {
-            return a.YearOfWork < b.YearOfWork ? -1 : 1;
-        });
 
         for (let p of paintings) {
 
