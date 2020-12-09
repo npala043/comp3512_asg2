@@ -6,3 +6,12 @@ div {
     font-size: 1rem;
     font-family: Verdana;
 }
+
+td {
+    padding: 5px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
