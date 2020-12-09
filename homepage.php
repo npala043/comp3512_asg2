@@ -62,6 +62,9 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
+        <div class="source">
+            <p>Host image source: https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg</p>
+        </div>
     </section>
 
     <section style="display:<?= $displayHeader ?>;">

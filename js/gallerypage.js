@@ -1,3 +1,4 @@
+// Creates the map that displays the musuem. Default set to mount royal university.
 function initMap() {
     map = new google.maps.Map(document.querySelector(".box.map"), {
         center: { lat: 51.011608, lng: -114.133074 },
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const galleries = "apis/api-galleries.php";
 
+    //Fetches galleries api and stores it within local storage. If api is already stored set api to local storage
     if (localStorage.getItem("gallery") === null) {
     fetch(galleries)
         .then(resp => resp.json())
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         listGalleries(gallery);
     }
 
+    //Lists the Galleries given from the Galleries API
     function listGalleries(gallery) {
         for (let g of gallery) {
             let li = document.createElement("li");
@@ -64,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Displays the paintings within the given gallery ID
     function displayPaintings(gallery) {
         fetch(`apis/api-paintings.php?gallery=${gallery.GalleryID}`)
             .then(resp => resp.json())
@@ -78,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
     }
 
+    //Creates the painting table within the table element using a for loop.
     function createPaintingTable(paintings) {
         document.querySelector("tbody").innerHTML = ""
 
@@ -155,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     }
 
+    // Displays the image within the paintings table.
     function smallImage(painting) {
         let img = document.createElement("img");
         img.src = `images/paintings/square-medium/${painting.ImageFileName}.jpg`;
