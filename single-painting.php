@@ -76,11 +76,11 @@ try {
             <?php
             //checks if the favourites button has been pressed
             if (isset($_POST['addToFavorites'])) {
-                echo "<span>" .  addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']) . "</span>";
+                echo "<div>" .  addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']) . "</div>";
             }
             ?>
 
-            <div>
+            <div class="container">
                 <div>
                     <button class="tab desctab"> Description </button>
                     <button class="tab detailstab"> Details </button>
