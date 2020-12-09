@@ -15,7 +15,11 @@ if (removalDataPresent()) {
         for ($i = 0; $i < count($fav); $i++) { // loop through each painting array in favourites
             if ($remove == $fav[$i]['id']) {
                 unset($fav[$i]);
-                $_SESSION['favourites'] = array_values($fav);
+                if (count($fav) == 0) { // if no more favourites, unset the favourites in session so homepage doesn't error out
+                    unset($_SESSION['favourites']);
+                } else {
+                    $_SESSION['favourites'] = array_values($fav);
+                }
                 break;
             }
         }
