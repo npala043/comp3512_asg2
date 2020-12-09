@@ -47,7 +47,9 @@ function generateTable($list)
     foreach ($list as $row) { ?>
         <tr class="tempTr">
             <td class="img">
-                <img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg' />
+                <a href="single-painting.php?id=<?= $row['PaintingID'] ?>">
+                    <img src='images/paintings/square-medium/<?= $row['ImageFileName'] ?>.jpg' />
+                </a>
             </td>
             <td class="artist"><?= formatName($row) ?></td>
             <td class="title" id="<?= $row['ImageFileName'] ?>">
