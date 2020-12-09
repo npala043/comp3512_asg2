@@ -95,6 +95,18 @@ class PaintingDB
         );
         return $statement->fetchAll();
     }
+
+    public function getPainting($paintingID) {
+        $sql = self::$baseSQL . " WHERE PaintingID=?";
+        $statement = DatabaseHelper::runQuery(
+            $this->pdo,
+            $sql,
+            array($paintingID)
+        );
+        return $statement->fetchAll();
+    }
+
+
     public function getAllForGallery($galleryID)
     {
         $sql = self::$baseSQL . " WHERE Paintings.GalleryID=?";
