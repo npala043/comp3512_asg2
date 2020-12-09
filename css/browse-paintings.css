@@ -37,7 +37,7 @@
     .img {
         width: 125px;
         height: 125px;
-        padding: 15px;
+        padding: 10px 10px 10px 0px;
     }
 
     table {
