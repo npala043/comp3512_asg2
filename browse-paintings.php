@@ -158,9 +158,9 @@ session_start();
         <!-- Creates the table of Paintings -->
         <div id="paintings">
             <p><?php
-                if (isset($_SESSION['favMessage'])) {
-                    echo $_SESSION['favMessage'];
-                    unset($_SESSION['favMessage']);
+                // Checks to see if user has clicked add to favorites on a painting
+                if (isset($_POST['addToFavorites'])) {
+                    echo addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
                 }
                 ?> </p>
             <table id="paintingTable">

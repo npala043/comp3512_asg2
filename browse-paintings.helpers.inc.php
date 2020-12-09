@@ -71,11 +71,6 @@ function generateTable($list)
             <td><button><a href="single-painting.php?id=<?= $row['PaintingID'] ?>">View</a></button></td>
         </tr>
 <?php }
-
-    // Checks to see if user has clicked add to favorites on a painting
-    if (isset($_POST['addToFavorites'])) {
-        $_SESSION['favMessage'] = addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
-    }
 }
 
 // Helper function to neatly format an artist's name depending if they only have a first name, last name or both
