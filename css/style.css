@@ -150,4 +150,9 @@
     top: 12px;
     left: 5%;
     }
+
+.navList {
+    padding-left: 0;
+}
+
 }
