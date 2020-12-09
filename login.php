@@ -18,7 +18,7 @@ if (loginDataPresent()) {
             if (password_verify($_POST['pass'], $data['Pass'])) {
                 // password bcrypt does match
                 $_SESSION['user'] = $data['CustomerID']; // save user id in session, redirect to their homepage
-                header("Location: homepage.php");
+                header("Location: index.php");
                 exit();
             } else {
                 // password bcrypt did not match
