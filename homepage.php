@@ -42,6 +42,7 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body>
+    <!-- homepage when logged out -->
     <section class="logout" style="display:<?= $displayOut ?>;">
         <div class="out">
             <a href="login.php"><button class="login"> Login </button></a>
@@ -67,8 +68,10 @@ if (isset($_SESSION['user'])) {
         <?php include("header.php"); ?>
     </section>
 
+    <!-- homepage when logged in -->
     <section class="login" style="display:<?= $displayIn ?>;">
 
+        <!-- auto filled user information -->
         <div class="login" id="userInfo">
             <h2><?= $customerData['FirstName'] ?> <?= $customerData['LastName'] ?></h2>
             <p><?= $customerData['Address'] ?></p>
@@ -78,6 +81,8 @@ if (isset($_SESSION['user'])) {
             <p><?= $customerData['Email'] ?></p>
 
         </div>
+
+        <!-- search bar -->
         <div class="login" id="search">
             <form method="GET" action="homepage.php">
                 <input type="text" name="title" placeholder="Search for paintings">
@@ -90,6 +95,8 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
+
+        <!-- favourites pulled from favourites session data -->
         <div class="login" id="favourites">
             <h2>Your Favorite Paintings</h2>
 
@@ -111,6 +118,8 @@ if (isset($_SESSION['user'])) {
             }
             ?>
         </div>
+
+        <!-- recommended paintings based on favourites -->
         <div class="login" id="recommended">
             <h2>Paintings You May Like</h2>
 
