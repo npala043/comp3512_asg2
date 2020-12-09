@@ -3,17 +3,25 @@
         <img src="images/logo/hamburger-menu.jpg" class="toggle">
         <img src="images/logo/owenlogo.jpg" alt="log" id="logo">
         <ul class="navList">
-            <li><a href="homepage.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li><a href="galleries.php">Galleries</a></li>
-            <li><a href="browse-paintings.php">Browse Paintings</a></li>
+            <a href="homepage.php">
+                <li>Home</li>
+            </a>
+            <a href="about.php">
+                <li>About</li>
+            </a>
+            <a href="galleries.php">
+                <li>Galleries</li>
+            </a>
+            <a href="browse-paintings.php">
+                <li>Browse Paintings</li>
+            </a>
             <?php
             if (isset($_SESSION['user'])) {
                 // should only be avaliable if the user is logged in 
-                echo  "<li><a href=" . 'favorites.php' . ">Favorites</a></li>";
-                echo  "<li><a href=" . 'logout.php' . ">Logout</a></li>";
+                echo  "<a href=" . 'favorites.php' . "><li>Favorites</li></a>";
+                echo  "<a href=" . 'logout.php' . "><li>Logout</li></a>";
             } else {
-                echo  "<li><a href=" . 'login.php' . ">Login</a></li>";
+                echo  "<a href=" . 'login.php' . "><li>Login</li></a>";
             }
             ?>
         </ul>
