@@ -73,73 +73,74 @@ try {
                 <input type="submit" value="Add to Favorites" id="favsButton">
             </form>
 
-
-            <div>
-                <button class="tab desctab"> Description </button>
-                <button class="tab detailstab"> Details </button>
-                <button class="tab colorstab"> Colors </button>
-            </div>
-
             <?php
             //checks if the favourites button has been pressed
             if (isset($_POST['addToFavorites'])) {
-                addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
+                echo "<span>" .  addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']) . "</span>";
             }
             ?>
 
-            <div id="description" class="tabContent">
-                <h4>Description </h4>
-                <p>
+            <div>
+                <div>
+                    <button class="tab desctab"> Description </button>
+                    <button class="tab detailstab"> Details </button>
+                    <button class="tab colorstab"> Colors </button>
+                </div>
+
+
+                <div id="description" class="tabContent">
+                    <h4>Description </h4>
+                    <p>
+                        <?php
+                        if (is_null($painting['Description'])) {
+                            echo "N/A";
+                        } else {
+                            echo $painting['Description'];
+                        }
+
+                        ?>
+                    </p>
+                </div>
+                <div id="details" class="tabContent">
+                    <h4>Details </h4>
+                    <p>Meduim: <?= $painting['Medium'] ?></p>
+                    <p>Width: <?= $painting['Width'] ?></p>
+                    <p>Height: <?= $painting['Height'] ?></p>
+                    <p>Copyright Text: <?= $painting['CopyrightText'] ?></p>
                     <?php
-                    if (is_null($painting['Description'])) {
-                        echo "N/A";
-                    } else {
-                        echo $painting['Description'];
+                    //if the Wikilink is null then don't add the markup for it 
+                    if (!is_null($painting['WikiLink'])) {
+                        echo "<a href=" .  $painting['WikiLink'] . " class='link'>WikiLink</a>";
                     }
-
                     ?>
-                </p>
-            </div>
-            <div id="details" class="tabContent">
-                <h4>Details </h4>
-                <p>Meduim: <?= $painting['Medium'] ?></p>
-                <p>Width: <?= $painting['Width'] ?></p>
-                <p>Height: <?= $painting['Height'] ?></p>
-                <p>Copyright Text: <?= $painting['CopyrightText'] ?></p>
-                <?php
-                //if the Wikilink is null then don't add the markup for it 
-                if (!is_null($painting['WikiLink'])) {
-                    echo "<a href=" .  $painting['WikiLink'] . " class='link'>WikiLink</a>";
-                }
-                ?>
-                <a href="<?= $painting['MuseumLink'] ?>" class="link">Museum Link</a>
-            </div>
-            <div id="colors" class="tabContent">
-                <h4> Colors </h4>
+                    <a href="<?= $painting['MuseumLink'] ?>" class="link">Museum Link</a>
+                </div>
+                <div id="colors" class="tabContent">
+                    <h4> Colors </h4>
 
-                <?php
-                foreach ($json['dominantColors'] as  $value) {
-                    echo "<span style='background-color:" . $value['web'] . ";'></span>";
-                }
-                ?>
-                <p><b>Hex Value: </b>
                     <?php
                     foreach ($json['dominantColors'] as  $value) {
-                        echo $value['web'] . " ";
+                        echo "<span style='background-color:" . $value['web'] . ";'></span>";
                     }
                     ?>
-                </p>
-                <p><b>Color Name: </b><br>
-                    <ul>
+                    <p><b>Hex Value: </b>
                         <?php
                         foreach ($json['dominantColors'] as  $value) {
-                            echo "<li>" . $value['name'] . '</li>';
+                            echo $value['web'] . " ";
                         }
                         ?>
-                    </ul>
-                </p>
+                    </p>
+                    <p><b>Color Name: </b><br>
+                        <ul>
+                            <?php
+                            foreach ($json['dominantColors'] as  $value) {
+                                echo "<li>" . $value['name'] . '</li>';
+                            }
+                            ?>
+                        </ul>
+                    </p>
+                </div>
             </div>
-
 
         </section>
     </main>
