@@ -51,7 +51,7 @@ if (isset($_SESSION['user'])) {
 
         </div>
         <div class="out">
-            <form method="GET" action="homepage.php">
+            <form method="GET" action="index.php">
                 <input type="text" name="title" placeholder="Search for paintings">
                 <button class="search" type="submit" value="Submit"> Search </button>
             </form>
@@ -87,7 +87,7 @@ if (isset($_SESSION['user'])) {
 
         <!-- search bar -->
         <div class="login" id="search">
-            <form method="GET" action="homepage.php">
+            <form method="GET" action="index.php">
                 <input type="text" name="title" placeholder="Search for paintings">
                 <button class="search" type="submit" value="Submit"> Search </button>
             </form>
