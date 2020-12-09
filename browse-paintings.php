@@ -32,23 +32,25 @@ session_start();
                 <table>
                     <!--Cell 1 = Fieldname -->
                     <!-- Cell 2 = Field -->
-                    <th>Painting Filters</th>
                     <tr>
-                        <td>
+                        <th colspan="2">Painting Filters</th>
+                    </tr>
+                    <tr>
+                        <td class="category">
                             <label>Title</label>
                         </td>
                         <td>
-                            <input type="text" name="title" />
+                            <input type="text" name="title" class="filter" />
                         </td>
                     </tr>
 
                     <tr>
-                        <td>
+                        <td class="category">
                             <label>Artist</label>
                         </td>
                         <td>
                             <!-- Creates Select List of Artists -->
-                            <select name="artist">
+                            <select name="artist" class="dropdown">
                                 <option value=0>Choose an artist</option>
                                 <?php
                                 try {
@@ -69,12 +71,12 @@ session_start();
                     </tr>
 
                     <tr>
-                        <td>
+                        <td class="category">
                             <label>Gallery</label>
                         </td>
                         <td>
                             <!-- Creates Select List of Gallery -->
-                            <select name="gallery">
+                            <select name="gallery" class="dropdown">
                                 <option value=0>Choose a Gallery</option>
                                 <?php
                                 try {
@@ -107,35 +109,35 @@ session_start();
 
                     <tr>
                         <!-- Before Field -->
-                        <td>
+                        <td class="category">
                             <input type="radio" id="before" name="time-period" value="before" />
                             <label>Before </label>
                         </td>
                         <td>
-                            <input type="text" name="before" />
+                            <input type="text" name="before" class="filter" />
                         </td>
                     </tr>
 
                     <tr>
                         <!-- After field -->
-                        <td>
+                        <td class="category">
                             <input type="radio" id="after" name="time-period" value="after" />
                             <label>After</label>
                         </td>
                         <td>
-                            <input type="text" name="after" />
+                            <input type="text" name="after" class="filter" />
                         </td>
                     </tr>
 
                     <tr>
                         <!-- Between Field -->
-                        <td>
+                        <td class="category">
                             <input type="radio" id="between" name="time-period" value="between" />
                             <label>Between</label>
                         </td>
                         <td>
-                            <input type="text" name="between-before" placeholder="Before" class="between" /> to
-                            <input type="text" name="between-after" placeholder="After" class="between" />
+                            <input type="text" name="between-before" class="between" /> and
+                            <input type="text" name="between-after" class="between" />
                         </td>
                     </tr>
 
@@ -155,6 +157,12 @@ session_start();
 
         <!-- Creates the table of Paintings -->
         <div id="paintings">
+            <p><?php
+                if (isset($_SESSION['favMessage'])) {
+                    echo $_SESSION['favMessage'];
+                    unset($_SESSION['favMessage']);
+                }
+                ?> </p>
             <table id="paintingTable">
                 <thead>
                     <tr>

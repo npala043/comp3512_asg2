@@ -74,7 +74,7 @@ function generateTable($list)
 
     // Checks to see if user has clicked add to favorites on a painting
     if (isset($_POST['addToFavorites'])) {
-        addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
+        $_SESSION['favMessage'] = addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
     }
 }
 
