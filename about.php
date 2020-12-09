@@ -57,7 +57,7 @@ session_start();
             <h3>External Sources</h3>
             <ul>
                 <li><a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs - (w3schools.com - How TO - Tabs)</a></li>
-                <li><a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar - (itnext.io - How to Build a Responsive Navication Bar using CSS Flexbox and Javascript)</a></li>
+                <li><a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar - (itnext.io - How to Build a Responsive Navigation Bar using CSS Flexbox and Javascript)</a></li>
                 <li><a href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp">Custom Scroll Bar - (w3schools.com - How TO - Custom Scrollbar)</a></li>
                 <li><a href="https://www.media3.hw-static.com/media/2017/12/wenn_owenwilson_122917-1800x1200.jpg">Logo Image - (media3.hw)</a></li>
                 <li><a href="https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg">Hero Image - (factinate.com)</a></li>
