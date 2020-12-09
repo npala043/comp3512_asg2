@@ -155,4 +155,8 @@
     padding-left: 0;
 }
 
+.navList a li, .navList a:visited li {
+    color: white;
+}
+
 }
