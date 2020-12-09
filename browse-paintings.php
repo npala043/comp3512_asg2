@@ -30,12 +30,14 @@ session_start();
         <div id="filters">
             <form method="GET" action="browse-paintings.php">
                 <table>
+                    <!--Cell 1 = Fieldname -->
+                    <!-- Cell 2 = Field -->
                     <th>Painting Filters</th>
                     <tr>
                         <td>
                             <label>Title</label>
                         </td>
-                        <td class="second">
+                        <td>
                             <input type="text" name="title" />
                         </td>
                     </tr>
@@ -44,8 +46,8 @@ session_start();
                         <td>
                             <label>Artist</label>
                         </td>
-                        <td class="second">
-                            <!-- Create Select List of Artists -->
+                        <td>
+                            <!-- Creates Select List of Artists -->
                             <select name="artist">
                                 <option value=0>Choose an artist</option>
                                 <?php
@@ -70,8 +72,8 @@ session_start();
                         <td>
                             <label>Gallery</label>
                         </td>
-                        <td class="second">
-                            <!-- Create Select List of Gallery -->
+                        <td>
+                            <!-- Creates Select List of Gallery -->
                             <select name="gallery">
                                 <option value=0>Choose a Gallery</option>
                                 <?php
@@ -92,6 +94,7 @@ session_start();
                         </td>
                     </tr>
                     <tr>
+                        <!-- Breakline for the table -->
                         <td><br /></td>
                         <td><br /></td>
                     </tr>
@@ -103,38 +106,42 @@ session_start();
                     </tr>
 
                     <tr>
+                        <!-- Before Field -->
                         <td>
                             <input type="radio" id="before" name="time-period" value="before" />
                             <label>Before </label>
                         </td>
-                        <td class="second">
+                        <td>
                             <input type="text" name="before" />
                         </td>
                     </tr>
 
                     <tr>
+                        <!-- After field -->
                         <td>
                             <input type="radio" id="after" name="time-period" value="after" />
                             <label>After</label>
                         </td>
-                        <td class="second">
+                        <td>
                             <input type="text" name="after" />
                         </td>
                     </tr>
 
                     <tr>
+                        <!-- Between Field -->
                         <td>
                             <input type="radio" id="between" name="time-period" value="between" />
                             <label>Between</label>
                         </td>
-                        <td class="second">
+                        <td>
                             <input type="text" name="between-before" placeholder="Before" />
                         </td>
                     </tr>
 
                     <tr>
+                        <!-- Between Field Cont. -->
                         <td></td>
-                        <td class="second">
+                        <td>
                             <input type="text" name="between-after" placeholder="After" />
                         </td>
                     </tr>
@@ -145,6 +152,7 @@ session_start();
             </form>
         </div>
 
+        <!-- Creates the table of Paintings -->
         <div id="paintings">
             <h2>Paintings</h2>
             <table id="paintingTable">
@@ -162,6 +170,7 @@ session_start();
                     <?php
                     try {
                         $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
+                        // Checks to see if any fields have been filled out within the form.
                         if (formIsFilled()) {
                             $sort = "";
                             if (isset($_GET['sort'])) {
@@ -174,7 +183,7 @@ session_start();
                                 }
                             }
                             createFilter($_GET['title'], $_GET['artist'], $_GET['gallery'], $_GET['before'], $_GET['after'], $sort, $conn);
-                        } else {
+                        } else { // Otherwise, allows user to sort the default table by any field (default being year).
                             if (isset($_GET['sort'])) {
                                 if ($_GET['sort'] == 'artist') {
                                     displayByArtist($conn);

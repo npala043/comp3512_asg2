@@ -4,7 +4,7 @@
 
 include_once "add-to-favorites.php";
 
-
+// Checks to see if any field within the form has been filled out.
 function formIsFilled()
 {
     if (isset($_GET['title']) || isset($_GET['artist']) || isset($_GET['gallery']) || isset($_GET['before']) || isset($_GET['after']) || isset($_GET['between-before']) || isset($_GET['between-after'])) {
@@ -14,6 +14,7 @@ function formIsFilled()
     }
 }
 
+// Makes connection to PaintingDB and calls a method to display by Artist
 function displayByArtist($connection)
 {
     $paintingGateway = new PaintingDB($connection);
@@ -22,6 +23,7 @@ function displayByArtist($connection)
     generateTable($list);
 }
 
+// Makes connection to PaintingDB and calls a method to display by Year
 function displayByYear($connection)
 {
     $paintingGateway = new PaintingDB($connection);
@@ -30,6 +32,7 @@ function displayByYear($connection)
     generateTable($list);
 }
 
+// Makes connection to PaintingDB and calls a method to display by Title
 function displayByTitle($connection)
 {
     $paintingGateway = new PaintingDB($connection);
@@ -38,6 +41,7 @@ function displayByTitle($connection)
     generateTable($list);
 }
 
+// Helper function for the three methods above to create the layout for the table.
 function generateTable($list)
 {
     foreach ($list as $row) { ?>
@@ -51,6 +55,7 @@ function generateTable($list)
             </td>
             <td class="year"><?= $row['YearOfWork'] ?></td>
             <td>
+                <!-- Provides information when user clicks on add to favorites -->
                 <form method="post">
                     <input type="hidden" name="addToFavorites">
                     <input type="hidden" name="PaintingID" value="<?= $row['PaintingID'] ?>">
@@ -65,11 +70,13 @@ function generateTable($list)
         </tr>
 <?php }
 
+    // Checks to see if user has clicked add to favorites on a painting
     if (isset($_POST['addToFavorites'])) {
         addToFavorites($_POST["PaintingID"], $_POST["ArtistID"], $_POST["Title"], $_POST["ImageFileName"], $_POST["YearOfWork"]);
     }
 }
 
+// Helper function to neatly format an artist's name depending if they only have a first name, last name or both
 function formatName($row)
 {
     if (is_null($row['FirstName'])) {
@@ -81,6 +88,7 @@ function formatName($row)
     }
 }
 
+// Helper method to preserve the current querystring while adding on another field 
 function generateQueryString($sortCategory)
 {
     $queryString = "";
@@ -92,12 +100,14 @@ function generateQueryString($sortCategory)
     return "browse-paintings.php?sort=$sortCategory&" . $queryString;
 }
 
+// Creates the necessary SQL to run on the table dependent on what the user has inputted
 function createFilter($title, $artist, $gallery, $before, $after, $sort, $connection)
 {
 
-    $firstFilter = true;
+    $firstFilter = true; // Checks to see if it is the first filter that was used, if so, add the WHERE keyword to the SQL then set it to false afterwards
     $filter = "";
 
+    // Checks if title is empty
     if ($title) {
         if ($firstFilter) {
             $filter = $filter . "WHERE";
@@ -108,6 +118,7 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
         $filter = $filter . " Title LIKE '%" . $title . "%'";
     }
 
+    // Checks if artist is empty
     if ($artist) {
         if ($firstFilter) {
             $filter = $filter . "WHERE";
@@ -118,6 +129,7 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
         $filter = $filter . " Paintings.ArtistID=" . $artist;
     }
 
+    // Checks if gallery is empty
     if ($gallery) {
         if ($firstFilter) {
             $filter = $filter . "WHERE";
@@ -128,8 +140,11 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
         $filter = $filter . " Paintings.GalleryID=" . $gallery;
     }
 
+    // Checks if a radio button was clicked
     if (isset($_GET['time-period'])) {
+        // Checks if the radio button that was clicked was the before button
         if ($_GET['time-period'] == 'before') {
+            // Checks if the before field is empty
             if ($before) {
                 if ($firstFilter) {
                     $filter = $filter . "WHERE";
@@ -139,7 +154,9 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
                 }
                 $filter = $filter . " YearOfWork < " . $before;
             }
+            // Checks if the radio button that was clicked was the after button
         } else if ($_GET['time-period'] == 'after') {
+            // Checks if the after field is empty
             if ($after) {
                 if ($firstFilter) {
                     $filter = $filter . "WHERE";
@@ -149,7 +166,9 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
                 }
                 $filter = $filter . " YearOfWork > " . $after;
             }
+            // Checks if the radio button that was clicked was the between button
         } else if ($_GET['time-period'] == 'between') {
+            // Checks if both the before AND after field is empty
             if ($_GET['between-before'] && $_GET['between-after']) {
                 if ($firstFilter) {
                     $filter = $filter . "WHERE";
@@ -163,14 +182,15 @@ function createFilter($title, $artist, $gallery, $before, $after, $sort, $connec
     }
 
 
+    // If a sort has been specified, order the SQL by that sort category
     if ($sort) {
         $filter = $filter . " ORDER BY " . $sort;
     } else {
         $filter = $filter . " ORDER BY YearOfWork";
     }
 
-    $paintingGateway = new PaintingDB($connection);
-    $list = $paintingGateway->createFilterList($filter);
-    $connection = null;
-    generateTable($list);
+    $paintingGateway = new PaintingDB($connection); // Make connection to PaintingDB
+    $list = $paintingGateway->createFilterList($filter); // Pass the newly created SQL to the DB to run a method that will return the correct paintings
+    $connection = null; // Close the connection
+    generateTable($list); // Create the table with the data received from the database
 }
