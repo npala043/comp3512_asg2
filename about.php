@@ -56,7 +56,12 @@ session_start();
         <div id="external">
             <h3>External Sources</h3>
             <ul>
-                <li><a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a</li> <li><a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar</a></li>
+                <li><a href="https://www.w3schools.com/howto/howto_js_tabs.asp"> Single Paintings Tabs</a</li> 
+                <li><a href="https://itnext.io/how-to-build-a-responsive-navbar-using-flexbox-and-javascript-eb0af24f19bf">Responsive Nav Bar</a></li>
+                <li><a href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp">Custom Scroll Bar</a></li>
+                <li><a href="https://www.media3.hw-static.com/media/2017/12/wenn_owenwilson_122917-1800x1200.jpg">Logo Image</a></li>
+                <li><a href="https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg">Hero Image</a></li>
+                <li><a href="https://c7.uihere.com/files/145/68/895/5bbc22bc7e518-thumb.jpg">Favorites Image</a></li>
             </ul>
         </div>
     </div>
