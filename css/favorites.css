@@ -11,7 +11,7 @@ td {
     padding: 5px;
 }
 
-a {
+a, a:visited {
     color: white;
     text-decoration: none;
 }
