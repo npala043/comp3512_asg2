@@ -34,7 +34,9 @@
         width: 500px;
     }
 
-    
+    .container {
+        margin-top: 10px;;
+    }
     
     
     .tab , #favsButton {
@@ -57,7 +59,6 @@
     .tabContent  {
         display: none;
         padding: 6px 12px;
-        /* border: 1px solid #D4F1F4;  */
         border: #055C9D 2px solid;
         border-top: none; 
         margin-right: 3%;
@@ -67,13 +68,17 @@
 
 @media screen and (max-width: 768px) {
     main {
-        background-color: lightblue;
+        background-color: #003060;
+        color: white;
         display: block;
         padding: 10px;
-        border: lightblue 1px solid;
+        
         border-radius: 5px;
     }
     
+    .container {
+        margin-top: 10px;;
+    }
     
     
     span {
@@ -125,8 +130,8 @@
     .tabContent  {
         display: none;
         padding: 6px 12px;
-        border: 1px solid lightskyblue; 
-        background-color: lightblue;
+        border: #055C9D 2px solid; 
+        background-color: #003060;
         border-top: none; 
         margin-right: 3%;
         font-size: 12px;
