@@ -4,7 +4,7 @@
         <img src="images/logo/owenlogo.jpg" alt="log" id="logo">
         <ul class="navList">
 
-            <a href="homepage.php">
+            <a href="index.php">
                 <li>Home</li>
             </a>
             <a href="about.php">
