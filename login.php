@@ -87,5 +87,8 @@ function loginDataPresent()
                     </td>
                 </tr>
         </form>
+        <br>
+        <p>Don't have an account?</P>
+        <button>Sign up</button>
     </div>
 </body>
