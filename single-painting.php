@@ -48,7 +48,6 @@ try {
 
     <main>
         <div>
-        
             <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" id="imgBox">
         </div>
 
@@ -56,7 +55,7 @@ try {
             <h1><?= $painting['Title'] ?></h1>
             <h4>
                 <?php
-
+                // checking if author first name or last name are null
                 if (is_null($painting['FirstName'])) {
                     echo $painting['LastName'];
                 } else if (is_null($painting['LastName'])) {
@@ -64,15 +63,14 @@ try {
                 } else {
                     echo $painting['FirstName'] .  " " . $painting['LastName'];
                 }
-
                 ?>
             </h4>
             <h4><?= $painting['GalleryName'] ?>, <?= $painting['YearOfWork'] ?></h4>
 
             <form method="post" id="form">
+                <!-- add to favourites form button so we can like to the method in the add-to-favorites php -->
                 <input type="hidden" name="addToFavorites">
                 <input type="submit" value="Add to Favorites" id="favsButton">
-
             </form>
 
 
@@ -82,20 +80,12 @@ try {
                 <button class="tab colorstab"> Colors </button>
             </div>
 
-
-
-
-
             <?php
+            //checks if the favourites button has been pressed
             if (isset($_POST['addToFavorites'])) {
                 addToFavorites($painting['PaintingID'], $painting['ArtistID'], $painting['Title'], $painting['ImageFileName'], $painting['YearOfWork']);
             }
-
-
             ?>
-
-
-
 
             <div id="description" class="tabContent">
                 <h4>Description </h4>
@@ -132,8 +122,6 @@ try {
                     echo "<span style='background-color:" . $value['web'] . ";'></span>";
                 }
                 ?>
-
-
                 <p><b>Hex Value: </b>
                     <?php
                     foreach ($json['dominantColors'] as  $value) {
