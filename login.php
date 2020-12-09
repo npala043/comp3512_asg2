@@ -89,6 +89,6 @@ function loginDataPresent()
         </form>
         <br>
         <p>Don't have an account?</P>
-        <button>Sign up</button>
+        <button type="button">Sign up</button>
     </div>
 </body>
