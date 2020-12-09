@@ -134,7 +134,8 @@ session_start();
                             <label>Between</label>
                         </td>
                         <td>
-                            <input type="text" name="between-before" placeholder="Before" />
+                            <input type="text" name="between-before" placeholder="Before" class="between" /> to
+                            <input type="text" name="between-after" placeholder="After" class="between" />
                         </td>
                     </tr>
 
@@ -142,12 +143,12 @@ session_start();
                         <!-- Between Field Cont. -->
                         <td></td>
                         <td>
-                            <input type="text" name="between-after" placeholder="After" />
+
                         </td>
                     </tr>
                 </table>
 
-                <button type="submit" value="Submit">Submit</button>
+                <button type="submit" value="Submit">Filter</button>
                 <button type="reset" value="Reset"><a href="browse-paintings.php">Clear</a></button>
             </form>
         </div>
