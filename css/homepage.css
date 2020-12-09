@@ -8,7 +8,6 @@
         margin-top: 5px;
     }
 
-
     section.login {
         grid-template-columns: 20fr 20fr 20fr 20fr 20fr;
         grid-template-rows: 15fr 25fr 25fr 25fr 10fr;
@@ -166,6 +165,7 @@
     }
 
     section.logout {
+        background-color: #D4F1F4;
         margin: -8 -8;
         padding: 0;
         width: 100vw;
