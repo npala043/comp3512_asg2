@@ -86,9 +86,19 @@ function loginDataPresent()
                         <input type="submit" value="Login">
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2"><label>Don't have an account?</label></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button type="button">Sign up</button>
+                    </td>
+                </tr>
+            </table>
         </form>
         <br>
-        <p>Don't have an account?</P>
-        <button type="button">Sign up</button>
+
+
     </div>
 </body>
