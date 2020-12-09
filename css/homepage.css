@@ -86,10 +86,10 @@
     }
 
     section.logout {
-        margin: -1vw -10vw;
+        margin: -2vh -2vw;
         padding: 0;
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         overflow: hidden;
         background: url('https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg');
         opacity: 50%;
@@ -163,5 +163,20 @@
         padding: 5% 9%;
         font-size: 1rem;
         overflow: auto;
+    }
+
+    section.logout {
+        margin: -8 -8;
+        padding: 0;
+        width: 100vw;
+        height: 100%;
+        overflow: hidden;
+        background: url('https://www.factinate.com/wp-content/uploads/2018/06/owen-wilson-widescreen-wallpaper-54595-56329-hd-wallpapers.jpg');
+        opacity: 50%;
+        background-position: center;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
