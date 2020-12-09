@@ -11,11 +11,11 @@ try {
     $id = $_GET['id'];
     $conn = DatabaseHelper::createConnection(array(DBCONNSTRING, DBUSER, DBPASS));
     $gateway = new PaintingDB($conn);
-    $paintings = $gateway->getAll();
+    $paintings = $gateway->getPainting($id);
     $conn = null;
     $painting = "";
     $json = "";
-
+    
     foreach ($paintings as $row) {
         if ($id == $row['PaintingID']) {
             $painting = $row;
