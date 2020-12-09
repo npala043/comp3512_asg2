@@ -18,3 +18,7 @@ table {
     width: 60%;
     padding: 10px;
 }
+
+a, a:visited {
+    text-decoration: none;
+}
