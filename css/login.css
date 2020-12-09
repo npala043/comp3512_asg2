@@ -23,3 +23,8 @@ table {
 a, a:visited {
     text-decoration: none;
 }
+
+
+.txtbox {
+    width: 100%;
+}

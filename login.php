@@ -69,7 +69,7 @@ function loginDataPresent()
                         <label for="email">Email:</label>
                     </td>
                     <td>
-                        <input type="email" name="email">
+                        <input class="txtbox" type="email" name="email">
                     </td>
                 </tr>
                 <tr>
@@ -77,7 +77,7 @@ function loginDataPresent()
                         <label for="pass">Password:</label>
                     </td>
                     <td>
-                        <input type="password" name="pass">
+                        <input class="txtbox" type="password" name="pass">
                     </td>
                 </tr>
                 <tr>
