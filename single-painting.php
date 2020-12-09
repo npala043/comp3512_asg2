@@ -15,12 +15,10 @@ try {
     $conn = null;
     $painting = "";
     $json = "";
-    
+
     foreach ($paintings as $row) {
-        if ($id == $row['PaintingID']) {
-            $painting = $row;
-            $json = json_decode($row['JsonAnnotations'], true);
-        }
+        $painting = $row;
+        $json = json_decode($row['JsonAnnotations'], true);
     }
 } catch (Exception $e) {
     die($e->getMessage());
@@ -49,7 +47,8 @@ try {
 
 
     <main>
-        <div id="thing">
+        <div>
+        
             <img src="images\paintings\square\<?= $painting['ImageFileName'] ?>.jpg" alt="<?= $painting['Title'] ?>" id="imgBox">
         </div>
 
