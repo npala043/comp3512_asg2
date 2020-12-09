@@ -10,13 +10,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const galleries = "apis/api-galleries.php";
 
+    if (localStorage.getItem("gallery") === null) {
     fetch(galleries)
         .then(resp => resp.json())
         .then(gallery => {
+            localStorage.setItem("gallery", JSON.stringify(gallery));
+            
             document.querySelector("div.list section").style.display = "block";
             listGalleries(gallery);
         })
         .catch(err => console.error(err));
+    } else {
+        const gallery = JSON.parse(localStorage.getItem("gallery"));
+        listGalleries(gallery);
+    }
 
     function listGalleries(gallery) {
         for (let g of gallery) {
@@ -61,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function () {
         fetch(`apis/api-paintings.php?gallery=${gallery.GalleryID}`)
             .then(resp => resp.json())
             .then(paintings => {
-
                 paintings.sort((a, b) => {
                     return a.YearOfWork < b.YearOfWork ? -1 : 1;
                 });
