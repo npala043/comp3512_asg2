@@ -85,6 +85,7 @@
 
 .navList a li, .navList a:visited li {
     color: white;
+    text-decoration: none;
 }
 
 
