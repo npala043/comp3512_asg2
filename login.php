@@ -15,8 +15,9 @@ if (loginDataPresent()) {
         $connection = null;
         if (isset($data['Pass'])) {
             // if matching user was found, does pass match?
-            if (password_verify($_POST['pass'], $data['Pass'])) { // uses bcrypt
-                $_SESSION['user'] = $data['CustomerID'];
+            if (password_verify($_POST['pass'], $data['Pass'])) {
+                // password bcrypt does match
+                $_SESSION['user'] = $data['CustomerID']; // save user id in session, redirect to their homepage
                 header("Location: homepage.php");
                 exit();
             } else {
