@@ -1,14 +1,12 @@
 @media screen and (min-width: 769px) {
     main {
-        background-color: lightblue;
+        background-color: #003060;
+        color: white;
         display: grid;
         grid-template-columns: 1fr 1fr;
         padding: 10px;
-        border: lightblue 1px solid;
         border-radius: 5px;
     }
-    
-    
     
     span {
         padding: 15px 25px;
@@ -59,8 +57,8 @@
     .tabContent  {
         display: none;
         padding: 6px 12px;
-        border: 1px solid lightskyblue; 
-        background-color: lightblue;
+        /* border: 1px solid #D4F1F4;  */
+        border: #055C9D 2px solid;
         border-top: none; 
         margin-right: 3%;
         
