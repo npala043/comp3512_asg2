@@ -180,3 +180,10 @@
         flex-direction: column;
     }
 }
+
+div.source {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    width: 100%;
+}
