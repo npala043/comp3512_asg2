@@ -99,6 +99,9 @@
 }
 
 @media screen and (max-width: 768px) {
+    body {
+        background-color: #D4F1F4;;
+    }
     .navList li a {
         color: white;
         text-decoration: none;
