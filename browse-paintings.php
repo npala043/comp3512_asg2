@@ -154,7 +154,6 @@ session_start();
 
         <!-- Creates the table of Paintings -->
         <div id="paintings">
-            <h2>Paintings</h2>
             <table id="paintingTable">
                 <thead>
                     <tr>
