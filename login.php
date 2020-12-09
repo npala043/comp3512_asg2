@@ -20,6 +20,7 @@ if (loginDataPresent()) {
                 header("Location: homepage.php");
                 exit();
             } else {
+                // password bcrypt did not match
                 $msg = "Incorrect password";
             }
         } else {
@@ -79,9 +80,7 @@ function loginDataPresent()
                     </td>
                 </tr>
                 <tr>
-                    <td>
-
-                    </td>
+                    <td></td>
                     <td>
                         <input type="submit" value="Login">
                     </td>
