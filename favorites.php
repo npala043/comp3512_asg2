@@ -77,7 +77,7 @@ if (!isset($_SESSION["favourites"])) {
                     <!-- If no favourites, display placeholder img and msg -->
                     <tr>
                         <td></td>
-                        <td><img src="images/nahuel/shrug.png" alt="shrug"></td>
+                        <td><img src="images/nahuel/owenwhat.png" alt="shrug"></td>
                         <td>No favourites here</td>
                     </tr>
                     <?php } else {
