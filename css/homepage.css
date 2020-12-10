@@ -4,6 +4,9 @@
         height: 100%;
     }
 
+    a {
+        text-decoration: none;
+    }
     h2 {
         margin-top: 5px;
     }
@@ -101,6 +104,11 @@
 }
 
 @media screen and (max-width: 768px) { 
+
+    a {
+        text-decoration: none;
+    }
+    }
     #search {
         grid-column: 3/6;
         grid-row: 1/2;
