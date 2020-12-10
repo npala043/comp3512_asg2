@@ -105,9 +105,8 @@
 
 @media screen and (max-width: 768px) { 
 
-    a {
+    a{ 
         text-decoration: none;
-    }
     }
     #search {
         grid-column: 3/6;
